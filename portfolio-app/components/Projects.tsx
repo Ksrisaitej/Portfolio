@@ -50,6 +50,22 @@ const projects: Project[] = [
     color: "#14b8a6",
     image: "/Portfolio/projects/smart-helmet.png",
   },
+  {
+    num: "05",
+    name: "Handwritten Digit Recognition",
+    tags: ["MNIST", "CNN", "PyTorch", "Deep Learning"],
+    year: "2025",
+    color: "#f59e0b",
+    image: "/Portfolio/projects/digit-recognition.png",
+  },
+  {
+    num: "06",
+    name: "Transient Detection Using SVM",
+    tags: ["SVM", "Scikit-Learn", "Machine Learning", "Signal Processing"],
+    year: "2025",
+    color: "#10b981",
+    image: "/Portfolio/projects/transient-detection.png",
+  },
 ];
 
 export function Projects() {

@@ -1,0 +1,431 @@
+@import "tailwindcss";
+
+/* ─── Design System Tokens ─── */
+:root {
+  /* Backgrounds */
+  --bg-primary: #0A0A0B;
+  --bg-surface: #141415;
+  --bg-elevated: #1A1A1C;
+
+  /* Borders */
+  --border-subtle: #1F1F20;
+  --border-faint: rgba(255, 255, 255, 0.08);
+
+  /* Text */
+  --text-primary: #F2F2F0;
+  --text-secondary: #888884;
+  --text-tertiary: #555551;
+
+  /* Accents */
+  --accent-lime: #C8F542;
+  --accent-bright: #A3E635;
+  --accent-lime-rgb: 200, 245, 66;
+
+  /* Spacing */
+  --section-pad-y: 120px;
+  --section-pad-y-mobile: 64px;
+  --content-max: 1200px;
+  --content-narrow: 960px;
+  --text-max: 640px;
+
+  /* Fonts */
+  --font-sans: var(--font-dm-sans), 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), 'Courier New', monospace;
+}
+
+/* ─── Tailwind v4 Theme Inline ─── */
+@theme inline {
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --color-surface: var(--bg-surface);
+  --color-elevated: var(--bg-elevated);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-faint: var(--border-faint);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-accent: var(--accent-lime);
+  --color-accent-bright: var(--accent-bright);
+  --font-sans: var(--font-dm-sans), 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), 'Courier New', monospace;
+}
+
+/* ─── Base Styles ─── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: auto !important; /* Prevents Spline from hijacking scroll */
+}
+
+/* ─── Typography ─── */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 400;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/* ─── Accent Italic ─── */
+.accent-italic {
+  font-style: italic;
+  color: var(--accent-lime);
+}
+
+/* ─── Section Layout ─── */
+.section {
+  padding: var(--section-pad-y) 24px;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--section-pad-y-mobile) 16px;
+  }
+}
+
+/* ─── Section Label [01] ─── */
+.section-label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 24px;
+}
+
+/* ─── Noise Overlay ─── */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/noise.svg');
+  background-repeat: repeat;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── Pill Button ─── */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-pill-primary {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+.btn-pill-primary:hover {
+  background: var(--accent-lime);
+  color: var(--bg-primary);
+}
+
+.btn-pill-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-pill-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 0.5px solid var(--border-subtle);
+}
+
+.btn-pill-ghost:hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+.btn-pill-ghost:active {
+  transform: scale(0.97);
+}
+
+/* ─── Arrow Shift on Hover ─── */
+.btn-arrow {
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+.btn-pill:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(200, 245, 66, 0.25);
+  color: var(--text-primary);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* ─── Focus Visible ─── */
+:focus-visible {
+  outline: 2px solid var(--accent-lime);
+  outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════
+   HERO — 3D Container & Spline Fallback
+   ═══════════════════════════════════════ */
+
+.hero-3d-frame {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-surface);
+  position: relative;
+  contain: strict;
+}
+
+@media (min-width: 1024px) {
+  .hero-3d-frame {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* Spline fallback — animated gradient orbs */
+.spline-fallback {
+  background: var(--bg-surface);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.fallback-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: orbFloat 8s ease-in-out infinite;
+}
+
+.fallback-orb-1 {
+  width: 200px;
+  height: 200px;
+  background: rgba(200, 245, 66, 0.25);
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.fallback-orb-2 {
+  width: 160px;
+  height: 160px;
+  background: rgba(163, 230, 53, 0.15);
+  top: 50%;
+  right: 15%;
+  animation-delay: -3s;
+}
+
+.fallback-orb-3 {
+  width: 120px;
+  height: 120px;
+  background: rgba(56, 189, 248, 0.12);
+  bottom: 15%;
+  left: 35%;
+  animation-delay: -5s;
+}
+
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -20px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 15px) scale(0.95);
+  }
+  75% {
+    transform: translate(15px, 25px) scale(1.05);
+  }
+}
+
+/* Grid overlay for the fallback */
+.fallback-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+}
+
+/* ─── Scroll Hint Animation ─── */
+.scroll-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.scroll-hint-arrow {
+  display: inline-block;
+  animation: bounceDown 2s ease-in-out infinite;
+}
+
+@keyframes bounceDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+/* ═══════════════════════════════════════
+   PROJECTS — Hover Image Preview
+   ═══════════════════════════════════════ */
+
+.project-row {
+  position: relative;
+}
+
+.project-hover-image {
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%) translateX(12px);
+  width: 280px;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 20;
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.project-hover-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+
+.project-row:hover .project-hover-image {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.project-row:hover .project-hover-image img {
+  filter: grayscale(0%);
+}
+
+/* Hide hover images on small screens */
+@media (max-width: 1024px) {
+  .project-hover-image {
+    display: none;
+  }
+}
+
+/* ═══════════════════════════════════════
+   ABOUT — Avatar Image
+   ═══════════════════════════════════════ */
+
+.about-avatar {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+
+.about-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: saturate(0.8);
+}
+
+.about-avatar:hover img {
+  transform: scale(1.05);
+  filter: saturate(1.2);
+}
+
+.about-avatar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, transparent 50%, rgba(200, 245, 66, 0.05));
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════
+   SUBTLE DOT GRID BACKGROUND
+   ═══════════════════════════════════════ */
+
+.dot-grid-bg {
+  position: relative;
+}
+
+.dot-grid-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}

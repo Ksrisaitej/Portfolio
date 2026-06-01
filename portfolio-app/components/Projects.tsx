@@ -24,7 +24,7 @@ const projects: Project[] = [
     tags: ["CNN", "Transfer Learning", "PyTorch", "ResNet"],
     year: "2025",
     color: "#C8F542",
-    image: "/projects/flower-classification.png",
+    image: "/Portfolio/projects/flower-classification.png",
   },
   {
     num: "02",
@@ -32,7 +32,7 @@ const projects: Project[] = [
     tags: ["Siamese Network", "Contrastive Loss", "One-Shot Learning"],
     year: "2025",
     color: "#38bdf8",
-    image: "/projects/signature-approval.png",
+    image: "/Portfolio/projects/signature-approval.png",
   },
   {
     num: "03",
@@ -40,7 +40,7 @@ const projects: Project[] = [
     tags: ["CNN", "LSTM", "Time Series", "Deep Learning"],
     year: "2025",
     color: "#a78bfa",
-    image: "/projects/leviathan-timeseries.png",
+    image: "/Portfolio/projects/leviathan-timeseries.png",
   },
   {
     num: "04",
@@ -48,7 +48,7 @@ const projects: Project[] = [
     tags: ["MPU6050", "GPS", "GSM", "IIT KGP"],
     year: "2025",
     color: "#14b8a6",
-    image: "/projects/smart-helmet.png",
+    image: "/Portfolio/projects/smart-helmet.png",
   },
 ];
 

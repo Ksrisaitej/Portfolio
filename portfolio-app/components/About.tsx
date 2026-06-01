@@ -99,7 +99,7 @@ export function About() {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <Image
-                src="/avatar.png"
+                src="/Portfolio/avatar.png"
                 alt="Abstract geometric avatar"
                 width={280}
                 height={280}

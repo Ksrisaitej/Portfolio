@@ -125,7 +125,7 @@ h3 {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('/noise.svg');
+  background-image: url('/Portfolio/noise.svg');
   background-repeat: repeat;
   opacity: 0.03;
   pointer-events: none;

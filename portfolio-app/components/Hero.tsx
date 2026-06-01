@@ -69,7 +69,7 @@ export function Hero() {
                   View Projects <span className="btn-arrow">→</span>
                 </a>
                 <a
-                  href="/resume.pdf"
+                  href="https://drive.google.com/file/d/1DJX1O1jxw2aslxUfhbpqcUD3K_4fxV3R/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-pill btn-pill-ghost bg-background/50 backdrop-blur-sm"

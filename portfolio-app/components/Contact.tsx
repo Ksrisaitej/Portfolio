@@ -98,7 +98,7 @@ export function Contact() {
 
           {/* Resume Download */}
           <a
-            href="/resume.pdf"
+            href="https://drive.google.com/file/d/1DJX1O1jxw2aslxUfhbpqcUD3K_4fxV3R/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-pill btn-pill-ghost"

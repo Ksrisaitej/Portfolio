@@ -347,59 +347,6 @@ function DenmuHero({
   );
 }
 
-/* ==================================================
-   CV TRACKING VIEWPORT (INTERACTIVE SIMULATION)
-   ================================================== */
-function CVTrackingView() {
-  return (
-    <div className="cv-viewport" role="img" aria-label="Computer vision hyperspectral multi-object tracking visualization">
-      <div className="cv-overlay-scanline" />
-      <div className="cv-hud-top mono">
-        <span>CAM_HYPERSPECTRAL_01 // 850nm BAND</span>
-        <span>REC &#x25cf; [00:42:19:04]</span>
-      </div>
-      <div className="cv-feed">
-        <div className="cv-sensor-field" />
-        
-        {/* Primary Tracklet Bounding Box */}
-        <div className="cv-bbox target-primary">
-          <div className="bbox-tag mono">
-            <span className="bbox-id">ID_04 // TARGET</span>
-            <span className="bbox-conf">0.984</span>
-          </div>
-          <div className="bbox-reticle" />
-          <div className="bbox-vector" />
-        </div>
-
-        {/* Secondary Tracklet */}
-        <div className="cv-bbox target-secondary">
-          <div className="bbox-tag mono">
-            <span className="bbox-id">ID_02 // OBJECT</span>
-            <span className="bbox-conf">0.946</span>
-          </div>
-        </div>
-
-        {/* Predicted Kalman Position */}
-        <div className="cv-bbox target-predicted">
-          <div className="bbox-tag mono">
-            <span className="bbox-id">KALMAN_PRED [T+1]</span>
-          </div>
-        </div>
-
-        {/* Center Optical Crosshair */}
-        <div className="cv-center-cross">
-          <div className="cross-h" />
-          <div className="cross-v" />
-          <span className="mono cross-coord">TRACK_CENTER: [421, 688]</span>
-        </div>
-      </div>
-      <div className="cv-hud-bottom mono">
-        <span>PIPELINE: YOLO + DEEPSORT + KALMAN FILTER</span>
-        <span>LATENCY: 14.2ms // 68.4 FPS</span>
-      </div>
-    </div>
-  );
-}
 
 /* ==================================================
    SECTION 01: APOLLO MODULAR PERCEPTION GRID (a-f)
@@ -544,10 +491,6 @@ function VisionSection() {
         </div>
       </div>
 
-      {/* Embedded High-Tech CV Tracking Viewport */}
-      <div className="apollo-viewport-wrap">
-        <CVTrackingView />
-      </div>
     </section>
   );
 }

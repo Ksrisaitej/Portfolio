@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -14,6 +15,12 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const nucleo = localFont({
+  src: "./fonts/Nucleo.ttf",
+  variable: "--font-nucleo",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Sri Sai Tej — Machine Learning / Computer Vision / Robotics",
   description:
@@ -22,8 +29,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${nucleo.variable}`}>
       <body>{children}</body>
     </html>
   );
 }
+

@@ -309,10 +309,10 @@ function DenmuHero({
               +91 90147 92881
             </a>
             <a href="https://github.com/Ksrisaitej" target="_blank" rel="noopener noreferrer" className="hud-pill link-hover">
-              GitHub &nearr;
+              GitHub ↗
             </a>
             <a href="https://www.linkedin.com/in/sri-sai-tej/" target="_blank" rel="noopener noreferrer" className="hud-pill link-hover">
-              LinkedIn &nearr;
+              LinkedIn ↗
             </a>
           </div>
         </div>
@@ -1000,8 +1000,8 @@ function Footer() {
           <ul>
             <li><a href="mailto:srisaitej999@gmail.com">srisaitej999@gmail.com</a></li>
             <li><a href="tel:+919014792881">+91 90147 92881</a></li>
-            <li><a href="https://github.com/Ksrisaitej" target="_blank" rel="noopener noreferrer">GitHub &nearr;</a></li>
-            <li><a href="https://www.linkedin.com/in/sri-sai-tej/" target="_blank" rel="noopener noreferrer">LinkedIn &nearr;</a></li>
+            <li><a href="https://github.com/Ksrisaitej" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+            <li><a href="https://www.linkedin.com/in/sri-sai-tej/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
           </ul>
         </div>
 

@@ -1654,7 +1654,16 @@ a {
 /* ==================================================
    APPTRONIK APOLLO DESIGN SYSTEM (POST-HERO OVERHAUL)
    ================================================== */
+@font-face {
+  font-family: 'Nucleo';
+  src: url('/fonts/Nucleo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
+  --font-nucleo: 'Nucleo', var(--font-display), sans-serif;
   --apollo-bg: #090a0c;
   --apollo-card: #f4f3ee;
   --apollo-card-subtle: #eae9e3;
@@ -1698,10 +1707,10 @@ a {
 }
 
 .apollo-title {
-  font-family: var(--font-display);
+  font-family: var(--font-nucleo), var(--font-display), sans-serif;
   font-size: clamp(2.8rem, 6.5vw, 6.5rem);
   font-weight: 800;
-  letter-spacing: -0.035em;
+  letter-spacing: 0.03em;
   line-height: 0.95;
   color: #f4f3ee;
   text-transform: uppercase;
@@ -1799,10 +1808,10 @@ a {
 }
 
 .apollo-card-title {
-  font-family: var(--font-display);
+  font-family: var(--font-nucleo), var(--font-display), sans-serif;
   font-size: 17px;
   font-weight: 800;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--apollo-text);
   margin: 0 0 12px 0;
@@ -1866,10 +1875,10 @@ a {
 }
 
 .orange-card-headline {
-  font-family: var(--font-display);
-  font-size: 22px;
+  font-family: var(--font-nucleo), var(--font-display), sans-serif;
+  font-size: 23px;
   font-weight: 800;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.03em;
   color: #ffffff;
   margin-bottom: 8px;
 }
@@ -1949,10 +1958,10 @@ a {
 }
 
 .apollo-milestone-year {
-  font-family: var(--font-display);
+  font-family: var(--font-nucleo), var(--font-display), sans-serif;
   font-size: clamp(3rem, 5.5vw, 5.5rem);
   font-weight: 800;
-  letter-spacing: -0.05em;
+  letter-spacing: 0.02em;
   line-height: 0.9;
   color: #ffffff;
   margin-bottom: 24px;
@@ -1987,9 +1996,10 @@ a {
 }
 
 .apollo-milestone-head {
-  font-family: var(--font-display);
+  font-family: var(--font-nucleo), var(--font-display), sans-serif;
   font-size: 14px;
   font-weight: 700;
+  letter-spacing: 0.02em;
   color: #f4f3ee;
   margin: 0 0 6px 0;
 }
@@ -2101,10 +2111,10 @@ a {
 }
 
 .apollo-news-title {
-  font-family: var(--font-display);
+  font-family: var(--font-nucleo), var(--font-display), sans-serif;
   font-size: 19px;
   font-weight: 800;
-  letter-spacing: -0.015em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   line-height: 1.25;
   color: var(--apollo-text);
@@ -2194,10 +2204,10 @@ a {
 }
 
 .apollo-horizon-card h4 {
-  font-family: var(--font-display);
+  font-family: var(--font-nucleo), var(--font-display), sans-serif;
   font-size: 18px;
   font-weight: 800;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
   margin: 0;
   color: var(--apollo-text);
   text-transform: uppercase;
@@ -2303,10 +2313,10 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 24px;
-  font-family: var(--font-display);
+  font-family: var(--font-nucleo), var(--font-display), sans-serif;
   font-size: clamp(4.2rem, 11vw, 13rem);
   font-weight: 800;
-  letter-spacing: -0.04em;
+  letter-spacing: 0.02em;
   line-height: 0.88;
   color: #ffffff;
   text-decoration: none;
@@ -2340,10 +2350,10 @@ a {
 }
 
 .apollo-footer-brand h4 {
-  font-family: var(--font-display);
+  font-family: var(--font-nucleo), var(--font-display), sans-serif;
   font-size: 20px;
   font-weight: 800;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   margin: 0 0 6px 0;
   color: #ffffff;

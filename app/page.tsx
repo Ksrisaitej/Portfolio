@@ -55,6 +55,142 @@ const experiments = [
   ["VISION-LANGUAGE-ACTION (VLA)", "EXPLORING"],
 ];
 
+interface ShowcaseProject {
+  id: string;
+  num: string;
+  title: string;
+  category: "CV" | "DEEP LEARNING" | "SIGNAL / IOT" | "AI & ML";
+  year: string;
+  description: string;
+  tags: string[];
+  image: string;
+  githubUrl: string;
+}
+
+const showcaseProjects: ShowcaseProject[] = [
+  {
+    id: "flower-cls",
+    num: "01",
+    title: "Oxford 102 Flower Classification",
+    category: "CV",
+    year: "2025",
+    description: "Fine-grained visual categorization across 102 flower species employing deep residual backbones (ResNet) with transfer learning and extensive augmentation.",
+    tags: ["CNN", "Transfer Learning", "PyTorch", "ResNet"],
+    image: "/projects/flower-classification.png",
+    githubUrl: "https://github.com/Ksrisaitej",
+  },
+  {
+    id: "signature-verify",
+    num: "02",
+    title: "Siamese Network Signature Approval",
+    category: "DEEP LEARNING",
+    year: "2025",
+    description: "One-shot biometric verification framework utilizing twin convolutional neural networks with contrastive loss to authenticate handwritten signatures.",
+    tags: ["Siamese Network", "Contrastive Loss", "One-Shot Learning"],
+    image: "/projects/signature-approval.png",
+    githubUrl: "https://github.com/Ksrisaitej",
+  },
+  {
+    id: "leviathan-ts",
+    num: "03",
+    title: "Leviathan Time Series Classification",
+    category: "SIGNAL / IOT",
+    year: "2025",
+    description: "Spatial-temporal sequential network combining 1D CNN feature extractors with recurrent LSTM memory cells for multivariate temporal series classification.",
+    tags: ["CNN", "LSTM", "Time Series", "Deep Learning"],
+    image: "/projects/leviathan-timeseries.png",
+    githubUrl: "https://github.com/Ksrisaitej",
+  },
+  {
+    id: "smart-helmet",
+    num: "04",
+    title: "Smart Helmet Accident Detection",
+    category: "SIGNAL / IOT",
+    year: "2025",
+    description: "Hardware-integrated edge safety system with MPU6050 6-axis IMU fall detection logic, instant GPS coordinates, and GSM emergency alerting.",
+    tags: ["MPU6050", "GPS", "GSM", "IIT KGP"],
+    image: "/projects/smart-helmet.png",
+    githubUrl: "https://github.com/Ksrisaitej",
+  },
+  {
+    id: "digit-recog",
+    num: "05",
+    title: "Handwritten Digit Recognition",
+    category: "CV",
+    year: "2025",
+    description: "Convolutional neural network pipeline in PyTorch for high-precision handwritten digit recognition with custom kernel visualization and evaluation.",
+    tags: ["MNIST", "CNN", "PyTorch", "Deep Learning"],
+    image: "/projects/digit-recognition.png",
+    githubUrl: "https://github.com/Ksrisaitej",
+  },
+  {
+    id: "transient-svm",
+    num: "06",
+    title: "Transient Detection Using SVM",
+    category: "SIGNAL / IOT",
+    year: "2025",
+    description: "Signal processing and support vector machine classification system detecting transient non-stationary anomalies across physical sensor telemetry.",
+    tags: ["SVM", "Scikit-Learn", "Machine Learning", "Signal Processing"],
+    image: "/projects/transient-detection.png",
+    githubUrl: "https://github.com/Ksrisaitej",
+  },
+  {
+    id: "rag-assistant",
+    num: "07",
+    title: "RAG Knowledge Assistant",
+    category: "AI & ML",
+    year: "2025",
+    description: "Retrieval-augmented generation architecture indexing domain documents into high-dimensional vector embeddings for grounded query synthesis.",
+    tags: ["RAG", "LangChain", "Vector DB", "Embeddings"],
+    image: "/projects/rag-chatbot.png",
+    githubUrl: "https://github.com/Ksrisaitej",
+  },
+  {
+    id: "trading-bot",
+    num: "08",
+    title: "Algorithmic Trading System",
+    category: "AI & ML",
+    year: "2025",
+    description: "Quantitative automated trading pipeline with statistical arbitrage signals, risk-managed backtesting, and automated market execution logic.",
+    tags: ["Quantitative Finance", "Backtesting", "Python", "Risk Modeling"],
+    image: "/projects/trading-bot.png",
+    githubUrl: "https://github.com/Ksrisaitej",
+  },
+  {
+    id: "jarvis-agent",
+    num: "09",
+    title: "JARVIS Autonomous Voice Agent",
+    category: "AI & ML",
+    year: "2025",
+    description: "Voice-driven multimodal desktop assistant leveraging local neural inference for natural language understanding and system command automation.",
+    tags: ["Local LLM", "Voice Synthesis", "Automation", "Agents"],
+    image: "/projects/jarvis-agent.png",
+    githubUrl: "https://github.com/Ksrisaitej",
+  },
+  {
+    id: "bitcoin-analysis",
+    num: "10",
+    title: "Bitcoin Volatility & Trend Analysis",
+    category: "SIGNAL / IOT",
+    year: "2025",
+    description: "Predictive econometric and machine learning analysis investigating cryptocurrency volatility surfaces and temporal regime shifts.",
+    tags: ["Time Series", "Econometrics", "Pandas", "Scikit-Learn"],
+    image: "/projects/bitcoin-analysis.png",
+    githubUrl: "https://github.com/Ksrisaitej",
+  },
+  {
+    id: "kaggle-ml",
+    num: "11",
+    title: "Kaggle Advanced ML Pipelines",
+    category: "AI & ML",
+    year: "2025",
+    description: "End-to-end competitive tabular machine learning frameworks featuring automated feature engineering, ensemble blending, and gradient boosting.",
+    tags: ["XGBoost", "LightGBM", "Ensemble", "Feature Engineering"],
+    image: "/projects/kaggle-ml.png",
+    githubUrl: "https://github.com/Ksrisaitej",
+  },
+];
+
 function Noise() {
   return <div className="noise" aria-hidden="true" />;
 }
@@ -550,7 +686,106 @@ function Perception() {
           </div>
         </div>
       </div>
+
+      {/* Applied Projects Showcase */}
+      <ProjectShowcase />
     </section>
+  );
+}
+
+function ProjectShowcase() {
+  const [filter, setFilter] = useState<string>("ALL");
+
+  const filteredProjects =
+    filter === "ALL"
+      ? showcaseProjects
+      : showcaseProjects.filter((p) => p.category === filter);
+
+  const categories = [
+    { label: "ALL WORKS (11)", value: "ALL" },
+    { label: "COMPUTER VISION", value: "CV" },
+    { label: "DEEP LEARNING", value: "DEEP LEARNING" },
+    { label: "SIGNAL & IOT", value: "SIGNAL / IOT" },
+    { label: "AI & ML SYSTEMS", value: "AI & ML" },
+  ];
+
+  return (
+    <div className="project-showcase-section">
+      <div className="showcase-header-bar">
+        <div className="showcase-header-title">
+          <span className="mono">APPLIED WORKS // ARCHIVE</span>
+          <h3>SELECTED ML &amp; VISION PROJECTS</h3>
+        </div>
+
+        <div className="project-filter-tabs">
+          {categories.map((cat) => (
+            <button
+              key={cat.value}
+              type="button"
+              className={`filter-tab-btn ${filter === cat.value ? "active" : ""}`}
+              onClick={() => setFilter(cat.value)}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="projects-grid">
+        {filteredProjects.map((project) => (
+          <div className="work-card" key={project.id}>
+            <div className="work-card-thumb-wrap">
+              <img
+                src={`${basePath}${project.image}`}
+                alt={project.title}
+                className="work-card-img"
+                loading="lazy"
+              />
+              <div className="work-card-thumb-overlay" />
+              <div className="work-card-hud-badge">
+                {project.num} // {project.category}
+              </div>
+            </div>
+
+            <div className="work-card-body">
+              <div className="work-card-meta mono">
+                <span className="meta-category">{project.category}</span>
+                <span className="meta-year">{project.year}</span>
+              </div>
+
+              <h4 className="work-card-title">{project.title}</h4>
+
+              <p className="work-card-desc">{project.description}</p>
+
+              <div className="work-card-tags">
+                {project.tags.map((tag) => (
+                  <span className="work-card-tag" key={tag}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <div className="work-card-footer">
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="work-card-link"
+                  aria-label={`View ${project.title} on GitHub`}
+                >
+                  <span>SOURCE CODE</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </a>
+                <span className="work-card-status-dot">DEPLOYED</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

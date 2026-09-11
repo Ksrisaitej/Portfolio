@@ -14,6 +14,8 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
   ),
 });
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const navItems = [
   { id: "perception", num: "01", label: "WORK" },
   { id: "learning", num: "02", label: "LEARNING" },
@@ -429,7 +431,7 @@ function DenmuHero({
         >
           <div className="release-thumb-wrap">
             <img
-              src="/hundred_line_thumb.jpg"
+              src={`${basePath}/hundred_line_thumb.jpg`}
               alt="Hyperspectral Object Tracking Preview"
               className="release-thumb-img"
             />

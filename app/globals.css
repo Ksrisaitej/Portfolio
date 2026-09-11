@@ -1652,479 +1652,809 @@ a {
 }
 
 /* ==================================================
-   RESUME DRIVEN SHOWCASE & ARCHITECTURE BLUEPRINTS
+   APPTRONIK APOLLO DESIGN SYSTEM (POST-HERO OVERHAUL)
    ================================================== */
-.academic-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 3px 10px;
-  background: rgba(63, 92, 255, 0.12);
-  border: 1px solid rgba(63, 92, 255, 0.35);
-  color: #c8f542;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  border-radius: 2px;
+:root {
+  --apollo-bg: #090a0c;
+  --apollo-card: #f4f3ee;
+  --apollo-card-subtle: #eae9e3;
+  --apollo-card-dark: #111317;
+  --apollo-text: #0e0f12;
+  --apollo-text-muted: #585a62;
+  --apollo-orange: #ff4625;
+  --apollo-orange-hover: #e63818;
+  --apollo-orange-glow: rgba(255, 70, 37, 0.35);
+  --apollo-wire: rgba(255, 255, 255, 0.18);
+  --apollo-border: rgba(0, 0, 0, 0.08);
 }
 
-.hero-contact-hud {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  margin-top: 24px;
-}
-
-.hud-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  color: #f2f1ed;
-  text-decoration: none;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hud-pill:hover,
-.hud-pill.link-hover:hover {
-  background: rgba(63, 92, 255, 0.12);
-  border-color: var(--blue);
-  color: #ffffff;
-  box-shadow: 0 0 16px rgba(63, 92, 255, 0.25);
-  transform: translateY(-1px);
-}
-
-.hud-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 8px #10b981;
-}
-
-/* CV Resume Grid (ViT & Oxford) */
-.cv-resume-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 32px;
-  margin-top: 48px;
-}
-
-.resume-project-card {
+/* Apollo Section Containers & Headers */
+.apollo-section {
   position: relative;
-  background: rgba(13, 15, 18, 0.82);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 3px;
-  padding: 30px;
+  background: var(--apollo-bg);
+  padding: 14vh 4vw 14vh;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.apollo-header {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  backdrop-filter: blur(10px);
-  transition: border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+  align-items: center;
+  text-align: center;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 2;
+}
+
+.apollo-tag {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--apollo-orange);
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.apollo-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6.5vw, 6.5rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  color: #f4f3ee;
+  text-transform: uppercase;
+  margin: 0 0 18px 0;
+}
+
+.apollo-desc {
+  max-width: 640px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #8e909a;
+  margin: 0 auto;
+}
+
+/* ==================================================
+   APOLLO MODULAR 4-COLUMN CARD GRID
+   ================================================== */
+.apollo-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+  margin-top: 40px;
+}
+
+/* Base Apollo Card */
+.apollo-card {
+  position: relative;
+  background: var(--apollo-card);
+  color: var(--apollo-text);
+  border-radius: 22px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: 270px;
 }
 
-.resume-project-card:hover {
-  border-color: rgba(63, 92, 255, 0.5);
+.apollo-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65), 0 0 24px rgba(63, 92, 255, 0.12);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.7);
 }
 
-.card-top-hud {
+.apollo-card-wide {
+  grid-column: span 2;
+}
+
+/* Iconic Notched Shelf Cutout (Top-Right) */
+.apollo-shelf-tr {
+  clip-path: polygon(
+    0 0,
+    58% 0,
+    62% 26px,
+    100% 26px,
+    100% 100%,
+    0 100%
+  );
+}
+
+/* Alignment Pin in Cutout Gap */
+.apollo-pin {
+  position: absolute;
+  top: 9px;
+  right: 14px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #f4f3ee;
+  box-shadow: 0 0 6px rgba(244, 243, 238, 0.4);
+  pointer-events: none;
+}
+
+.apollo-pin.pin-dark {
+  background: var(--apollo-text);
+  box-shadow: none;
+}
+
+.apollo-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  margin-bottom: 20px;
 }
 
-.card-index {
+.apollo-index {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: #72747e;
+  letter-spacing: 0.05em;
+}
+
+.apollo-card-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--apollo-text);
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.apollo-card-body {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--apollo-text-muted);
+  margin: 0;
+  flex: 1;
+}
+
+.apollo-card-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.apollo-card-bullets li {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--apollo-text-muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.apollo-card-bullets li::before {
+  content: "•";
+  color: var(--apollo-orange);
+  font-weight: bold;
+}
+
+/* Solid International Vermilion Accent Card */
+.apollo-card-orange {
+  background: var(--apollo-orange);
+  color: #ffffff;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 28px 20px;
+  text-decoration: none;
+  box-shadow: 0 14px 40px rgba(255, 70, 37, 0.35);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s ease,
+              box-shadow 0.35s ease;
+}
+
+.apollo-card-orange:hover {
+  background: var(--apollo-orange-hover);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 22px 50px rgba(255, 70, 37, 0.5);
+}
+
+.orange-card-headline {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.orange-card-sub {
+  font-family: var(--font-mono);
   font-size: 10px;
-  letter-spacing: 0.16em;
-  color: var(--blue);
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
 }
 
-.card-badge {
-  background: rgba(200, 245, 66, 0.08);
-  border: 1px solid rgba(200, 245, 66, 0.28);
-  color: #c8f542;
-  font-size: 9px;
-  letter-spacing: 0.1em;
+/* Wide Card Metrics HUD */
+.apollo-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.apollo-pill {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
   padding: 3px 8px;
-  border-radius: 2px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.06);
+  color: #383a42;
   font-weight: 600;
 }
 
-.card-title {
+.apollo-pill.pill-orange {
+  background: rgba(255, 70, 37, 0.12);
+  color: var(--apollo-orange);
+}
+
+/* Embedded CV Tracking Viewport */
+.apollo-viewport-wrap {
+  margin-top: 48px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==================================================
+   APOLLO HORIZONTAL WIRE TIMELINE
+   ================================================== */
+.apollo-timeline-container {
+  position: relative;
+  z-index: 2;
+  margin: 60px 0 40px;
+  padding: 40px 0;
+}
+
+.apollo-wire-axis {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--apollo-wire);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.apollo-timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.apollo-milestone {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.apollo-milestone-year {
   font-family: var(--font-display);
-  font-size: clamp(19px, 2.2vw, 23px);
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.apollo-milestone-lens {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #111317;
+  border: 2px solid var(--apollo-orange);
+  box-shadow: 0 0 20px var(--apollo-orange-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.apollo-milestone-lens svg {
+  width: 42px;
+  height: 42px;
+}
+
+.apollo-milestone-info {
+  background: rgba(18, 20, 24, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 6px;
+  padding: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.apollo-milestone-head {
+  font-family: var(--font-display);
+  font-size: 14px;
   font-weight: 700;
+  color: #f4f3ee;
+  margin: 0 0 6px 0;
+}
+
+.apollo-milestone-sub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--apollo-orange);
+  margin-bottom: 8px;
+}
+
+.apollo-milestone-text {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #8e909a;
+  margin: 0;
+}
+
+/* Full-Width Vermilion Action Strip */
+.apollo-timeline-cta-strip {
+  display: block;
+  margin-top: 40px;
+  background: var(--apollo-orange);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 14px 24px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 10px 30px var(--apollo-orange-glow);
+}
+
+.apollo-timeline-cta-strip:hover {
+  background: var(--apollo-orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(255, 70, 37, 0.5);
+}
+
+/* ==================================================
+   APOLLO NEWS / ARCHITECTURES (3-COLUMN NOTCHED CARDS)
+   ================================================== */
+.apollo-news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.apollo-news-card {
+  position: relative;
+  background: var(--apollo-card);
+  color: var(--apollo-text);
+  border-radius: 22px 22px 4px 22px;
+  padding: 32px 26px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  min-height: 380px;
+}
+
+.apollo-news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.7);
+}
+
+.apollo-news-notch-br {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 86%,
+    84% 86%,
+    80% 100%,
+    0 100%
+  );
+}
+
+.apollo-news-pin {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #f4f3ee;
+  box-shadow: 0 0 6px rgba(244, 243, 238, 0.4);
+}
+
+.apollo-news-top {
+  margin-bottom: 18px;
+}
+
+.apollo-news-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--apollo-orange);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.apollo-news-title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 800;
   letter-spacing: -0.015em;
+  text-transform: uppercase;
   line-height: 1.25;
-  color: #f2f1ed;
+  color: var(--apollo-text);
   margin: 0;
 }
 
-.card-summary {
+.apollo-news-desc {
   font-size: 13px;
-  line-height: 1.65;
-  color: #a4a49f;
-  margin: 0;
+  line-height: 1.6;
+  color: var(--apollo-text-muted);
+  margin: 14px 0 20px 0;
+  flex: 1;
 }
 
-.schematic-box {
+.apollo-news-schematic {
   width: 100%;
   background: #06080a;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 2px;
+  border-radius: 4px;
   overflow: hidden;
-  transition: border-color 0.3s ease;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.resume-project-card:hover .schematic-box,
-.deep-project-card:hover .schematic-box {
-  border-color: rgba(63, 92, 255, 0.25);
-}
-
-.schematic-box .inner-svg {
+.apollo-news-schematic svg {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.card-points {
+.apollo-news-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--apollo-orange);
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.apollo-news-link:hover {
+  transform: translateX(4px);
+  color: var(--apollo-orange-hover);
+}
+
+/* ==================================================
+   APOLLO ROBOTICS & EMBODIED ACTION
+   ================================================== */
+.apollo-robotics-canvas-wrap {
+  margin: 40px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.apollo-horizons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.apollo-horizon-card {
+  background: var(--apollo-card);
+  color: var(--apollo-text);
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   gap: 10px;
-  font-size: 12.5px;
-  line-height: 1.6;
-  color: #a0a09b;
+  transition: transform 0.3s ease;
 }
 
-.card-points b {
-  color: #f2f1ed;
-  font-weight: 600;
+.apollo-horizon-card:hover {
+  transform: translateY(-4px);
 }
 
-.card-points code {
+.apollo-horizon-num {
   font-family: var(--font-mono);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1px 5px;
-  border-radius: 2px;
-  color: #c8f542;
-  font-size: 11px;
-}
-
-/* From-Scratch Deep Architecture Showcase */
-.from-scratch-showcase {
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
-  margin-top: 48px;
-}
-
-.deep-project-card {
-  position: relative;
-  background: rgba(13, 15, 18, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
-  padding: 36px;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  backdrop-filter: blur(10px);
-  transition: border-color 0.35s ease, box-shadow 0.35s ease;
-}
-
-.deep-project-card:hover {
-  border-color: rgba(63, 92, 255, 0.55);
-  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.7), 0 0 32px rgba(63, 92, 255, 0.12);
-}
-
-.deep-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.tag-pill {
-  display: inline-block;
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  color: var(--blue);
-  margin-bottom: 6px;
-}
-
-.deep-title {
-  font-family: var(--font-display);
-  font-size: clamp(22px, 3.2vw, 30px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  color: #f2f1ed;
-  margin: 0;
-}
-
-.stat-badge {
-  background: rgba(63, 92, 255, 0.12);
-  border: 1px solid rgba(63, 92, 255, 0.35);
-  color: #c8f542;
-  padding: 6px 14px;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  border-radius: 2px;
-}
-
-.deep-desc {
-  font-size: 14.5px;
-  line-height: 1.65;
-  color: #b0b0ab;
-  max-width: 960px;
-  margin: 0;
-}
-
-.deep-grid-metrics {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 18px;
-}
-
-.metric-box {
-  background: rgba(7, 9, 12, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 20px;
-  border-radius: 2px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.metric-num {
-  font-family: var(--font-mono);
-  font-size: 22px;
-  font-weight: 700;
-  color: #c8f542;
-  letter-spacing: -0.01em;
-}
-
-.metric-label {
   font-size: 10px;
   letter-spacing: 0.14em;
-  color: #8c8d88;
+  color: var(--apollo-orange);
+  font-weight: 700;
 }
 
-.metric-sub {
-  font-size: 12px;
-  line-height: 1.5;
-  color: #a2a29d;
-  margin: 0;
-}
-
-/* Research Horizons Grid */
-.horizons-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 42px;
-}
-
-.horizon-card {
-  background: rgba(13, 15, 18, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 26px;
-  border-radius: 2px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  backdrop-filter: blur(8px);
-  transition: border-color 0.25s ease, transform 0.25s ease;
-}
-
-.horizon-card:hover {
-  border-color: rgba(63, 92, 255, 0.45);
-  transform: translateY(-3px);
-}
-
-.horizon-num {
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  color: var(--blue);
-}
-
-.horizon-card h4 {
+.apollo-horizon-card h4 {
   font-family: var(--font-display);
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.01em;
-  color: #f2f1ed;
   margin: 0;
+  color: var(--apollo-text);
+  text-transform: uppercase;
 }
 
-.horizon-card p {
+.apollo-horizon-card p {
   font-size: 13px;
   line-height: 1.6;
-  color: #a0a09b;
+  color: var(--apollo-text-muted);
   margin: 0;
 }
 
-/* Technical Competencies Grid */
-.skills-blueprint-grid {
+/* ==================================================
+   APOLLO COMPETENCIES (4 CHASSIS COLUMNS)
+   ================================================== */
+.apollo-skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
-  margin-top: 48px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  position: relative;
+  z-index: 2;
 }
 
-.skill-col {
-  background: rgba(13, 15, 18, 0.82);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 2px;
-  padding: 26px;
+.apollo-skill-chassis {
+  background: var(--apollo-card);
+  color: var(--apollo-text);
+  border-radius: 20px;
+  padding: 26px 22px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   gap: 16px;
-  backdrop-filter: blur(8px);
 }
 
-.skill-head {
+.apollo-skill-header {
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.skill-cat-title {
+.apollo-skill-cat {
+  font-family: var(--font-mono);
   font-size: 10px;
-  letter-spacing: 0.16em;
-  color: var(--blue);
-  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--apollo-orange);
+  font-weight: 800;
 }
 
-.skill-list {
+.apollo-skill-items {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
-.skill-list li {
+.apollo-skill-items li {
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 13px;
-  color: #f2f1ed;
+  font-weight: 600;
+  color: var(--apollo-text);
 }
 
-.skill-badge {
+.apollo-skill-pill {
+  font-family: var(--font-mono);
   font-size: 9px;
-  padding: 2px 8px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 2px;
-  color: #8c8d88;
   letter-spacing: 0.06em;
+  padding: 2px 7px;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--apollo-text-muted);
 }
 
-.skill-badge.primary-badge {
-  background: rgba(200, 245, 66, 0.1) !important;
-  border-color: rgba(200, 245, 66, 0.3) !important;
-  color: #c8f542 !important;
+.apollo-skill-pill.pill-hot {
+  background: rgba(255, 70, 37, 0.12);
+  color: var(--apollo-orange);
 }
 
-/* Education Timeline & Connect Box */
-.education-timeline {
-  margin-top: 36px;
+/* ==================================================
+   APOLLO FULL-BLEED INTERNATIONAL VERMILION FOOTER
+   ================================================== */
+.apollo-footer-banner {
+  position: relative;
+  background: var(--apollo-orange);
+  color: #ffffff;
+  padding: 10vh 5vw 5vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  justify-content: space-between;
+  min-height: 85vh;
+}
+
+.apollo-footer-cta-wrap {
   position: relative;
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
-  padding-left: 24px;
+  z-index: 2;
+  margin-top: 4vh;
 }
 
-.timeline-item {
-  position: relative;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: -29px;
-  top: 5px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #070809;
-  border: 2px solid var(--blue);
-}
-
-.timeline-year {
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  color: var(--blue);
-  margin-bottom: 6px;
-}
-
-.timeline-content h4 {
+.apollo-giant-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
   font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 700;
-  color: #f2f1ed;
-  margin: 0 0 4px 0;
+  font-size: clamp(4.2rem, 11vw, 13rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.88;
+  color: #ffffff;
+  text-decoration: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
 
-.timeline-content .degree {
+.apollo-giant-cta:hover {
+  transform: translateX(16px);
+  opacity: 0.95;
+}
+
+.apollo-cta-arrow {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.apollo-giant-cta:hover .apollo-cta-arrow {
+  transform: translate(12px, -12px);
+}
+
+/* Footer Directory Columns */
+.apollo-footer-cols {
+  position: relative;
+  z-index: 2;
+  margin-top: 8vh;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 32px;
+}
+
+.apollo-footer-brand h4 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin: 0 0 6px 0;
+  color: #ffffff;
+}
+
+.apollo-footer-brand p {
+  font-family: var(--font-mono);
   font-size: 11px;
-  color: #c8f542;
-  margin-bottom: 8px;
-}
-
-.timeline-content .coursework {
-  font-size: 12.5px;
-  line-height: 1.55;
-  color: #a0a09b;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }
 
-.about-connect-box {
-  margin-top: 36px;
-  background: rgba(10, 12, 15, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 22px;
-  border-radius: 2px;
+.apollo-footer-col h5 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 14px 0;
+}
+
+.apollo-footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  font-size: 11px;
-  letter-spacing: 0.08em;
+  gap: 8px;
 }
 
-.connect-row {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
-
-.connect-label {
-  color: #8c8d88;
-  width: 90px;
-  flex-shrink: 0;
-}
-
-.connect-link {
-  color: #f2f1ed;
+.apollo-footer-col a {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #ffffff;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: opacity 0.2s;
 }
 
-.connect-link:hover {
-  color: var(--blue);
+.apollo-footer-col a:hover {
+  opacity: 0.75;
 }
+
+.apollo-footer-bottom-bar {
+  position: relative;
+  z-index: 2;
+  margin-top: 6vh;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ==================================================
+   RESPONSIVE BREAKPOINTS (APOLLO SYSTEM)
+   ================================================== */
+@media (max-width: 1024px) {
+  .apollo-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .apollo-card-wide {
+    grid-column: span 2;
+  }
+  .apollo-timeline-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+  }
+  .apollo-wire-axis {
+    display: none;
+  }
+  .apollo-news-grid {
+    grid-template-columns: 1fr;
+  }
+  .apollo-horizons-grid {
+    grid-template-columns: 1fr;
+  }
+  .apollo-skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .apollo-footer-cols {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .apollo-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .apollo-card-wide {
+    grid-column: span 1;
+  }
+  .apollo-timeline-grid {
+    grid-template-columns: 1fr;
+  }
+  .apollo-skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .apollo-footer-cols {
+    grid-template-columns: 1fr;
+  }
+  .apollo-footer-bottom-bar {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+}
+
 
 

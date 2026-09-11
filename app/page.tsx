@@ -402,437 +402,394 @@ function CVTrackingView() {
 }
 
 /* ==================================================
-   SECTION 01: COMPUTER VISION & OBJECT TRACKING
+   SECTION 01: APOLLO MODULAR PERCEPTION GRID (a-f)
    ================================================== */
 function VisionSection() {
   return (
-    <section id="vision" className="section perception">
-      <SectionHeader
-        n="01"
-        label="COMPUTER VISION &amp; TRACKING"
-        title={"MAKE THE\nINVISIBLE LEGIBLE."}
-        body="My primary research interest. Building deep visual perception pipelines that locate, decompose, and persistently track entities across multi-spectral feeds and complex spatial environments."
-      />
-
-      <div className="taxonomy mono">
-        <span>OBJECT DETECTION</span>
-        <span>OBJECT TRACKING</span>
-        <span>VISION TRANSFORMER (ViT-B/16)</span>
-        <span>RESNET-50</span>
-        <span>HYPERSPECTRAL DECOMPOSITION</span>
-        <span>KALMAN STATE ESTIMATION</span>
+    <section id="vision" className="apollo-section">
+      <div className="apollo-header">
+        <span className="apollo-tag">/ 01.00 APOLLO PERCEPTION</span>
+        <h2 className="apollo-title">PERCEPTION</h2>
+        <p className="apollo-desc">
+          Computer vision, multi-spectral decomposition, and persistent state estimation. Engineering deep architectures that locate, classify, and track dynamic entities in real time.
+        </p>
       </div>
 
-      {/* Feature Project 1: Hyperspectral Object Tracking */}
-      <div className="feature-project">
-        <div className="project-side mono">
-          <span>ID: 04 // TARGET</span>
-          <span>ID: 02 // CANDIDATE</span>
-          <span>F_017 &rarr; F_018 &rarr; F_019</span>
-          <span>DETECT &rarr; ASSOCIATE &rarr; TRACK</span>
+      {/* 4-Column Modular Grid (The Apollo 6-Card Architecture) */}
+      <div className="apollo-grid-4">
+        {/* Card ( a ) - Hyperspectral Tracking with Notched Shelf Cutout */}
+        <div className="apollo-card apollo-shelf-tr">
+          <div className="apollo-pin" aria-hidden="true" />
+          <div className="apollo-card-top">
+            <span className="apollo-index">( a )</span>
+          </div>
+          <div>
+            <h3 className="apollo-card-title">HYPERSPECTRAL TRACKING</h3>
+            <p className="apollo-card-body">
+              Multi-spectral persistent entity tracking via deep embedding associations and Kalman kinematic estimation.
+            </p>
+            <ul className="apollo-card-bullets">
+              <li>YOLO Bounding Box Detection</li>
+              <li>DeepSORT Feature Association</li>
+              <li>Kalman State Vector Filtering</li>
+              <li>14.2ms Low-Latency Inference</li>
+            </ul>
+          </div>
         </div>
 
+        {/* Card ( b ) - ViT-B/16 from Scratch with Notched Shelf Cutout */}
+        <div className="apollo-card apollo-shelf-tr">
+          <div className="apollo-pin" aria-hidden="true" />
+          <div className="apollo-card-top">
+            <span className="apollo-index">( b )</span>
+          </div>
+          <div>
+            <h3 className="apollo-card-title">ViT-B/16 FROM SCRATCH</h3>
+            <p className="apollo-card-body">
+              Complete Vision Transformer reimplemented from first principles in PyTorch without library abstractions.
+            </p>
+            <ul className="apollo-card-bullets">
+              <li>~86M Parameters in Raw PyTorch</li>
+              <li>196 Image Patches (16×16)</li>
+              <li>768-D Latent Projections</li>
+              <li>12-Head Self-Attention (12 Blocks)</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Card ( c ) - Wide Double-Column Card: Oxford-102 ResNet & Pipeline */}
+        <div className="apollo-card apollo-card-wide">
+          <div className="apollo-card-top">
+            <span className="apollo-index">( c )</span>
+            <span className="apollo-pill pill-orange">87%+ VAL ACCURACY</span>
+          </div>
+          <div>
+            <h3 className="apollo-card-title">GENERAL PURPOSE BOTANICAL CLASSIFICATION &amp; DATA PIPELINE</h3>
+            <p className="apollo-card-body">
+              Achieved 87%+ validation accuracy across 102 botanical classes (8,189 images) via ResNet transfer learning. Engineered an automated NumPy and pandas ingestion workflow that slashed preprocessing latency by 40% with stratified dataset splits and dynamic tensor augmentations.
+            </p>
+            <div className="apollo-badge-row">
+              <span className="apollo-pill pill-orange">87%+ VALIDATION</span>
+              <span className="apollo-pill">-40% PIPELINE OVERHEAD</span>
+              <span className="apollo-pill">8,189 DATASET SAMPLES</span>
+              <span className="apollo-pill">ADAMW + COSINE LR</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Card ( d ) - Micrograd Scalar Autograd with Notched Shelf Cutout */}
+        <div className="apollo-card apollo-shelf-tr">
+          <div className="apollo-pin" aria-hidden="true" />
+          <div className="apollo-card-top">
+            <span className="apollo-index">( d )</span>
+          </div>
+          <div>
+            <h3 className="apollo-card-title">SCALAR AUTOGRAD ENGINE</h3>
+            <p className="apollo-card-body">
+              Built dynamic DAG computational graph engine with reverse-mode automatic differentiation from scratch.
+            </p>
+            <ul className="apollo-card-bullets">
+              <li>Dynamic DAG Topological Traversal</li>
+              <li>Neuron, Layer, and MLP Modules</li>
+              <li>Manual Adjoint Backpropagation</li>
+              <li>PyTorch Baseline Machine Parity</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Card ( e ) - Siamese Signature Verification */}
+        <div className="apollo-card">
+          <div className="apollo-card-top">
+            <span className="apollo-index">( e )</span>
+            <span className="apollo-pill pill-orange">95.5% ACCURACY</span>
+          </div>
+          <div>
+            <h3 className="apollo-card-title">ONE-SHOT SIAMESE NETWORK</h3>
+            <p className="apollo-card-body">
+              Engineered biometric identity verification system reaching 95.5% accuracy at optimal threshold t=0.25 on 2,640 signature pairs.
+            </p>
+            <ul className="apollo-card-bullets">
+              <li>Contrastive Loss Optimization</li>
+              <li>CEDAR &amp; ICDAR 2011 Benchmarks</li>
+              <li>FAR vs. FRR Sensitivity Trade-off</li>
+              <li>OpenCV Stroke Binarization</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Solid International Vermilion Accent Card - LET'S TALK */}
+        <a href="mailto:srisaitej999@gmail.com" className="apollo-card-orange">
+          <span className="orange-card-headline">LET&apos;S TALK &rarr;</span>
+          <span className="orange-card-sub">OPEN FOR ML &amp; CV RESEARCH</span>
+        </a>
+
+        {/* Card ( f ) - Transformer from Scratch with Notched Shelf Cutout */}
+        <div className="apollo-card apollo-shelf-tr">
+          <div className="apollo-pin" aria-hidden="true" />
+          <div className="apollo-card-top">
+            <span className="apollo-index">( f )</span>
+          </div>
+          <div>
+            <h3 className="apollo-card-title">TRANSFORMER &amp; CUSTOM BPE</h3>
+            <p className="apollo-card-body">
+              &lsquo;Attention Is All You Need&rsquo; encoder-decoder with custom BPE tokenizer built from scratch.
+            </p>
+            <ul className="apollo-card-bullets">
+              <li>Custom Byte-Pair Merge Routines</li>
+              <li>Multi-Head Self-Attention (d_k=64)</li>
+              <li>Cross-Attention Token Verification</li>
+              <li>Shakespeare Corpus Validation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Embedded High-Tech CV Tracking Viewport */}
+      <div className="apollo-viewport-wrap">
         <CVTrackingView />
-
-        <div className="project-copy">
-          <div className="mono small-label">PRIMARY FOCUS / DETECTION &amp; TRACKING</div>
-          <h3>HYPERSPECTRAL<br />OBJECT TRACKING</h3>
-          <p>
-            Investigation into multi-object detection and persistent tracking across multi-spectral visual feeds using deep feature embeddings, state estimation, and spatial association with Kalman filtering.
-          </p>
-          <div className="tech mono">
-            <span>YOLO</span>
-            <span>DEEPSORT</span>
-            <span>KALMAN FILTER</span>
-            <span>PYTORCH</span>
-            <span>OPENCV</span>
-          </div>
-        </div>
-      </div>
-
-      {/* CV Resume Highlights Grid: ViT-B/16 & Oxford-102 */}
-      <div className="cv-resume-grid">
-        {/* Project 2: Vision Transformer (ViT-B/16) from Scratch */}
-        <div className="resume-project-card">
-          <div className="card-top-hud mono">
-            <span className="card-index">01.02 // ARCHITECTURE FROM SCRATCH</span>
-            <span className="card-badge">~86M PARAMETERS</span>
-          </div>
-          <h3 className="card-title">VISION TRANSFORMER (ViT-B/16) FROM SCRATCH</h3>
-          <p className="card-summary">
-            Reimplemented the complete ViT-B/16 architecture from scratch in PyTorch without library abstractions. Engineered patch embedding for 196 (16×16) image patches, 768-dimensional latent projections, 12-head self-attention mechanisms, and 12 Transformer encoder blocks.
-          </p>
-
-          {/* Technical Schematic: ViT Patch & Attention Pipeline */}
-          <div className="schematic-box">
-            <svg viewBox="0 0 380 150" className="inner-svg">
-              <rect width="380" height="150" fill="#06080A" />
-              {/* Image to Patches */}
-              <g transform="translate(15, 20)">
-                <rect x="0" y="0" width="70" height="70" fill="#0E1217" stroke="#3F5CFF" strokeWidth="1" />
-                <line x1="0" y1="23" x2="70" y2="23" stroke="rgba(255,255,255,0.15)" />
-                <line x1="0" y1="47" x2="70" y2="47" stroke="rgba(255,255,255,0.15)" />
-                <line x1="23" y1="0" x2="23" y2="70" stroke="rgba(255,255,255,0.15)" />
-                <line x1="47" y1="0" x2="47" y2="70" stroke="rgba(255,255,255,0.15)" />
-                <rect x="23" y="23" width="24" height="24" fill="rgba(63, 92, 255, 0.3)" stroke="#3F5CFF" />
-                <text x="2" y="85" fill="#8C8D88" fontSize="7.5" fontFamily="monospace">196 PATCHES (16×16)</text>
-              </g>
-
-              {/* Arrow */}
-              <path d="M 95 55 L 115 55" stroke="#3F5CFF" strokeWidth="1.5" />
-
-              {/* Linear Projection + Positional Encodings */}
-              <g transform="translate(120, 20)">
-                <rect x="0" y="10" width="80" height="50" fill="#0E1217" stroke="rgba(255,255,255,0.15)" rx="2" />
-                <text x="6" y="28" fill="#F2F1ED" fontSize="8" fontFamily="monospace">LINEAR PROJ</text>
-                <text x="6" y="42" fill="#3F5CFF" fontSize="7.5" fontFamily="monospace">768-D EMBED</text>
-                <text x="6" y="54" fill="#C8F542" fontSize="7" fontFamily="monospace">+ [CLS] TOKEN</text>
-              </g>
-
-              {/* Arrow */}
-              <path d="M 205 55 L 225 55" stroke="#3F5CFF" strokeWidth="1.5" />
-
-              {/* Transformer Encoder 12x */}
-              <g transform="translate(230, 15)">
-                <rect x="0" y="0" width="135" height="75" fill="#0E1217" stroke="#C8F542" rx="2" />
-                <text x="8" y="18" fill="#C8F542" fontSize="8.5" fontFamily="monospace" fontWeight="bold">12× ENCODER BLOCKS</text>
-                <text x="8" y="34" fill="#8C8D88" fontSize="7.5" fontFamily="monospace">&bull; 12-HEAD SELF-ATTN</text>
-                <text x="8" y="48" fill="#8C8D88" fontSize="7.5" fontFamily="monospace">&bull; MLP (3072 HIDDEN)</text>
-                <text x="8" y="62" fill="#8C8D88" fontSize="7.5" fontFamily="monospace">&bull; LAYER NORM + RESIDUAL</text>
-              </g>
-
-              <line x1="15" y1="110" x2="365" y2="110" stroke="rgba(255,255,255,0.08)" />
-              <text x="15" y="132" fill="#8C8D88" fontSize="8" fontFamily="monospace">
-                COMPUTE-SCALING STUDY // 6,960 OXFORD-102 IMAGES // 39.65% TEST ACC (EPOCH 18)
-              </text>
-            </svg>
-          </div>
-
-          <div className="card-points">
-            <p>
-              &bull; <b>Compute &amp; Scaling Study:</b> Conducted controlled empirical experiments on 6,960 Oxford Flowers-102 images to investigate ViT’s dependency on dataset scale and compute budget, attaining 39.65% test accuracy under constrained training.
-            </p>
-            <p>
-              &bull; <b>Manual Tensor Operations:</b> Implemented patch slicing, linear projection, learnable class tokens, 1D positional encodings, and multi-head attention entirely in raw PyTorch.
-            </p>
-          </div>
-
-          <div className="tech mono">
-            <span>PYTHON</span>
-            <span>PYTORCH</span>
-            <span>SELF-ATTENTION</span>
-            <span>ViT-B/16</span>
-            <span>OXFORD FLOWERS-102</span>
-          </div>
-        </div>
-
-        {/* Project 3: Oxford-102 Flower Classification */}
-        <div className="resume-project-card">
-          <div className="card-top-hud mono">
-            <span className="card-index">01.03 // TRANSFER LEARNING &amp; PIPELINE</span>
-            <span className="card-badge">87%+ VAL ACCURACY</span>
-          </div>
-          <h3 className="card-title">OXFORD-102 RESNET FINE-TUNING &amp; DATA PIPELINE</h3>
-          <p className="card-summary">
-            Achieved 87%+ validation accuracy across 102 fine-grained botanical categories (8,189 images) via ResNet transfer learning, fine-tuned pretrained feature extractors, and hyperparameter optimization.
-          </p>
-
-          {/* Technical Schematic: ResNet Residual Skip & Metric */}
-          <div className="schematic-box">
-            <svg viewBox="0 0 380 150" className="inner-svg">
-              <rect width="380" height="150" fill="#06080A" />
-
-              {/* Residual Skip Block */}
-              <g transform="translate(20, 20)">
-                <rect x="0" y="15" width="65" height="30" fill="#0E1217" stroke="rgba(255,255,255,0.15)" rx="2" />
-                <text x="6" y="34" fill="#F2F1ED" fontSize="8" fontFamily="monospace">CONV 3×3</text>
-
-                <line x1="65" y1="30" x2="85" y2="30" stroke="#3F5CFF" strokeWidth="1.2" />
-
-                <rect x="85" y="15" width="65" height="30" fill="#0E1217" stroke="rgba(255,255,255,0.15)" rx="2" />
-                <text x="91" y="34" fill="#F2F1ED" fontSize="8" fontFamily="monospace">CONV 3×3</text>
-
-                {/* Residual Arc */}
-                <path d="M 32 15 C 32 -2, 117 -2, 117 15" fill="none" stroke="#C8F542" strokeWidth="1.4" strokeDasharray="3 2" />
-                <text x="62" y="8" fill="#C8F542" fontSize="7" fontFamily="monospace">x + F(x)</text>
-              </g>
-
-              {/* Pipeline Metric */}
-              <g transform="translate(195, 18)">
-                <rect x="0" y="0" width="165" height="65" fill="#0E1217" stroke="rgba(63, 92, 255, 0.3)" rx="2" />
-                <text x="10" y="18" fill="#C8F542" fontSize="8" fontFamily="monospace">PIPELINE OPTIMIZATION</text>
-                <text x="10" y="36" fill="#F2F1ED" fontSize="14" fontFamily="monospace" fontWeight="bold">-40% LATENCY</text>
-                <text x="10" y="52" fill="#8C8D88" fontSize="7.5" fontFamily="monospace">NUMPY / PANDAS AUGMENTATION</text>
-              </g>
-
-              <line x1="20" y1="105" x2="360" y2="105" stroke="rgba(255,255,255,0.08)" />
-              <text x="20" y="128" fill="#8C8D88" fontSize="8" fontFamily="monospace">
-                DATASET: 8,189 SAMPLES // AUTOMATED SPLIT // ADAMW WITH COSINE ANNEALING
-              </text>
-            </svg>
-          </div>
-
-          <div className="card-points">
-            <p>
-              &bull; <b>40% Faster Data Pipeline:</b> Slashed preprocessing overhead by 40% by engineering an automated NumPy and pandas dataset ingestion workflow with stratified splits and real-time tensor augmentations.
-            </p>
-            <p>
-              &bull; <b>Fine-Grained Classification:</b> Overcame intra-class variance through cosine learning rate decay and targeted layer unfreezing across deep residual blocks.
-            </p>
-          </div>
-
-          <div className="tech mono">
-            <span>PYTORCH</span>
-            <span>RESNET</span>
-            <span>TRANSFER LEARNING</span>
-            <span>NUMPY</span>
-            <span>PANDAS</span>
-          </div>
-        </div>
       </div>
     </section>
   );
 }
 
 /* ==================================================
-   SECTION 02: DEEP LEARNING FROM FIRST PRINCIPLES
+   SECTION 02: ABOUT & HORIZONTAL WIRE TIMELINE
+   ================================================== */
+function AboutSection() {
+  return (
+    <section id="about" className="apollo-section">
+      <div className="apollo-header">
+        <span className="apollo-tag">/ 02.00 RESEARCH PHILOSOPHY &amp; BACKGROUND</span>
+        <h2 className="apollo-title">ABOUT US</h2>
+        <p className="apollo-desc">
+          Physics undergraduate at the Indian Institute of Technology, Kharagpur with hands-on experience designing and training machine learning systems in PyTorch from first principles. Comfortable across mathematical proofs, computational graphs, raw tensor operations, and embodied robotic action.
+        </p>
+      </div>
+
+      {/* Apollo Horizontal Wire Timeline */}
+      <div className="apollo-timeline-container">
+        <div className="apollo-wire-axis" aria-hidden="true" />
+
+        <div className="apollo-timeline-grid">
+          {/* Milestone 2023 */}
+          <div className="apollo-milestone">
+            <div className="apollo-milestone-year">2023</div>
+            <div className="apollo-milestone-lens">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="16" stroke="#FF4625" strokeWidth="1.5" strokeDasharray="3 2" />
+                <circle cx="20" cy="20" r="4" fill="#FF4625" />
+                <path d="M 8 20 L 32 20 M 20 8 L 20 32" stroke="rgba(255,255,255,0.4)" strokeWidth="1" />
+              </svg>
+            </div>
+            <div className="apollo-milestone-info">
+              <h4 className="apollo-milestone-head">BHASHYAM COLLEGE, GUNTUR</h4>
+              <div className="apollo-milestone-sub">MPC &bull; MATHEMATICS &amp; PHYSICS</div>
+              <p className="apollo-milestone-text">
+                Rigorous grounding in vector calculus, linear algebra, Newtonian mechanics, and analytical geometry.
+              </p>
+            </div>
+          </div>
+
+          {/* Milestone 2024 */}
+          <div className="apollo-milestone">
+            <div className="apollo-milestone-year">2024</div>
+            <div className="apollo-milestone-lens">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="8" y="10" width="10" height="10" stroke="#FF4625" strokeWidth="1.5" />
+                <rect x="22" y="20" width="10" height="10" stroke="#FF4625" strokeWidth="1.5" />
+                <line x1="18" y1="15" x2="22" y2="25" stroke="#FFFFFF" strokeWidth="1.5" />
+              </svg>
+            </div>
+            <div className="apollo-milestone-info">
+              <h4 className="apollo-milestone-head">DEEP LEARNING FROM SCRATCH</h4>
+              <div className="apollo-milestone-sub">AUTOGRAD &amp; BPE ENGINES</div>
+              <p className="apollo-milestone-text">
+                Engineered Micrograd scalar autograd engine, custom Byte-Pair Encoding tokenizer, and manual backprop algorithms.
+              </p>
+            </div>
+          </div>
+
+          {/* Milestone 2025 */}
+          <div className="apollo-milestone">
+            <div className="apollo-milestone-year">2025</div>
+            <div className="apollo-milestone-lens">
+              <svg viewBox="0 0 40 40" fill="none">
+                <polygon points="20,6 34,32 6,32" stroke="#FF4625" strokeWidth="1.5" fill="rgba(255,70,37,0.1)" />
+                <circle cx="20" cy="22" r="3" fill="#FFFFFF" />
+              </svg>
+            </div>
+            <div className="apollo-milestone-info">
+              <h4 className="apollo-milestone-head">IIT KHARAGPUR</h4>
+              <div className="apollo-milestone-sub">B.S. IN PHYSICS (2025–2029)</div>
+              <p className="apollo-milestone-text">
+                Undergraduate studies in Physics. Implemented ViT-B/16 from scratch, hyperspectral CV tracking, and ResNet transfer learning.
+              </p>
+            </div>
+          </div>
+
+          {/* Milestone 2026+ */}
+          <div className="apollo-milestone">
+            <div className="apollo-milestone-year">2026+</div>
+            <div className="apollo-milestone-lens">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="14" stroke="#FF4625" strokeWidth="1.5" />
+                <path d="M 14 20 L 26 20 M 21 15 L 26 20 L 21 25" stroke="#FFFFFF" strokeWidth="1.5" />
+              </svg>
+            </div>
+            <div className="apollo-milestone-info">
+              <h4 className="apollo-milestone-head">FUTURE RESEARCH HORIZONS</h4>
+              <div className="apollo-milestone-sub">ROBOTICS &amp; EMBODIED VLA</div>
+              <p className="apollo-milestone-text">
+                Spatial 3D perception, local costmap collision avoidance, and Vision-Language-Action (VLA) continuous robotic policies.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Apollo Full-Width Action Button Strip */}
+        <a href="mailto:srisaitej999@gmail.com" className="apollo-timeline-cta-strip">
+          [ CONNECT WITH SRI SAI TEJ &bull; srisaitej999@gmail.com &bull; +91 90147 92881 &rarr; ]
+        </a>
+      </div>
+    </section>
+  );
+}
+
+/* ==================================================
+   SECTION 03: ARCHITECTURES IN THE LAB (APOLLO NEWS)
    ================================================== */
 function FromScratchSection() {
   return (
-    <section id="from-scratch" className="section learning">
-      <SectionHeader
-        n="02"
-        label="DEEP LEARNING FROM SCRATCH"
-        title={"OPEN THE BOX.\nBUILD THE THING."}
-        body="Understanding neural network architectures from the ground up. Manual gradient computation, custom autograd engines, and from-scratch Transformer tokenization without library black boxes."
-      />
+    <section id="from-scratch" className="apollo-section">
+      <div className="apollo-header">
+        <span className="apollo-tag">/ 03.00 DEEP LEARNING FROM FIRST PRINCIPLES</span>
+        <h2 className="apollo-title">IN THE LAB</h2>
+        <p className="apollo-desc">
+          Opening the neural network black box. Manual gradient computation, custom autograd engines, and from-scratch Transformer tokenization.
+        </p>
+      </div>
 
-      <div className="from-scratch-showcase">
-        {/* Deep Project 1: Transformer from Scratch */}
-        <div className="deep-project-card">
-          <div className="deep-header">
-            <div>
-              <span className="mono tag-pill">ATTENTION IS ALL YOU NEED</span>
-              <h3 className="deep-title">TRANSFORMER FROM SCRATCH &amp; CUSTOM BPE TOKENIZER</h3>
-            </div>
-            <div className="mono stat-badge">COMPLETE WORKS OF SHAKESPEARE</div>
+      <div className="apollo-news-grid">
+        {/* Card 1: Transformer & BPE */}
+        <div className="apollo-news-card apollo-news-notch-br">
+          <div className="apollo-news-pin" aria-hidden="true" />
+          <div className="apollo-news-top">
+            <div className="apollo-news-tag">ATTENTION IS ALL YOU NEED</div>
+            <h3 className="apollo-news-title">TRANSFORMER &amp; CUSTOM BPE TOKENIZER</h3>
+            <p className="apollo-news-desc">
+              Complete encoder-decoder model built from scratch with custom vocabulary generation, byte-pair merge rules, and multi-head self-attention validated on the Complete Works of Shakespeare.
+            </p>
           </div>
 
-          <p className="deep-desc">
-            Implemented a complete encoder-decoder Transformer architecture from scratch following <i>‘Attention Is All You Need’</i>, with manual gradient computations, multi-head self-attention mechanisms, and custom tokenization.
-          </p>
+          <div className="apollo-news-schematic">
+            <svg viewBox="0 0 380 120">
+              <rect width="380" height="120" fill="#0A0D10" />
+              <rect x="20" y="25" width="85" height="70" fill="#14171E" stroke="#FF4625" rx="2" />
+              <text x="26" y="44" fill="#FF4625" fontSize="7.5" fontFamily="monospace">BPE TOKENIZER</text>
+              <text x="26" y="62" fill="#8E909A" fontSize="7" fontFamily="monospace">Merge Rules</text>
+              <text x="26" y="78" fill="#F4F3EE" fontSize="7" fontFamily="monospace">[T_1 ... T_n]</text>
 
-          <div className="deep-grid-metrics">
-            <div className="metric-box">
-              <span className="metric-num">BPE</span>
-              <span className="metric-label mono">CUSTOM TOKENIZER</span>
-              <p className="metric-sub">Built vocabulary generation, byte-pair merge rules, and encode/decode routines from scratch.</p>
-            </div>
-            <div className="metric-box">
-              <span className="metric-num">d_k = 64</span>
-              <span className="metric-label mono">MULTI-HEAD ATTENTION</span>
-              <p className="metric-sub">Scaled dot-product attention QK^T / &radic;d_k with residual adds and LayerNorm.</p>
-            </div>
-            <div className="metric-box">
-              <span className="metric-num">MAPS</span>
-              <span className="metric-label mono">CROSS-ATTENTION VERIFICATION</span>
-              <p className="metric-sub">Visualized attention weights across layers to confirm semantic token alignment during generation.</p>
-            </div>
-          </div>
+              <path d="M 115 60 L 135 60" stroke="#FF4625" strokeWidth="1.5" />
 
-          {/* Transformer Architecture Diagram */}
-          <div className="schematic-box">
-            <svg viewBox="0 0 780 180" className="inner-svg">
-              <rect width="780" height="180" fill="#06080A" />
+              <rect x="145" y="20" width="105" height="80" fill="#14171E" stroke="#FFFFFF" rx="2" />
+              <text x="152" y="38" fill="#FFFFFF" fontSize="8" fontFamily="monospace">ENCODER 6× BLOCKS</text>
+              <text x="152" y="56" fill="#8E909A" fontSize="7" fontFamily="monospace">Multi-Head (d_k=64)</text>
+              <text x="152" y="72" fill="#8E909A" fontSize="7" fontFamily="monospace">LayerNorm &amp; Residual</text>
 
-              {/* BPE Stage */}
-              <g transform="translate(30, 25)">
-                <rect x="0" y="0" width="160" height="110" fill="#0A0D10" stroke="#3F5CFF" rx="2" />
-                <text x="12" y="24" fill="#3F5CFF" fontSize="9" fontFamily="monospace" fontWeight="bold">BPE TOKENIZER</text>
-                <text x="12" y="44" fill="#8C8D88" fontSize="8" fontFamily="monospace">&bull; Raw Text Stream</text>
-                <text x="12" y="60" fill="#8C8D88" fontSize="8" fontFamily="monospace">&bull; Merge Operations</text>
-                <text x="12" y="76" fill="#8C8D88" fontSize="8" fontFamily="monospace">&bull; Vocabulary Builder</text>
-                <text x="12" y="94" fill="#F2F1ED" fontSize="8" fontFamily="monospace">Tokens: [T_1 ... T_n]</text>
-              </g>
+              <path d="M 260 60 L 275 60" stroke="#FF4625" strokeWidth="1.5" />
 
-              <path d="M 195 80 L 225 80" stroke="#3F5CFF" strokeWidth="1.5" />
-
-              {/* Encoder Block */}
-              <g transform="translate(230, 25)">
-                <rect x="0" y="0" width="220" height="110" fill="#0A0D10" stroke="rgba(255,255,255,0.15)" rx="2" />
-                <text x="12" y="24" fill="#F2F1ED" fontSize="9" fontFamily="monospace" fontWeight="bold">ENCODER STACK</text>
-                <rect x="12" y="36" width="196" height="26" fill="#11141A" stroke="rgba(255,255,255,0.1)" rx="2" />
-                <text x="20" y="53" fill="#C8F542" fontSize="8" fontFamily="monospace">MULTI-HEAD SELF-ATTN (Q, K, V)</text>
-                <rect x="12" y="70" width="196" height="26" fill="#11141A" stroke="rgba(255,255,255,0.1)" rx="2" />
-                <text x="20" y="87" fill="#8C8D88" fontSize="8" fontFamily="monospace">FEED-FORWARD + LAYER NORM</text>
-              </g>
-
-              <path d="M 455 80 L 485 80" stroke="#3F5CFF" strokeWidth="1.5" />
-
-              {/* Decoder Block */}
-              <g transform="translate(490, 25)">
-                <rect x="0" y="0" width="255" height="110" fill="#0A0D10" stroke="#C8F542" rx="2" />
-                <text x="12" y="24" fill="#C8F542" fontSize="9" fontFamily="monospace" fontWeight="bold">DECODER STACK</text>
-                <rect x="12" y="34" width="230" height="22" fill="#11141A" stroke="rgba(255,255,255,0.1)" rx="2" />
-                <text x="20" y="49" fill="#8C8D88" fontSize="7.5" fontFamily="monospace">MASKED SELF-ATTENTION</text>
-                <rect x="12" y="60" width="230" height="22" fill="#11141A" stroke="#3F5CFF" rx="2" />
-                <text x="20" y="75" fill="#3F5CFF" fontSize="7.5" fontFamily="monospace">CROSS-ATTENTION (ENC &rarr; DEC)</text>
-                <rect x="12" y="86" width="230" height="20" fill="#11141A" stroke="rgba(255,255,255,0.1)" rx="2" />
-                <text x="20" y="100" fill="#F2F1ED" fontSize="7.5" fontFamily="monospace">LINEAR + SOFTMAX OUTPUT</text>
-              </g>
-
-              <line x1="30" y1="150" x2="745" y2="150" stroke="rgba(255,255,255,0.08)" />
-              <text x="30" y="168" fill="#8C8D88" fontSize="8" fontFamily="monospace">
-                TRAINED ON SHAKESPEARE // MANUAL GRADIENT COMPUTATION // ATTENTION PROJECTION WEIGHTS VERIFIED
-              </text>
+              <rect x="285" y="20" width="80" height="80" fill="#14171E" stroke="#FF4625" rx="2" />
+              <text x="291" y="38" fill="#FF4625" fontSize="8" fontFamily="monospace">DECODER</text>
+              <text x="291" y="56" fill="#8E909A" fontSize="7" fontFamily="monospace">Masked Attn</text>
+              <text x="291" y="72" fill="#F4F3EE" fontSize="7" fontFamily="monospace">Softmax Out</text>
             </svg>
           </div>
 
-          <div className="tech mono">
-            <span>PYTHON</span>
-            <span>NUMPY</span>
-            <span>PYTORCH</span>
-            <span>BPE TOKENIZATION</span>
-            <span>SHAKESPEARE CORPUS</span>
-          </div>
+          <a href="https://github.com/Ksrisaitej" target="_blank" rel="noopener noreferrer" className="apollo-news-link">
+            EXPLORE REPOSITORY &rarr;
+          </a>
         </div>
 
-        {/* Deep Project 2 & 3: Micrograd & Siamese Network */}
-        <div className="cv-resume-grid">
-          {/* Micrograd */}
-          <div className="resume-project-card">
-            <div className="card-top-hud mono">
-              <span className="card-index">02.02 // CORE MATHEMATICS</span>
-              <span className="card-badge">AUTOGRAD ENGINE</span>
-            </div>
-            <h3 className="card-title">MICROGRAD: SCALAR AUTOGRAD ENGINE</h3>
-            <p className="card-summary">
-              Built a scalar-valued automatic differentiation engine from scratch in Python, implementing dynamic computational graph construction and reverse-mode automatic differentiation.
+        {/* Card 2: ViT-B/16 Compute Scaling */}
+        <div className="apollo-news-card apollo-news-notch-br">
+          <div className="apollo-news-pin" aria-hidden="true" />
+          <div className="apollo-news-top">
+            <div className="apollo-news-tag">COMPUTE SCALING STUDY</div>
+            <h3 className="apollo-news-title">VISION TRANSFORMER (ViT-B/16)</h3>
+            <p className="apollo-news-desc">
+              Reimplemented ViT-B/16 from scratch in PyTorch (~86M params). Investigated scaling behavior and inductive bias dependencies on 6,960 Oxford Flowers-102 samples.
             </p>
-
-            <div className="schematic-box">
-              <svg viewBox="0 0 380 140" className="inner-svg">
-                <rect width="380" height="140" fill="#06080A" />
-
-                {/* DAG Nodes */}
-                <g transform="translate(30, 20)">
-                  <circle cx="30" cy="25" r="16" fill="#11141A" stroke="#3F5CFF" />
-                  <text x="22" y="28" fill="#F2F1ED" fontSize="8" fontFamily="monospace">x_1</text>
-
-                  <circle cx="30" cy="85" r="16" fill="#11141A" stroke="#3F5CFF" />
-                  <text x="22" y="88" fill="#F2F1ED" fontSize="8" fontFamily="monospace">w_1</text>
-
-                  {/* Multiply */}
-                  <line x1="46" y1="25" x2="90" y2="55" stroke="rgba(255,255,255,0.2)" />
-                  <line x1="46" y1="85" x2="90" y2="55" stroke="rgba(255,255,255,0.2)" />
-                  <circle cx="105" cy="55" r="16" fill="#11141A" stroke="#C8F542" />
-                  <text x="100" y="58" fill="#C8F542" fontSize="9" fontFamily="monospace">&times;</text>
-
-                  {/* Add Bias */}
-                  <circle cx="105" cy="110" r="14" fill="#11141A" stroke="#3F5CFF" />
-                  <text x="101" y="113" fill="#F2F1ED" fontSize="7.5" fontFamily="monospace">b</text>
-
-                  <line x1="121" y1="55" x2="165" y2="75" stroke="rgba(255,255,255,0.2)" />
-                  <line x1="119" y1="110" x2="165" y2="75" stroke="rgba(255,255,255,0.2)" />
-                  <circle cx="180" cy="75" r="16" fill="#11141A" stroke="#C8F542" />
-                  <text x="176" y="78" fill="#C8F542" fontSize="9" fontFamily="monospace">+</text>
-
-                  {/* Tanh Activation */}
-                  <line x1="196" y1="75" x2="235" y2="75" stroke="rgba(255,255,255,0.2)" />
-                  <rect x="235" y="60" width="55" height="30" fill="#11141A" stroke="#38BDF8" rx="2" />
-                  <text x="244" y="78" fill="#38BDF8" fontSize="8" fontFamily="monospace">tanh</text>
-
-                  {/* Output Node */}
-                  <line x1="290" y1="75" x2="315" y2="75" stroke="#38BDF8" strokeWidth="1.5" />
-                  <circle cx="328" cy="75" r="13" fill="#11141A" stroke="#F2F1ED" />
-                  <text x="323" y="78" fill="#F2F1ED" fontSize="8" fontFamily="monospace">L</text>
-                </g>
-
-                <text x="20" y="128" fill="#8C8D88" fontSize="7.5" fontFamily="monospace">
-                  BACKPROP: Adjoint &part;L/&part;x computed via topological DAG traversal + SGD update loop
-                </text>
-              </svg>
-            </div>
-
-            <div className="card-points">
-              <p>
-                &bull; <b>Full Neural Net Framework:</b> Engineered modular <code>Neuron</code>, <code>Layer</code>, and <code>MLP</code> classes on top of the autograd core with gradient zeroing and parameter updates.
-              </p>
-              <p>
-                &bull; <b>PyTorch Baseline Parity:</b> Numerically verified forward outputs and backward gradients against official PyTorch autograd computations to machine precision.
-              </p>
-            </div>
-
-            <div className="tech mono">
-              <span>PYTHON</span>
-              <span>COMPUTATIONAL GRAPH</span>
-              <span>AUTOMATIC DIFFERENTIATION</span>
-              <span>NEURAL NETWORKS</span>
-            </div>
           </div>
 
-          {/* Siamese Network */}
-          <div className="resume-project-card">
-            <div className="card-top-hud mono">
-              <span className="card-index">02.03 // ONE-SHOT VERIFICATION</span>
-              <span className="card-badge">95.5% ACCURACY</span>
-            </div>
-            <h3 className="card-title">SIAMESE SIGNATURE VERIFICATION NETWORK</h3>
-            <p className="card-summary">
-              Engineered biometric identity verification system reaching 95.5% accuracy at optimal threshold t=0.25, implementing a Siamese CNN with contrastive loss on 2,640 signature pairs.
-            </p>
+          <div className="apollo-news-schematic">
+            <svg viewBox="0 0 380 120">
+              <rect width="380" height="120" fill="#0A0D10" />
+              <rect x="20" y="25" width="60" height="60" fill="#14171E" stroke="#FF4625" />
+              <line x1="20" y1="45" x2="80" y2="45" stroke="rgba(255,255,255,0.2)" />
+              <line x1="20" y1="65" x2="80" y2="65" stroke="rgba(255,255,255,0.2)" />
+              <line x1="40" y1="25" x2="40" y2="85" stroke="rgba(255,255,255,0.2)" />
+              <line x1="60" y1="25" x2="60" y2="85" stroke="rgba(255,255,255,0.2)" />
+              <text x="20" y="102" fill="#8E909A" fontSize="6.5" fontFamily="monospace">196 PATCHES (16×16)</text>
 
-            <div className="schematic-box">
-              <svg viewBox="0 0 380 140" className="inner-svg">
-                <rect width="380" height="140" fill="#06080A" />
+              <path d="M 90 55 L 115 55" stroke="#FF4625" strokeWidth="1.5" />
 
-                {/* Signature input samples */}
-                <g transform="translate(20, 20)">
-                  <rect x="0" y="0" width="90" height="35" fill="#0E1217" stroke="rgba(56, 189, 248, 0.3)" rx="2" />
-                  <path d="M 10 24 C 25 10, 35 30, 50 15 S 70 28, 80 18" fill="none" stroke="#F2F1ED" strokeWidth="1.4" />
-                  <text x="6" y="10" fill="#38BDF8" fontSize="6.5" fontFamily="monospace">GENUINE (X1)</text>
+              <rect x="125" y="25" width="105" height="60" fill="#14171E" stroke="#FFFFFF" rx="2" />
+              <text x="133" y="44" fill="#FFFFFF" fontSize="8" fontFamily="monospace">768-D PROJ</text>
+              <text x="133" y="60" fill="#FF4625" fontSize="7.5" fontFamily="monospace">+ CLS &amp; POS EMBED</text>
 
-                  <rect x="0" y="50" width="90" height="35" fill="#0E1217" stroke="rgba(255, 255, 255, 0.15)" rx="2" />
-                  <path d="M 10 24 C 25 10, 35 30, 50 15 S 70 28, 80 18" fill="none" stroke="#8C8D88" strokeWidth="1.4" strokeDasharray="3 2" />
-                  <text x="6" y="10" fill="#8C8D88" fontSize="6.5" fontFamily="monospace">FORGED (X2)</text>
-                </g>
+              <path d="M 240 55 L 260 55" stroke="#FF4625" strokeWidth="1.5" />
 
-                {/* Distance & Metric */}
-                <g transform="translate(135, 20)">
-                  <rect x="0" y="15" width="80" height="55" fill="#0E1217" stroke="#38BDF8" rx="2" />
-                  <text x="6" y="32" fill="#38BDF8" fontSize="7.5" fontFamily="monospace">CONTRASTIVE</text>
-                  <text x="6" y="44" fill="#38BDF8" fontSize="7.5" fontFamily="monospace">LOSS L(D_w)</text>
-                  <text x="6" y="58" fill="#F2F1ED" fontSize="8" fontFamily="monospace">t = 0.25</text>
-
-                  <line x1="80" y1="42" x2="110" y2="42" stroke="#38BDF8" strokeWidth="1.5" />
-
-                  <rect x="110" y="27" width="105" height="32" fill="#0E1217" stroke="#10B981" rx="2" />
-                  <text x="116" y="42" fill="#10B981" fontSize="8.5" fontFamily="monospace" fontWeight="bold">95.5% ACCURACY</text>
-                  <text x="116" y="53" fill="#8C8D88" fontSize="6.5" fontFamily="monospace">FAR/FRR BALANCED</text>
-                </g>
-
-                <text x="20" y="124" fill="#8C8D88" fontSize="7.5" fontFamily="monospace">
-                  DATASET: 2,640 PAIRS (CEDAR/ICDAR) // OPENCV BINARIZATION &amp; CONTOUR NORMALIZATION
-                </text>
-              </svg>
-            </div>
-
-            <div className="card-points">
-              <p>
-                &bull; <b>Error Rate Quantification:</b> Mapped the trade-off between False Accept Rate (FAR) and False Reject Rate (FRR) across 10+ threshold values to locate optimal operating sensitivity.
-              </p>
-              <p>
-                &bull; <b>Image Preprocessing:</b> Built an automated OpenCV pipeline for stroke binarization, noise attenuation, and contour aspect ratio normalization.
-              </p>
-            </div>
-
-            <div className="tech mono">
-              <span>PYTORCH</span>
-              <span>CONTRASTIVE LOSS</span>
-              <span>OPENCV</span>
-              <span>CEDAR / ICDAR 2011</span>
-            </div>
+              <rect x="270" y="20" width="95" height="70" fill="#14171E" stroke="#FF4625" rx="2" />
+              <text x="278" y="38" fill="#FF4625" fontSize="8" fontFamily="monospace">12× ENCODERS</text>
+              <text x="278" y="54" fill="#8E909A" fontSize="7" fontFamily="monospace">12-Head Self-Attn</text>
+              <text x="278" y="70" fill="#8E909A" fontSize="7" fontFamily="monospace">MLP (3072)</text>
+            </svg>
           </div>
+
+          <a href="https://github.com/Ksrisaitej" target="_blank" rel="noopener noreferrer" className="apollo-news-link">
+            EXPLORE REPOSITORY &rarr;
+          </a>
+        </div>
+
+        {/* Card 3: Micrograd Autograd DAG */}
+        <div className="apollo-news-card apollo-news-notch-br">
+          <div className="apollo-news-pin" aria-hidden="true" />
+          <div className="apollo-news-top">
+            <div className="apollo-news-tag">CORE MATHEMATICS</div>
+            <h3 className="apollo-news-title">MICROGRAD: SCALAR AUTOGRAD ENGINE</h3>
+            <p className="apollo-news-desc">
+              Dynamic computational graph construction with topological DAG reverse-mode automatic differentiation. Modular Neuron, Layer, and MLP classes verified against PyTorch to machine precision.
+            </p>
+          </div>
+
+          <div className="apollo-news-schematic">
+            <svg viewBox="0 0 380 120">
+              <rect width="380" height="120" fill="#0A0D10" />
+              <circle cx="45" cy="40" r="14" fill="#14171E" stroke="#FF4625" />
+              <text x="39" y="43" fill="#F4F3EE" fontSize="7.5" fontFamily="monospace">x_1</text>
+
+              <circle cx="45" cy="80" r="14" fill="#14171E" stroke="#FF4625" />
+              <text x="39" y="83" fill="#F4F3EE" fontSize="7.5" fontFamily="monospace">w_1</text>
+
+              <line x1="59" y1="40" x2="110" y2="60" stroke="rgba(255,255,255,0.2)" />
+              <line x1="59" y1="80" x2="110" y2="60" stroke="rgba(255,255,255,0.2)" />
+
+              <circle cx="125" cy="60" r="15" fill="#14171E" stroke="#FFFFFF" />
+              <text x="121" y="64" fill="#FFFFFF" fontSize="9" fontFamily="monospace">&times;</text>
+
+              <line x1="140" y1="60" x2="195" y2="60" stroke="rgba(255,255,255,0.2)" />
+              <rect x="200" y="45" width="55" height="30" fill="#14171E" stroke="#FF4625" rx="2" />
+              <text x="212" y="63" fill="#FF4625" fontSize="8" fontFamily="monospace">tanh</text>
+
+              <line x1="255" y1="60" x2="295" y2="60" stroke="#FF4625" strokeWidth="1.5" />
+              <circle cx="310" cy="60" r="14" fill="#14171E" stroke="#FFFFFF" />
+              <text x="306" y="63" fill="#FFFFFF" fontSize="8" fontFamily="monospace">L</text>
+            </svg>
+          </div>
+
+          <a href="https://github.com/Ksrisaitej" target="_blank" rel="noopener noreferrer" className="apollo-news-link">
+            EXPLORE REPOSITORY &rarr;
+          </a>
         </div>
       </div>
     </section>
@@ -840,7 +797,7 @@ function FromScratchSection() {
 }
 
 /* ==================================================
-   SECTION 03: FUTURE HORIZONS (ROBOTICS, 3D & VLA)
+   SECTION 04: ROBOTICS & 3D PERCEPTION
    ================================================== */
 function RoboticsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -872,105 +829,108 @@ function RoboticsSection() {
   }, [scrollYProgress]);
 
   return (
-    <section id="robotics" className="section action" ref={containerRef}>
-      <SectionHeader
-        n="03"
-        label="FUTURE RESEARCH HORIZONS"
-        title={"ROBOTICS, 3D PERCEPTION\n&amp; EMBODIED ACTION."}
-        body="Connecting computer vision with the physical world: spatial 3D perception, local costmap collision avoidance, and Vision-Language-Action (VLA) robotic policies."
-      />
+    <section id="robotics" className="apollo-section" ref={containerRef}>
+      <div className="apollo-header">
+        <span className="apollo-tag">/ 04.00 EMBODIED ACTION &amp; SPATIAL AI</span>
+        <h2 className="apollo-title">ROBOTICS &amp; 3D</h2>
+        <p className="apollo-desc">
+          Connecting visual perception with physical agency: spatial 3D voxel representations, local costmap collision avoidance, and Vision-Language-Action (VLA) robotic policies.
+        </p>
+      </div>
 
       {/* Interactive Path Planning & Obstacle Costmap Simulation */}
-      <div className="planning-scene-container" role="img" aria-label="Interactive robotics collision avoidance path planning simulation">
-        <svg viewBox="0 0 1000 450" className="planning-canvas">
-          <defs>
-            <pattern id="gridPatternRobotics" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="1" />
-            </pattern>
-            <filter id="glowPath">
-              <feDropShadow dx="0" dy="0" stdDeviation="4" floodColor="#3F5CFF" floodOpacity="0.8" />
-            </filter>
-          </defs>
+      <div className="apollo-robotics-canvas-wrap">
+        <div className="planning-scene-container" role="img" aria-label="Interactive robotics collision avoidance path planning simulation">
+          <svg viewBox="0 0 1000 450" className="planning-canvas">
+            <defs>
+              <pattern id="gridPatternRobotics" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="1" />
+              </pattern>
+              <filter id="glowPathApollo">
+                <feDropShadow dx="0" dy="0" stdDeviation="5" floodColor="#FF4625" floodOpacity="0.9" />
+              </filter>
+            </defs>
 
-          <rect width="1000" height="450" fill="#07080A" />
-          <rect width="1000" height="450" fill="url(#gridPatternRobotics)" />
+            <rect width="1000" height="450" fill="#07080A" />
+            <rect width="1000" height="450" fill="url(#gridPatternRobotics)" />
 
-          {/* Obstacle Costmap Zones */}
-          <g>
-            <rect x="180" y="160" width="120" height="100" fill="#0E1217" stroke="rgba(255, 255, 255, 0.15)" />
-            <text x="200" y="215" fill="#8C8D88" fontSize="8" fontFamily="monospace">OBS_01 [STATIC]</text>
-          </g>
+            {/* Obstacle Costmap Zones */}
+            <g>
+              <rect x="180" y="160" width="120" height="100" fill="#12151B" stroke="#FF4625" strokeWidth="1" />
+              <text x="195" y="215" fill="#FF4625" fontSize="8" fontFamily="monospace">OBS_01 [STATIC COSTMAP]</text>
+            </g>
 
-          <g>
-            <circle cx="430" cy="270" r="55" fill="#0E1217" stroke="rgba(255, 255, 255, 0.15)" />
-            <text x="400" y="275" fill="#8C8D88" fontSize="8" fontFamily="monospace">OBS_02 [ZONE]</text>
-          </g>
+            <g>
+              <circle cx="430" cy="270" r="55" fill="#12151B" stroke="#FF4625" strokeWidth="1" />
+              <text x="395" y="275" fill="#FF4625" fontSize="8" fontFamily="monospace">OBS_02 [DYNAMIC ZONE]</text>
+            </g>
 
-          <g>
-            <rect x="650" y="120" width="140" height="90" fill="#0E1217" stroke="rgba(255, 255, 255, 0.15)" />
-            <text x="670" y="170" fill="#8C8D88" fontSize="8" fontFamily="monospace">OBS_03 [BOUNDARY]</text>
-          </g>
+            <g>
+              <rect x="650" y="120" width="140" height="90" fill="#12151B" stroke="#FF4625" strokeWidth="1" />
+              <text x="665" y="170" fill="#FF4625" fontSize="8" fontFamily="monospace">OBS_03 [BOUNDARY]</text>
+            </g>
 
-          {/* Reference Static Trajectory */}
-          <path d={trajectoryD} fill="none" stroke="rgba(255, 255, 255, 0.1)" strokeWidth="2" strokeDasharray="6 6" />
+            {/* Reference Trajectory */}
+            <path d={trajectoryD} fill="none" stroke="rgba(255, 255, 255, 0.12)" strokeWidth="2" strokeDasharray="6 6" />
 
-          {/* Active Generated Trajectory */}
-          <motion.path
-            ref={pathRef}
-            d={trajectoryD}
-            fill="none"
-            stroke="#3F5CFF"
-            strokeWidth="3.5"
-            filter="url(#glowPath)"
-            style={{ pathLength: pathScale }}
-          />
+            {/* Active Generated Trajectory */}
+            <motion.path
+              ref={pathRef}
+              d={trajectoryD}
+              fill="none"
+              stroke="#FF4625"
+              strokeWidth="4"
+              filter="url(#glowPathApollo)"
+              style={{ pathLength: pathScale }}
+            />
 
-          {/* Waypoints */}
-          <circle cx="80" cy="360" r="5" fill="#070809" stroke="#F2F1ED" strokeWidth="2" />
-          <text x="55" y="390" fill="#8C8D88" fontSize="9" fontFamily="monospace">START [q_init]</text>
+            {/* Waypoints */}
+            <circle cx="80" cy="360" r="5" fill="#070809" stroke="#FFFFFF" strokeWidth="2" />
+            <text x="50" y="390" fill="#8E909A" fontSize="9" fontFamily="monospace">START [q_init]</text>
 
-          <circle cx="320" cy="290" r="4" fill="#3F5CFF" />
-          <text x="310" y="275" fill="#8C8D88" fontSize="8" fontFamily="monospace">WP_01</text>
+            <circle cx="320" cy="290" r="4" fill="#FF4625" />
+            <text x="310" y="275" fill="#8E909A" fontSize="8" fontFamily="monospace">WP_01</text>
 
-          <circle cx="560" cy="160" r="4" fill="#3F5CFF" />
-          <text x="550" y="145" fill="#8C8D88" fontSize="8" fontFamily="monospace">WP_02</text>
+            <circle cx="560" cy="160" r="4" fill="#FF4625" />
+            <text x="550" y="145" fill="#8E909A" fontSize="8" fontFamily="monospace">WP_02</text>
 
-          <circle cx="920" cy="100" r="7" fill="none" stroke="#3F5CFF" strokeWidth="1.5" />
-          <circle cx="920" cy="100" r="3" fill="#3F5CFF" />
-          <text x="880" y="80" fill="#3F5CFF" fontSize="9" fontFamily="monospace">TARGET [q_goal]</text>
+            <circle cx="920" cy="100" r="8" fill="none" stroke="#FF4625" strokeWidth="2" />
+            <circle cx="920" cy="100" r="3" fill="#FF4625" />
+            <text x="870" y="80" fill="#FF4625" fontSize="9" fontFamily="monospace">TARGET [q_goal]</text>
 
-          {/* Mobile Robot Agent */}
-          <g transform={`translate(${robotPos.x}, ${robotPos.y}) rotate(${robotPos.angle})`}>
-            <path d="M 0 0 L 40 -20 L 40 20 Z" fill="rgba(63, 92, 255, 0.08)" stroke="rgba(63, 92, 255, 0.3)" strokeWidth="1" />
-            <circle cx="0" cy="0" r="13" fill="#0F1114" stroke="#F2F1ED" strokeWidth="1.5" />
-            <circle cx="0" cy="0" r="5" fill="#3F5CFF" />
-            <line x1="0" y1="0" x2="16" y2="0" stroke="#526CFF" strokeWidth="1.5" />
-          </g>
-        </svg>
+            {/* Mobile Robot Agent */}
+            <g transform={`translate(${robotPos.x}, ${robotPos.y}) rotate(${robotPos.angle})`}>
+              <path d="M 0 0 L 40 -20 L 40 20 Z" fill="rgba(255, 70, 37, 0.12)" stroke="rgba(255, 70, 37, 0.4)" strokeWidth="1" />
+              <circle cx="0" cy="0" r="14" fill="#0E1013" stroke="#FFFFFF" strokeWidth="1.5" />
+              <circle cx="0" cy="0" r="5" fill="#FF4625" />
+              <line x1="0" y1="0" x2="16" y2="0" stroke="#FF4625" strokeWidth="2" />
+            </g>
+          </svg>
 
-        <div className="planning-caption mono">
-          PERCEPTION-INFORMED TRAJECTORY GENERATION &bull; LOCAL COSTMAP EVALUATION
+          <div className="planning-caption mono">
+            PERCEPTION-INFORMED TRAJECTORY GENERATION &bull; LOCAL COSTMAP EVALUATION
+          </div>
         </div>
       </div>
 
-      {/* 3 Research Focus Cards */}
-      <div className="horizons-grid">
-        <div className="horizon-card">
-          <span className="mono horizon-num">03.01 // SPATIAL</span>
+      {/* 3 Apollo Horizon Cards */}
+      <div className="apollo-horizons-grid">
+        <div className="apollo-horizon-card">
+          <span className="apollo-horizon-num">04.01 // SPATIAL</span>
           <h4>3D PERCEPTION</h4>
           <p>
             Representing physical environments via depth maps, point clouds, and spatial voxel grids. Transitioning from 2D pixel coordinates to metric 3D bounding geometry.
           </p>
         </div>
-        <div className="horizon-card">
-          <span className="mono horizon-num">03.02 // EMBODIED</span>
+        <div className="apollo-horizon-card">
+          <span className="apollo-horizon-num">04.02 // EMBODIED</span>
           <h4>ROBOTIC TRAJECTORY PLANNING</h4>
           <p>
             Autonomous obstacle avoidance and path generation across dynamic local costmaps. Coordinating perception inputs with real-time kinodynamic constraints.
           </p>
         </div>
-        <div className="horizon-card">
-          <span className="mono horizon-num">03.03 // MULTIMODAL</span>
+        <div className="apollo-horizon-card">
+          <span className="apollo-horizon-num">04.03 // MULTIMODAL</span>
           <h4>VISION-LANGUAGE-ACTION (VLA)</h4>
           <p>
             Investigating end-to-end multimodal policies that ground natural language instructions directly into robotic manipulation and continuous action tokens.
@@ -982,79 +942,80 @@ function RoboticsSection() {
 }
 
 /* ==================================================
-   SECTION 04: SKILLS & COMPETENCIES MATRIX
+   SECTION 05: TECHNICAL COMPETENCIES (APOLLO CHASSIS)
    ================================================== */
 function SkillsSection() {
   return (
-    <section id="skills" className="section research">
-      <SectionHeader
-        n="04"
-        label="TECHNICAL COMPETENCIES"
-        title={"SKILLS &amp; ML WORKFLOW."}
-        body="Core languages, deep learning architectures, and classical machine learning methods verified across hands-on implementations."
-      />
+    <section id="skills" className="apollo-section">
+      <div className="apollo-header">
+        <span className="apollo-tag">/ 05.00 TECHNICAL MATRIX</span>
+        <h2 className="apollo-title">COMPETENCIES</h2>
+        <p className="apollo-desc">
+          Core languages, deep learning architectures, and classical machine learning methods verified across hands-on implementations.
+        </p>
+      </div>
 
-      <div className="skills-blueprint-grid">
+      <div className="apollo-skills-grid">
         {/* Category 1: Core Stack */}
-        <div className="skill-col">
-          <div className="skill-head mono">
-            <span className="skill-cat-title">01 // CORE &amp; LANGUAGES</span>
+        <div className="apollo-skill-chassis">
+          <div className="apollo-skill-header">
+            <span className="apollo-skill-cat">01 // CORE &amp; LANGUAGES</span>
           </div>
-          <ul className="skill-list">
-            <li><span>Python</span> <span className="mono skill-badge">Primary</span></li>
-            <li><span>PyTorch</span> <span className="mono skill-badge">From Scratch</span></li>
-            <li><span>NumPy</span> <span className="mono skill-badge">Linear Algebra</span></li>
-            <li><span>pandas</span> <span className="mono skill-badge">Data Pipelines</span></li>
-            <li><span>scikit-learn</span> <span className="mono skill-badge">ML Baseline</span></li>
-            <li><span>OpenCV</span> <span className="mono skill-badge">CV Preprocessing</span></li>
-            <li><span>Git / GitHub</span> <span className="mono skill-badge">Version Control</span></li>
+          <ul className="apollo-skill-items">
+            <li><span>Python</span> <span className="apollo-skill-pill pill-hot">Primary</span></li>
+            <li><span>PyTorch</span> <span className="apollo-skill-pill pill-hot">From Scratch</span></li>
+            <li><span>NumPy</span> <span className="apollo-skill-pill">Linear Algebra</span></li>
+            <li><span>pandas</span> <span className="apollo-skill-pill">Pipelines</span></li>
+            <li><span>scikit-learn</span> <span className="apollo-skill-pill">ML Baseline</span></li>
+            <li><span>OpenCV</span> <span className="apollo-skill-pill">Preprocessing</span></li>
+            <li><span>Git / GitHub</span> <span className="apollo-skill-pill">Version Control</span></li>
           </ul>
         </div>
 
         {/* Category 2: Deep Learning */}
-        <div className="skill-col">
-          <div className="skill-head mono">
-            <span className="skill-cat-title">02 // DEEP LEARNING</span>
+        <div className="apollo-skill-chassis">
+          <div className="apollo-skill-header">
+            <span className="apollo-skill-cat">02 // DEEP LEARNING</span>
           </div>
-          <ul className="skill-list">
-            <li><span>Transformers</span> <span className="mono skill-badge">From Scratch</span></li>
-            <li><span>Vision Transformers (ViT)</span> <span className="mono skill-badge">ViT-B/16</span></li>
-            <li><span>CNN &amp; ResNet</span> <span className="mono skill-badge">Transfer Learning</span></li>
-            <li><span>LSTM &amp; Sequence</span> <span className="mono skill-badge">Time Series</span></li>
-            <li><span>Siamese Networks</span> <span className="mono skill-badge">Contrastive Loss</span></li>
-            <li><span>Self-Attention</span> <span className="mono skill-badge">Multi-Head</span></li>
-            <li><span>BPE Tokenization</span> <span className="mono skill-badge">From Scratch</span></li>
+          <ul className="apollo-skill-items">
+            <li><span>Transformers</span> <span className="apollo-skill-pill pill-hot">From Scratch</span></li>
+            <li><span>Vision Transformers</span> <span className="apollo-skill-pill pill-hot">ViT-B/16</span></li>
+            <li><span>CNN &amp; ResNet</span> <span className="apollo-skill-pill">Transfer Learning</span></li>
+            <li><span>LSTM &amp; Sequence</span> <span className="apollo-skill-pill">Time Series</span></li>
+            <li><span>Siamese Networks</span> <span className="apollo-skill-pill">Contrastive Loss</span></li>
+            <li><span>Self-Attention</span> <span className="apollo-skill-pill">Multi-Head</span></li>
+            <li><span>BPE Tokenization</span> <span className="apollo-skill-pill pill-hot">From Scratch</span></li>
           </ul>
         </div>
 
         {/* Category 3: Classical ML & Methods */}
-        <div className="skill-col">
-          <div className="skill-head mono">
-            <span className="skill-cat-title">03 // MACHINE LEARNING</span>
+        <div className="apollo-skill-chassis">
+          <div className="apollo-skill-header">
+            <span className="apollo-skill-cat">03 // MACHINE LEARNING</span>
           </div>
-          <ul className="skill-list">
-            <li><span>Supervised Learning</span> <span className="mono skill-badge">Classification</span></li>
-            <li><span>Unsupervised Learning</span> <span className="mono skill-badge">Clustering</span></li>
-            <li><span>Transfer Learning</span> <span className="mono skill-badge">Pretrained</span></li>
-            <li><span>Time Series Modeling</span> <span className="mono skill-badge">Multivariate</span></li>
-            <li><span>Support Vector Machines</span> <span className="mono skill-badge">RBF Kernel</span></li>
-            <li><span>Manual Backpropagation</span> <span className="mono skill-badge">Autograd DAG</span></li>
-            <li><span>ROC &amp; FAR/FRR Evaluation</span> <span className="mono skill-badge">Metrics</span></li>
+          <ul className="apollo-skill-items">
+            <li><span>Supervised Learning</span> <span className="apollo-skill-pill">Classification</span></li>
+            <li><span>Unsupervised Learning</span> <span className="apollo-skill-pill">Clustering</span></li>
+            <li><span>Transfer Learning</span> <span className="apollo-skill-pill">Pretrained</span></li>
+            <li><span>Time Series Modeling</span> <span className="apollo-skill-pill">Multivariate</span></li>
+            <li><span>Support Vector Machines</span> <span className="apollo-skill-pill">RBF Kernel</span></li>
+            <li><span>Manual Backprop</span> <span className="apollo-skill-pill pill-hot">Autograd DAG</span></li>
+            <li><span>FAR &amp; FRR Evaluation</span> <span className="apollo-skill-pill">ROC Metrics</span></li>
           </ul>
         </div>
 
-        {/* Category 4: Research Interests */}
-        <div className="skill-col">
-          <div className="skill-head mono">
-            <span className="skill-cat-title">04 // RESEARCH DIRECTIONS</span>
+        {/* Category 4: Research Directions */}
+        <div className="apollo-skill-chassis">
+          <div className="apollo-skill-header">
+            <span className="apollo-skill-cat">04 // RESEARCH DIRECTIONS</span>
           </div>
-          <ul className="skill-list">
-            <li><span>Computer Vision</span> <span className="mono skill-badge primary-badge">Primary Focus</span></li>
-            <li><span>Object Detection &amp; Tracking</span> <span className="mono skill-badge primary-badge">Real-Time</span></li>
-            <li><span>3D Perception</span> <span className="mono skill-badge">Spatial Geometry</span></li>
-            <li><span>Generative Modeling</span> <span className="mono skill-badge">Latent Priors</span></li>
-            <li><span>Multimodal Learning</span> <span className="mono skill-badge">Vision-Language</span></li>
-            <li><span>Robotics &amp; VLA</span> <span className="mono skill-badge">Embodied Policies</span></li>
+          <ul className="apollo-skill-items">
+            <li><span>Computer Vision</span> <span className="apollo-skill-pill pill-hot">Primary Focus</span></li>
+            <li><span>Object Detection &amp; Tracking</span> <span className="apollo-skill-pill pill-hot">Real-Time</span></li>
+            <li><span>3D Spatial Perception</span> <span className="apollo-skill-pill">Metric Geometry</span></li>
+            <li><span>Generative Modeling</span> <span className="apollo-skill-pill">Latent Priors</span></li>
+            <li><span>Multimodal Learning</span> <span className="apollo-skill-pill">Vision-Language</span></li>
+            <li><span>Robotics &amp; VLA</span> <span className="apollo-skill-pill pill-hot">Embodied Policies</span></li>
           </ul>
         </div>
       </div>
@@ -1063,116 +1024,63 @@ function SkillsSection() {
 }
 
 /* ==================================================
-   SECTION 05: EDUCATION, PROFILE & CONNECT
-   ================================================== */
-function AboutSection() {
-  return (
-    <section id="about" className="section about">
-      <div className="about-grid">
-        <div>
-          <div className="section-index mono">05 / PROFILE &amp; EDUCATION</div>
-          <h2>
-            PHYSICS.<br />MATHEMATICS.<br />DEEP LEARNING.
-          </h2>
-        </div>
-
-        <div className="about-copy">
-          <p>
-            I’m <b>Kadimi Sri Sai Tej</b>, a Physics undergraduate at <b>Indian Institute of Technology, Kharagpur</b> with hands-on experience designing and building machine learning architectures in PyTorch from first principles.
-          </p>
-          <p>
-            I focus on understanding models from first principles: dissecting attention mechanisms in vision transformers, implementing autograd computational graphs from scratch, and building real-time tracking algorithms to connect visual perception with embodied action.
-          </p>
-          <p>
-            Comfortable across the entire machine learning workflow — from raw architecture design and manual gradient computation to robust data pipelines and structured technical documentation.
-          </p>
-
-          <div className="education-timeline">
-            <div className="timeline-item">
-              <div className="timeline-dot" />
-              <div className="timeline-content">
-                <div className="timeline-year mono">JUL 2025 &ndash; APR 2029</div>
-                <h4>INDIAN INSTITUTE OF TECHNOLOGY, KHARAGPUR</h4>
-                <p className="mono degree">Bachelor of Science (B.S.) in Physics</p>
-                <p className="coursework">
-                  <b>Relevant Coursework:</b> Programming and Data Structures, Linear Algebra, Advanced Calculus.
-                </p>
-              </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="timeline-dot" />
-              <div className="timeline-content">
-                <div className="timeline-year mono">JUN 2023 &ndash; MAY 2025</div>
-                <h4>BHASHYAM COLLEGE OF EDUCATION, GUNTUR</h4>
-                <p className="mono degree">MPC (Mathematics, Physics, Chemistry)</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="about-connect-box mono">
-            <div className="connect-row">
-              <span className="connect-label">LOCATION:</span>
-              <span>HYDERABAD, INDIA</span>
-            </div>
-            <div className="connect-row">
-              <span className="connect-label">EMAIL:</span>
-              <a href="mailto:srisaitej999@gmail.com" className="connect-link">srisaitej999@gmail.com</a>
-            </div>
-            <div className="connect-row">
-              <span className="connect-label">PHONE:</span>
-              <a href="tel:+919014792881" className="connect-link">+91 90147 92881</a>
-            </div>
-            <div className="connect-row">
-              <span className="connect-label">GITHUB:</span>
-              <a href="https://github.com/Ksrisaitej" target="_blank" rel="noopener noreferrer" className="connect-link">github.com/Ksrisaitej &nearr;</a>
-            </div>
-            <div className="connect-row">
-              <span className="connect-label">LINKEDIN:</span>
-              <a href="https://www.linkedin.com/in/sri-sai-tej/" target="_blank" rel="noopener noreferrer" className="connect-link">linkedin.com/in/sri-sai-tej &nearr;</a>
-            </div>
-          </div>
-        </div>
-
-        <div className="about-photo" role="img" aria-label="Visual identity card for Kadimi Sri Sai Tej">
-          <div className="about-photo-reticle mono">
-            <span>IIT KHARAGPUR</span>
-            <span>[ST_PERCEPTION]</span>
-          </div>
-          <span className="mono">RESEARCH &bull; COMPUTER VISION &bull; ROBOTICS</span>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ==================================================
-   FOOTER
+   FOOTER: ICONIC FULL-BLEED INTERNATIONAL VERMILION BANNER
    ================================================== */
 function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-statement">
-        PERCEIVE.<br />LEARN.<br />ACT.
+    <footer className="apollo-footer-banner">
+      <div className="apollo-footer-cta-wrap">
+        <a href="mailto:srisaitej999@gmail.com" className="apollo-giant-cta">
+          <span>Get in Touch</span>
+          <span className="apollo-cta-arrow">&rarr;</span>
+        </a>
       </div>
-      <div className="footer-bottom">
-        <div>
-          <b>KADIMI SRI SAI TEJ</b>
-          <span className="mono">IIT KHARAGPUR &bull; COMPUTER VISION &bull; ML</span>
+
+      <div className="apollo-footer-cols">
+        <div className="apollo-footer-brand">
+          <h4>KADIMI SRI SAI TEJ</h4>
+          <p>PHYSICS UNDERGRADUATE @ IIT KHARAGPUR // ML &amp; COMPUTER VISION</p>
         </div>
-        <div className="footer-links mono">
-          <a href="#vision" className="micro-link">VISION &nearr;</a>
-          <a href="#from-scratch" className="micro-link">FROM SCRATCH &nearr;</a>
-          <a href="#robotics" className="micro-link">ROBOTICS &nearr;</a>
-          <a href="#skills" className="micro-link">SKILLS &nearr;</a>
-          <a href="#about" className="micro-link">ABOUT &nearr;</a>
-          <a href="mailto:srisaitej999@gmail.com" className="micro-link">EMAIL &nearr;</a>
+
+        <div className="apollo-footer-col">
+          <h5>RESEARCH</h5>
+          <ul>
+            <li><a href="#vision">Computer Vision</a></li>
+            <li><a href="#from-scratch">Transformers &amp; ViT</a></li>
+            <li><a href="#robotics">Robotics &amp; 3D</a></li>
+            <li><a href="#skills">Competencies</a></li>
+          </ul>
         </div>
-        <div className="final-mark">ST</div>
+
+        <div className="apollo-footer-col">
+          <h5>CONNECT</h5>
+          <ul>
+            <li><a href="mailto:srisaitej999@gmail.com">srisaitej999@gmail.com</a></li>
+            <li><a href="tel:+919014792881">+91 90147 92881</a></li>
+            <li><a href="https://github.com/Ksrisaitej" target="_blank" rel="noopener noreferrer">GitHub &nearr;</a></li>
+            <li><a href="https://www.linkedin.com/in/sri-sai-tej/" target="_blank" rel="noopener noreferrer">LinkedIn &nearr;</a></li>
+          </ul>
+        </div>
+
+        <div className="apollo-footer-col">
+          <h5>ACADEMIC</h5>
+          <ul>
+            <li><a href="#about">IIT Kharagpur (2025–2029)</a></li>
+            <li><a href="#about">B.S. in Physics</a></li>
+            <li><a href="#about">Bhashyam College (MPC)</a></li>
+            <li><a href="#about">Hyderabad, India</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="apollo-footer-bottom-bar">
+        <span>&copy; {new Date().getFullYear()} KADIMI SRI SAI TEJ &bull; IIT KHARAGPUR</span>
+        <span>DESIGN INSPIRED BY APOLLO &bull; INTERNATIONAL VERMILION &bull; WCAG 2.2 AA</span>
       </div>
     </footer>
   );
 }
+
 
 /* ==================================================
    ROOT PAGE

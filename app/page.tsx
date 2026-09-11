@@ -59,11 +59,10 @@ interface ShowcaseProject {
   id: string;
   num: string;
   title: string;
-  category: "CV" | "DEEP LEARNING" | "SIGNAL / IOT" | "AI & ML";
+  category: "CV" | "DEEP LEARNING" | "SIGNAL / IOT";
   year: string;
   description: string;
   tags: string[];
-  image: string;
   githubUrl: string;
 }
 
@@ -76,7 +75,6 @@ const showcaseProjects: ShowcaseProject[] = [
     year: "2025",
     description: "Fine-grained visual categorization across 102 flower species employing deep residual backbones (ResNet) with transfer learning and extensive augmentation.",
     tags: ["CNN", "Transfer Learning", "PyTorch", "ResNet"],
-    image: "/projects/flower-classification.png",
     githubUrl: "https://github.com/Ksrisaitej",
   },
   {
@@ -87,7 +85,6 @@ const showcaseProjects: ShowcaseProject[] = [
     year: "2025",
     description: "One-shot biometric verification framework utilizing twin convolutional neural networks with contrastive loss to authenticate handwritten signatures.",
     tags: ["Siamese Network", "Contrastive Loss", "One-Shot Learning"],
-    image: "/projects/signature-approval.png",
     githubUrl: "https://github.com/Ksrisaitej",
   },
   {
@@ -98,7 +95,6 @@ const showcaseProjects: ShowcaseProject[] = [
     year: "2025",
     description: "Spatial-temporal sequential network combining 1D CNN feature extractors with recurrent LSTM memory cells for multivariate temporal series classification.",
     tags: ["CNN", "LSTM", "Time Series", "Deep Learning"],
-    image: "/projects/leviathan-timeseries.png",
     githubUrl: "https://github.com/Ksrisaitej",
   },
   {
@@ -109,7 +105,6 @@ const showcaseProjects: ShowcaseProject[] = [
     year: "2025",
     description: "Hardware-integrated edge safety system with MPU6050 6-axis IMU fall detection logic, instant GPS coordinates, and GSM emergency alerting.",
     tags: ["MPU6050", "GPS", "GSM", "IIT KGP"],
-    image: "/projects/smart-helmet.png",
     githubUrl: "https://github.com/Ksrisaitej",
   },
   {
@@ -120,7 +115,6 @@ const showcaseProjects: ShowcaseProject[] = [
     year: "2025",
     description: "Convolutional neural network pipeline in PyTorch for high-precision handwritten digit recognition with custom kernel visualization and evaluation.",
     tags: ["MNIST", "CNN", "PyTorch", "Deep Learning"],
-    image: "/projects/digit-recognition.png",
     githubUrl: "https://github.com/Ksrisaitej",
   },
   {
@@ -131,62 +125,6 @@ const showcaseProjects: ShowcaseProject[] = [
     year: "2025",
     description: "Signal processing and support vector machine classification system detecting transient non-stationary anomalies across physical sensor telemetry.",
     tags: ["SVM", "Scikit-Learn", "Machine Learning", "Signal Processing"],
-    image: "/projects/transient-detection.png",
-    githubUrl: "https://github.com/Ksrisaitej",
-  },
-  {
-    id: "rag-assistant",
-    num: "07",
-    title: "RAG Knowledge Assistant",
-    category: "AI & ML",
-    year: "2025",
-    description: "Retrieval-augmented generation architecture indexing domain documents into high-dimensional vector embeddings for grounded query synthesis.",
-    tags: ["RAG", "LangChain", "Vector DB", "Embeddings"],
-    image: "/projects/rag-chatbot.png",
-    githubUrl: "https://github.com/Ksrisaitej",
-  },
-  {
-    id: "trading-bot",
-    num: "08",
-    title: "Algorithmic Trading System",
-    category: "AI & ML",
-    year: "2025",
-    description: "Quantitative automated trading pipeline with statistical arbitrage signals, risk-managed backtesting, and automated market execution logic.",
-    tags: ["Quantitative Finance", "Backtesting", "Python", "Risk Modeling"],
-    image: "/projects/trading-bot.png",
-    githubUrl: "https://github.com/Ksrisaitej",
-  },
-  {
-    id: "jarvis-agent",
-    num: "09",
-    title: "JARVIS Autonomous Voice Agent",
-    category: "AI & ML",
-    year: "2025",
-    description: "Voice-driven multimodal desktop assistant leveraging local neural inference for natural language understanding and system command automation.",
-    tags: ["Local LLM", "Voice Synthesis", "Automation", "Agents"],
-    image: "/projects/jarvis-agent.png",
-    githubUrl: "https://github.com/Ksrisaitej",
-  },
-  {
-    id: "bitcoin-analysis",
-    num: "10",
-    title: "Bitcoin Volatility & Trend Analysis",
-    category: "SIGNAL / IOT",
-    year: "2025",
-    description: "Predictive econometric and machine learning analysis investigating cryptocurrency volatility surfaces and temporal regime shifts.",
-    tags: ["Time Series", "Econometrics", "Pandas", "Scikit-Learn"],
-    image: "/projects/bitcoin-analysis.png",
-    githubUrl: "https://github.com/Ksrisaitej",
-  },
-  {
-    id: "kaggle-ml",
-    num: "11",
-    title: "Kaggle Advanced ML Pipelines",
-    category: "AI & ML",
-    year: "2025",
-    description: "End-to-end competitive tabular machine learning frameworks featuring automated feature engineering, ensemble blending, and gradient boosting.",
-    tags: ["XGBoost", "LightGBM", "Ensemble", "Feature Engineering"],
-    image: "/projects/kaggle-ml.png",
     githubUrl: "https://github.com/Ksrisaitej",
   },
 ];
@@ -693,6 +631,375 @@ function Perception() {
   );
 }
 
+function ProjectSchematic({ id }: { id: string }) {
+  if (id === "flower-cls") {
+    return (
+      <svg viewBox="0 0 400 240" className="project-schematic-svg" aria-label="Oxford 102 CNN Feature Extraction Blueprint">
+        <defs>
+          <linearGradient id="flowerGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="rgba(200, 245, 66, 0.25)" />
+            <stop offset="100%" stopColor="rgba(63, 92, 255, 0.05)" />
+          </linearGradient>
+        </defs>
+        <rect width="400" height="240" fill="#07080A" />
+
+        {/* Feature Map Segmentation Contours */}
+        <g transform="translate(25, 30)">
+          <rect x="0" y="0" width="145" height="145" fill="#0A0D10" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
+          {/* Bounding ROI */}
+          <rect x="22" y="22" width="100" height="100" fill="url(#flowerGrad)" stroke="#C8F542" strokeWidth="1.2" strokeDasharray="3 3" />
+          {/* Petal contour lines */}
+          <path d="M 72 32 C 85 47, 85 62, 72 72 C 59 62, 59 47, 72 32 Z" fill="rgba(200, 245, 66, 0.25)" stroke="#C8F542" strokeWidth="1" />
+          <path d="M 112 72 C 97 85, 82 85, 72 72 C 82 59, 97 59, 112 72 Z" fill="rgba(200, 245, 66, 0.25)" stroke="#C8F542" strokeWidth="1" />
+          <path d="M 72 112 C 59 97, 59 82, 72 72 C 85 82, 85 97, 72 112 Z" fill="rgba(200, 245, 66, 0.25)" stroke="#C8F542" strokeWidth="1" />
+          <path d="M 32 72 C 47 59, 62 59, 72 72 C 62 85, 47 85, 32 72 Z" fill="rgba(200, 245, 66, 0.25)" stroke="#C8F542" strokeWidth="1" />
+          <circle cx="72" cy="72" r="7" fill="#C8F542" />
+          {/* Reticle ticks */}
+          <line x1="17" y1="22" x2="27" y2="22" stroke="#C8F542" strokeWidth="1.5" />
+          <line x1="22" y1="17" x2="22" y2="27" stroke="#C8F542" strokeWidth="1.5" />
+          <line x1="117" y1="122" x2="127" y2="122" stroke="#C8F542" strokeWidth="1.5" />
+          <line x1="122" y1="117" x2="122" y2="127" stroke="#C8F542" strokeWidth="1.5" />
+          <text x="4" y="160" fill="#666763" fontSize="8" fontFamily="monospace">ROI [X: 112, Y: 84, S: 224×224]</text>
+        </g>
+
+        {/* Neural Network Decomposition Diagram */}
+        <g transform="translate(195, 30)">
+          <text x="0" y="10" fill="#A0A09B" fontSize="8.5" fontFamily="monospace" fontWeight="bold">RESNET-50 FEATURE MAP</text>
+          
+          {/* Layer Flow */}
+          <rect x="0" y="20" width="70" height="20" fill="#111317" stroke="rgba(255,255,255,0.15)" rx="2" />
+          <text x="8" y="33" fill="#F2F1ED" fontSize="7.5" fontFamily="monospace">CONV 7×7</text>
+
+          <line x1="70" y1="30" x2="88" y2="30" stroke="#C8F542" strokeWidth="1.2" />
+
+          <rect x="88" y="20" width="88" height="20" fill="#111317" stroke="#3F5CFF" rx="2" />
+          <text x="94" y="33" fill="#3F5CFF" fontSize="7.5" fontFamily="monospace">RES-BLOCK [×4]</text>
+
+          {/* Skip connection arc */}
+          <path d="M 35 20 C 35 5, 132 5, 132 20" fill="none" stroke="#C8F542" strokeWidth="1.2" strokeDasharray="3 2" />
+          <text x="65" y="10" fill="#C8F542" fontSize="7" fontFamily="monospace">x + F(x)</text>
+
+          {/* Classification Probabilities */}
+          <text x="0" y="65" fill="#A0A09B" fontSize="8" fontFamily="monospace">SOFTMAX PREDICTION:</text>
+          
+          {/* Bar 1 */}
+          <text x="0" y="82" fill="#C8F542" fontSize="8" fontFamily="monospace">0102 // PASSION FLOWER</text>
+          <rect x="0" y="87" width="135" height="5" fill="rgba(255,255,255,0.08)" rx="1" />
+          <rect x="0" y="87" width="130" height="5" fill="#C8F542" rx="1" />
+          <text x="142" y="92" fill="#C8F542" fontSize="8" fontFamily="monospace">98.4%</text>
+
+          {/* Bar 2 */}
+          <text x="0" y="108" fill="#777873" fontSize="8" fontFamily="monospace">0044 // CANTERBURY BELLS</text>
+          <rect x="0" y="113" width="135" height="4" fill="rgba(255,255,255,0.08)" rx="1" />
+          <rect x="0" y="113" width="10" height="4" fill="#777873" rx="1" />
+          <text x="142" y="117" fill="#777873" fontSize="8" fontFamily="monospace">1.2%</text>
+
+          {/* Bar 3 */}
+          <text x="0" y="132" fill="#555652" fontSize="8" fontFamily="monospace">0089 // WATER LILY</text>
+          <rect x="0" y="137" width="135" height="4" fill="rgba(255,255,255,0.08)" rx="1" />
+          <rect x="0" y="137" width="4" height="4" fill="#555652" rx="1" />
+          <text x="142" y="141" fill="#555652" fontSize="8" fontFamily="monospace">0.4%</text>
+        </g>
+
+        {/* Footer Telemetry */}
+        <line x1="20" y1="200" x2="380" y2="200" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+        <text x="20" y="218" fill="#62635F" fontSize="8" fontFamily="monospace">PYTORCH RESNET-50 // 102 CLASSES // TEST ACCURACY: 94.8%</text>
+      </svg>
+    );
+  }
+
+  if (id === "signature-verify") {
+    return (
+      <svg viewBox="0 0 400 240" className="project-schematic-svg" aria-label="Siamese Network Signature Verification Blueprint">
+        <rect width="400" height="240" fill="#07080A" />
+
+        {/* Top Branch: Reference Signature */}
+        <g transform="translate(25, 25)">
+          <rect x="0" y="0" width="155" height="58" fill="#0A0D10" stroke="rgba(56, 189, 248, 0.3)" rx="2" />
+          <text x="8" y="14" fill="#38BDF8" fontSize="8" fontFamily="monospace">REFERENCE (X1) // REGISTERED</text>
+          <path d="M 15 44 C 35 20, 45 54, 65 29 S 95 48, 115 24 S 138 44, 146 34" fill="none" stroke="#F2F1ED" strokeWidth="1.6" />
+          <circle cx="15" cy="44" r="2.5" fill="#38BDF8" />
+          <circle cx="65" cy="29" r="2.5" fill="#38BDF8" />
+          <circle cx="115" cy="24" r="2.5" fill="#38BDF8" />
+        </g>
+
+        {/* Bottom Branch: Input Signature */}
+        <g transform="translate(25, 98)">
+          <rect x="0" y="0" width="155" height="58" fill="#0A0D10" stroke="rgba(255, 255, 255, 0.15)" rx="2" />
+          <text x="8" y="14" fill="#A0A09B" fontSize="8" fontFamily="monospace">TEST SAMPLE (X2) // CLAIMED</text>
+          <path d="M 15 43 C 36 21, 46 53, 66 30 S 96 47, 116 25 S 137 45, 145 35" fill="none" stroke="#A0A09B" strokeWidth="1.6" strokeDasharray="4 2" />
+          <circle cx="15" cy="43" r="2" fill="#38BDF8" />
+          <circle cx="66" cy="30" r="2" fill="#38BDF8" />
+          <circle cx="116" cy="25" r="2" fill="#38BDF8" />
+        </g>
+
+        {/* Twin CNN Encoders and Convergence */}
+        <g transform="translate(200, 36)">
+          <rect x="0" y="0" width="55" height="28" fill="#11141A" stroke="#38BDF8" rx="2" />
+          <text x="6" y="17" fill="#38BDF8" fontSize="8" fontFamily="monospace">CNN G_W</text>
+
+          <rect x="0" y="74" width="55" height="28" fill="#11141A" stroke="#38BDF8" rx="2" />
+          <text x="6" y="91" fill="#38BDF8" fontSize="8" fontFamily="monospace">CNN G_W</text>
+
+          <path d="M 55 14 L 85 51" stroke="#38BDF8" strokeWidth="1.2" />
+          <path d="M 55 88 L 85 51" stroke="#38BDF8" strokeWidth="1.2" />
+
+          {/* Distance Metric Comparator */}
+          <circle cx="100" cy="51" r="15" fill="#0E1217" stroke="#38BDF8" strokeWidth="1.5" />
+          <text x="92" y="54" fill="#F2F1ED" fontSize="8.5" fontFamily="monospace">D_w</text>
+
+          <line x1="115" y1="51" x2="135" y2="51" stroke="#38BDF8" strokeWidth="1.5" />
+
+          {/* Verification Badge */}
+          <rect x="135" y="38" width="45" height="26" fill="rgba(56, 189, 248, 0.15)" stroke="#38BDF8" rx="2" />
+          <text x="140" y="54" fill="#38BDF8" fontSize="8" fontFamily="monospace" fontWeight="bold">PASS</text>
+        </g>
+
+        {/* Bottom Distance Metric Display */}
+        <g transform="translate(25, 172)">
+          <rect x="0" y="0" width="350" height="42" fill="#0A0D10" stroke="rgba(255,255,255,0.08)" rx="2" />
+          <text x="10" y="16" fill="#777873" fontSize="8" fontFamily="monospace">EUCLIDEAN EMBEDDING DISTANCE:</text>
+          <text x="10" y="31" fill="#38BDF8" fontSize="9.5" fontFamily="monospace" fontWeight="bold">D_w = 0.041 &lt; THRESHOLD τ (0.500)</text>
+          <text x="210" y="31" fill="#10B981" fontSize="8.5" fontFamily="monospace">AUTHENTIC: 99.1%</text>
+        </g>
+      </svg>
+    );
+  }
+
+  if (id === "leviathan-ts") {
+    return (
+      <svg viewBox="0 0 400 240" className="project-schematic-svg" aria-label="Leviathan Time Series CNN-LSTM Blueprint">
+        <rect width="400" height="240" fill="#07080A" />
+
+        {/* Oscilloscope Grid */}
+        <line x1="25" y1="35" x2="375" y2="35" stroke="rgba(255,255,255,0.05)" />
+        <line x1="25" y1="75" x2="375" y2="75" stroke="rgba(255,255,255,0.05)" />
+        <line x1="25" y1="115" x2="375" y2="115" stroke="rgba(255,255,255,0.05)" />
+        <line x1="25" y1="155" x2="375" y2="155" stroke="rgba(255,255,255,0.05)" />
+
+        {/* Waveform Channel 1: Sensor Signal */}
+        <path
+          d="M 25 55 Q 45 20, 65 55 T 105 55 T 145 35 T 165 80 T 185 25 T 205 70 T 225 55 T 265 55 T 305 45 T 335 65 T 375 55"
+          fill="none"
+          stroke="#A78BFA"
+          strokeWidth="1.8"
+        />
+        <text x="28" y="27" fill="#A78BFA" fontSize="8" fontFamily="monospace">CH_01: MULTIVARIATE TELEMETRY STREAM [512-HZ]</text>
+
+        {/* Waveform Channel 2: 1D CNN Activation Feature Map */}
+        <path
+          d="M 25 105 Q 55 105, 85 90 T 145 105 T 175 130 T 195 75 T 215 115 T 255 105 T 315 100 T 375 105"
+          fill="none"
+          stroke="#38BDF8"
+          strokeWidth="1.4"
+          strokeDasharray="2 2"
+        />
+        <text x="28" y="95" fill="#38BDF8" fontSize="8" fontFamily="monospace">1D-CONV FEATURE MAP ACTIVATION [KERNEL: 5×1]</text>
+
+        {/* Waveform Channel 3: LSTM Recurrent Hidden State */}
+        <path
+          d="M 25 145 L 155 145 Q 175 145, 185 130 Q 195 160, 205 130 L 225 145 L 375 145"
+          fill="none"
+          stroke="#C8F542"
+          strokeWidth="1.5"
+        />
+        <text x="28" y="137" fill="#C8F542" fontSize="8" fontFamily="monospace">LSTM CELL STATE h_t // SEQUENCE ENCODING</text>
+
+        {/* Sliding Kernel Receptive Field Bracket */}
+        <rect x="160" y="30" width="55" height="130" fill="rgba(167, 139, 250, 0.1)" stroke="#A78BFA" strokeWidth="1" strokeDasharray="3 3" />
+        <text x="165" y="23" fill="#A78BFA" fontSize="7" fontFamily="monospace">WINDOW [Δt]</text>
+
+        {/* Anomaly Detection Marker */}
+        <line x1="185" y1="25" x2="185" y2="165" stroke="#EF4444" strokeWidth="1.2" />
+        <circle cx="185" cy="80" r="4" fill="#EF4444" />
+        <text x="195" y="83" fill="#EF4444" fontSize="8" fontFamily="monospace" fontWeight="bold">ANOMALY TRIGGER</text>
+
+        {/* Telemetry Bar */}
+        <g transform="translate(25, 185)">
+          <rect x="0" y="0" width="350" height="32" fill="#0A0D10" stroke="rgba(255,255,255,0.08)" rx="2" />
+          <text x="10" y="20" fill="#888984" fontSize="8" fontFamily="monospace">1D_CNN (64 FILTERS) + BIDIRECTIONAL LSTM (128 UNITS)</text>
+          <text x="265" y="20" fill="#A78BFA" fontSize="8" fontFamily="monospace">ACC: 96.8%</text>
+        </g>
+      </svg>
+    );
+  }
+
+  if (id === "smart-helmet") {
+    return (
+      <svg viewBox="0 0 400 240" className="project-schematic-svg" aria-label="Smart Helmet Accident Detection Blueprint">
+        <rect width="400" height="240" fill="#07080A" />
+
+        {/* Left Side: 3-Axis IMU Acceleration Vector Sphere */}
+        <g transform="translate(25, 25)">
+          <rect x="0" y="0" width="150" height="150" fill="#0A0D10" stroke="rgba(20, 184, 166, 0.3)" rx="2" />
+          <text x="8" y="14" fill="#14B8A6" fontSize="8" fontFamily="monospace">MPU6050 6-AXIS IMU // VECTOR</text>
+
+          <circle cx="75" cy="80" r="45" fill="none" stroke="rgba(255,255,255,0.06)" />
+          <circle cx="75" cy="80" r="30" fill="none" stroke="rgba(255,255,255,0.08)" />
+          <circle cx="75" cy="80" r="15" fill="none" stroke="rgba(255,255,255,0.1)" />
+
+          <line x1="20" y1="80" x2="130" y2="80" stroke="rgba(255,255,255,0.15)" strokeDasharray="2 2" />
+          <line x1="75" y1="25" x2="75" y2="135" stroke="rgba(255,255,255,0.15)" strokeDasharray="2 2" />
+
+          {/* Spike Vector */}
+          <line x1="75" y1="80" x2="115" y2="45" stroke="#EF4444" strokeWidth="2.5" />
+          <circle cx="115" cy="45" r="4" fill="#EF4444" />
+          
+          <text x="8" y="140" fill="#EF4444" fontSize="8" fontFamily="monospace" fontWeight="bold">|a| = 5.2g &gt; 3.0g [CRITICAL]</text>
+        </g>
+
+        {/* Right Side: Incident Dispatch Telemetry */}
+        <g transform="translate(195, 25)">
+          <text x="0" y="12" fill="#14B8A6" fontSize="9" fontFamily="monospace" fontWeight="bold">EMERGENCY TELEMETRY HUD</text>
+
+          <rect x="0" y="22" width="180" height="40" fill="#0A0D10" stroke="rgba(255,255,255,0.12)" rx="2" />
+          <text x="8" y="37" fill="#777873" fontSize="7.5" fontFamily="monospace">GPS FIX: NEO-6M SATELLITE</text>
+          <text x="8" y="52" fill="#F2F1ED" fontSize="8.5" fontFamily="monospace">22.3149° N, 87.3105° E</text>
+
+          <rect x="0" y="70" width="180" height="48" fill="#0A0D10" stroke="rgba(20, 184, 166, 0.4)" rx="2" />
+          <text x="8" y="85" fill="#14B8A6" fontSize="7.5" fontFamily="monospace">SIM800L GSM BROADCAST:</text>
+          <text x="8" y="98" fill="#F2F1ED" fontSize="7.5" fontFamily="monospace">SOS SMS → DISPATCHED</text>
+          <text x="8" y="110" fill="#10B981" fontSize="7" fontFamily="monospace">[ACK: TOWER_CONNECT_OK]</text>
+
+          {/* Badges */}
+          <g transform="translate(0, 128)">
+            <rect x="0" y="0" width="52" height="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" rx="2" />
+            <text x="8" y="12" fill="#A0A09B" fontSize="7.5" fontFamily="monospace">I2C BUS</text>
+
+            <rect x="60" y="0" width="52" height="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" rx="2" />
+            <text x="67" y="12" fill="#A0A09B" fontSize="7.5" fontFamily="monospace">AT CMD</text>
+
+            <rect x="120" y="0" width="56" height="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" rx="2" />
+            <text x="125" y="12" fill="#14B8A6" fontSize="7.5" fontFamily="monospace">IIT KGP</text>
+          </g>
+        </g>
+
+        {/* Footer Bar */}
+        <g transform="translate(25, 185)">
+          <rect x="0" y="0" width="350" height="32" fill="#0A0D10" stroke="rgba(255,255,255,0.08)" rx="2" />
+          <text x="10" y="20" fill="#888984" fontSize="8" fontFamily="monospace">EMBEDDED C++ // ISR SENSOR INTERRUPTS // REAL-TIME ACCIDENT TELEMETRY</text>
+        </g>
+      </svg>
+    );
+  }
+
+  if (id === "digit-recog") {
+    return (
+      <svg viewBox="0 0 400 240" className="project-schematic-svg" aria-label="Handwritten Digit Recognition CNN Matrix Blueprint">
+        <rect width="400" height="240" fill="#07080A" />
+
+        {/* 28x28 Subpixel Matrix (Handwritten '7') */}
+        <g transform="translate(25, 25)">
+          <rect x="0" y="0" width="145" height="145" fill="#050709" stroke="rgba(245, 158, 11, 0.3)" rx="2" />
+          <text x="6" y="12" fill="#F59E0B" fontSize="7.5" fontFamily="monospace">INPUT TENSOR: [1×28×28]</text>
+
+          <g transform="translate(20, 20)">
+            <rect x="10" y="12" width="75" height="14" fill="#F59E0B" opacity="0.9" />
+            <path d="M 85 12 L 40 85 L 25 85 L 70 12 Z" fill="#F59E0B" opacity="0.85" />
+            
+            {/* Sliding 3x3 Convolution Kernel */}
+            <rect x="38" y="24" width="24" height="24" fill="rgba(245, 158, 11, 0.2)" stroke="#F2F1ED" strokeWidth="1.2" />
+            <text x="40" y="38" fill="#F2F1ED" fontSize="6.5" fontFamily="monospace">3×3</text>
+          </g>
+
+          <text x="6" y="138" fill="#777873" fontSize="7.5" fontFamily="monospace">PIXEL VALUES: [0.0 - 1.0]</text>
+        </g>
+
+        {/* Feature Map Projection & Softmax Logits */}
+        <g transform="translate(195, 25)">
+          <text x="0" y="10" fill="#F59E0B" fontSize="8.5" fontFamily="monospace" fontWeight="bold">CONV2D → RELU → MAXPOOL</text>
+          <text x="0" y="26" fill="#777873" fontSize="7.5" fontFamily="monospace">SOFTMAX CLASSIFICATION LOGITS:</text>
+
+          {[
+            { digit: 0, prob: 0 },
+            { digit: 1, prob: 2 },
+            { digit: 2, prob: 1 },
+            { digit: 3, prob: 0 },
+            { digit: 4, prob: 0 },
+            { digit: 5, prob: 0 },
+            { digit: 6, prob: 0 },
+            { digit: 7, prob: 99.8 },
+            { digit: 8, prob: 0 },
+            { digit: 9, prob: 1 },
+          ].map((item, idx) => (
+            <g key={item.digit} transform={`translate(0, ${34 + idx * 11})`}>
+              <text x="0" y="8" fill={item.prob > 50 ? "#F59E0B" : "#555652"} fontSize="7.5" fontFamily="monospace" fontWeight={item.prob > 50 ? "bold" : "normal"}>
+                {item.digit}:
+              </text>
+              <rect x="18" y="2" width="115" height="5" fill="rgba(255,255,255,0.06)" rx="1" />
+              <rect x="18" y="2" width={item.prob > 50 ? 112 : Math.max(1, item.prob * 1.1)} height="5" fill={item.prob > 50 ? "#F59E0B" : "#777873"} rx="1" />
+              {item.prob > 50 && (
+                <text x="138" y="8" fill="#F59E0B" fontSize="7.5" fontFamily="monospace" fontWeight="bold">99.8%</text>
+              )}
+            </g>
+          ))}
+        </g>
+
+        {/* Footer */}
+        <g transform="translate(25, 185)">
+          <rect x="0" y="0" width="350" height="32" fill="#0A0D10" stroke="rgba(255,255,255,0.08)" rx="2" />
+          <text x="10" y="20" fill="#888984" fontSize="8" fontFamily="monospace">PYTORCH CNN // MNIST BENCHMARK // TRAIN LOSS: 0.0142 // TEST ACC: 99.2%</text>
+        </g>
+      </svg>
+    );
+  }
+
+  // id === "transient-svm"
+  return (
+    <svg viewBox="0 0 400 240" className="project-schematic-svg" aria-label="Transient Detection SVM Phase Space Blueprint">
+      <rect width="400" height="240" fill="#07080A" />
+
+      {/* Top: Signal Transient Waveform */}
+      <g transform="translate(25, 20)">
+        <rect x="0" y="0" width="350" height="48" fill="#0A0D10" stroke="rgba(16, 185, 129, 0.25)" rx="2" />
+        <text x="8" y="12" fill="#10B981" fontSize="7.5" fontFamily="monospace">TIME-DOMAIN TRANSIENT BURST PULSE</text>
+        
+        <path
+          d="M 10 30 L 80 30 Q 95 29, 110 30 L 130 30 L 140 14 L 146 43 L 152 12 L 158 38 L 164 30 L 340 30"
+          fill="none"
+          stroke="#F2F1ED"
+          strokeWidth="1.4"
+        />
+        <rect x="135" y="8" width="35" height="36" fill="rgba(16, 185, 129, 0.15)" stroke="#10B981" strokeWidth="1" strokeDasharray="2 2" />
+        <text x="178" y="24" fill="#10B981" fontSize="7.5" fontFamily="monospace">TRANSIENT SPIKE</text>
+      </g>
+
+      {/* Bottom: SVM Feature Space & Separating Hyperplane */}
+      <g transform="translate(25, 80)">
+        <rect x="0" y="0" width="350" height="125" fill="#0A0D10" stroke="rgba(255,255,255,0.08)" rx="2" />
+        <text x="8" y="14" fill="#777873" fontSize="7.5" fontFamily="monospace">2D FEATURE SPACE: PEAK AMPLITUDE vs RISE TIME</text>
+
+        <line x1="40" y1="105" x2="290" y2="25" stroke="#10B981" strokeWidth="1.8" />
+        <line x1="30" y1="90" x2="280" y2="10" stroke="rgba(16, 185, 129, 0.4)" strokeWidth="1.2" strokeDasharray="4 3" />
+        <line x1="50" y1="120" x2="300" y2="40" stroke="rgba(16, 185, 129, 0.4)" strokeWidth="1.2" strokeDasharray="4 3" />
+
+        {/* Support Vectors */}
+        <circle cx="110" cy="58" r="5" fill="none" stroke="#10B981" strokeWidth="1.5" />
+        <circle cx="110" cy="58" r="2.5" fill="#10B981" />
+        
+        <circle cx="210" cy="85" r="5" fill="none" stroke="#3F5CFF" strokeWidth="1.5" />
+        <circle cx="210" cy="85" r="2.5" fill="#3F5CFF" />
+
+        {/* Scatter Normal Data Points */}
+        <circle cx="190" cy="100" r="2" fill="#555652" />
+        <circle cx="230" cy="95" r="2" fill="#555652" />
+        <circle cx="250" cy="105" r="2" fill="#555652" />
+        <circle cx="180" cy="115" r="2" fill="#555652" />
+
+        {/* Scatter Transient Anomaly Points */}
+        <circle cx="70" cy="40" r="2.5" fill="#10B981" />
+        <circle cx="90" cy="30" r="2.5" fill="#10B981" />
+        <circle cx="60" cy="55" r="2.5" fill="#10B981" />
+
+        <text x="180" y="30" fill="#10B981" fontSize="7.5" fontFamily="monospace">w^T x + b = 0 [DECISION]</text>
+        <text x="118" y="70" fill="#10B981" fontSize="7" fontFamily="monospace">SUPPORT VECTOR</text>
+
+        <text x="10" y="116" fill="#62635F" fontSize="7.5" fontFamily="monospace">KERNEL: RBF (RADIAL BASIS) // C: 10.0 // MARGIN: MAXIMAL</text>
+      </g>
+    </svg>
+  );
+}
+
 function ProjectShowcase() {
   const [filter, setFilter] = useState<string>("ALL");
 
@@ -702,11 +1009,10 @@ function ProjectShowcase() {
       : showcaseProjects.filter((p) => p.category === filter);
 
   const categories = [
-    { label: "ALL WORKS (11)", value: "ALL" },
+    { label: "ALL WORKS (06)", value: "ALL" },
     { label: "COMPUTER VISION", value: "CV" },
     { label: "DEEP LEARNING", value: "DEEP LEARNING" },
     { label: "SIGNAL & IOT", value: "SIGNAL / IOT" },
-    { label: "AI & ML SYSTEMS", value: "AI & ML" },
   ];
 
   return (
@@ -735,13 +1041,7 @@ function ProjectShowcase() {
         {filteredProjects.map((project) => (
           <div className="work-card" key={project.id}>
             <div className="work-card-thumb-wrap">
-              <img
-                src={`${basePath}${project.image}`}
-                alt={project.title}
-                className="work-card-img"
-                loading="lazy"
-              />
-              <div className="work-card-thumb-overlay" />
+              <ProjectSchematic id={project.id} />
               <div className="work-card-hud-badge">
                 {project.num} // {project.category}
               </div>

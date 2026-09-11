@@ -3,9 +3,9 @@
   --bg-subtle: #0b0d0f;
   --bg-card: #0e1013;
   --fg: #f2f1ed;
-  --fg-dim: #a0a09b;
-  --muted: #62635f;
-  --muted-light: #777873;
+  --fg-dim: #b8b8b3;
+  --muted: #8c8d88;
+  --muted-light: #9e9f9a;
   --grid: rgba(255, 255, 255, 0.08);
   --grid-line: rgba(255, 255, 255, 0.08);
   --blue: #3f5cff;
@@ -24,6 +24,7 @@
 
 html {
   scroll-behavior: auto;
+  scroll-padding-top: 88px;
 }
 
 body {
@@ -33,6 +34,17 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+button, a, [role="button"] {
+  cursor: pointer;
+  touch-action: manipulation;
 }
 
 .mono {
@@ -1626,6 +1638,16 @@ a {
 @media (max-width: 768px) {
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Accessible Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

@@ -1651,3 +1651,480 @@ a {
   }
 }
 
+/* ==================================================
+   RESUME DRIVEN SHOWCASE & ARCHITECTURE BLUEPRINTS
+   ================================================== */
+.academic-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  background: rgba(63, 92, 255, 0.12);
+  border: 1px solid rgba(63, 92, 255, 0.35);
+  color: #c8f542;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  border-radius: 2px;
+}
+
+.hero-contact-hud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.hud-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: #f2f1ed;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hud-pill:hover,
+.hud-pill.link-hover:hover {
+  background: rgba(63, 92, 255, 0.12);
+  border-color: var(--blue);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(63, 92, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.hud-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+/* CV Resume Grid (ViT & Oxford) */
+.cv-resume-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.resume-project-card {
+  position: relative;
+  background: rgba(13, 15, 18, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 3px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.resume-project-card:hover {
+  border-color: rgba(63, 92, 255, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65), 0 0 24px rgba(63, 92, 255, 0.12);
+}
+
+.card-top-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-index {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--blue);
+}
+
+.card-badge {
+  background: rgba(200, 245, 66, 0.08);
+  border: 1px solid rgba(200, 245, 66, 0.28);
+  color: #c8f542;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: clamp(19px, 2.2vw, 23px);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: #f2f1ed;
+  margin: 0;
+}
+
+.card-summary {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #a4a49f;
+  margin: 0;
+}
+
+.schematic-box {
+  width: 100%;
+  background: #06080a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.resume-project-card:hover .schematic-box,
+.deep-project-card:hover .schematic-box {
+  border-color: rgba(63, 92, 255, 0.25);
+}
+
+.schematic-box .inner-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #a0a09b;
+}
+
+.card-points b {
+  color: #f2f1ed;
+  font-weight: 600;
+}
+
+.card-points code {
+  font-family: var(--font-mono);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1px 5px;
+  border-radius: 2px;
+  color: #c8f542;
+  font-size: 11px;
+}
+
+/* From-Scratch Deep Architecture Showcase */
+.from-scratch-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  margin-top: 48px;
+}
+
+.deep-project-card {
+  position: relative;
+  background: rgba(13, 15, 18, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.deep-project-card:hover {
+  border-color: rgba(63, 92, 255, 0.55);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.7), 0 0 32px rgba(63, 92, 255, 0.12);
+}
+
+.deep-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tag-pill {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+
+.deep-title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3.2vw, 30px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: #f2f1ed;
+  margin: 0;
+}
+
+.stat-badge {
+  background: rgba(63, 92, 255, 0.12);
+  border: 1px solid rgba(63, 92, 255, 0.35);
+  color: #c8f542;
+  padding: 6px 14px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  border-radius: 2px;
+}
+
+.deep-desc {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #b0b0ab;
+  max-width: 960px;
+  margin: 0;
+}
+
+.deep-grid-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.metric-box {
+  background: rgba(7, 9, 12, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metric-num {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 700;
+  color: #c8f542;
+  letter-spacing: -0.01em;
+}
+
+.metric-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: #8c8d88;
+}
+
+.metric-sub {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #a2a29d;
+  margin: 0;
+}
+
+/* Research Horizons Grid */
+.horizons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 42px;
+}
+
+.horizon-card {
+  background: rgba(13, 15, 18, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 26px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.horizon-card:hover {
+  border-color: rgba(63, 92, 255, 0.45);
+  transform: translateY(-3px);
+}
+
+.horizon-num {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--blue);
+}
+
+.horizon-card h4 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #f2f1ed;
+  margin: 0;
+}
+
+.horizon-card p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #a0a09b;
+  margin: 0;
+}
+
+/* Technical Competencies Grid */
+.skills-blueprint-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.skill-col {
+  background: rgba(13, 15, 18, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.skill-head {
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-cat-title {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skill-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #f2f1ed;
+}
+
+.skill-badge {
+  font-size: 9px;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 2px;
+  color: #8c8d88;
+  letter-spacing: 0.06em;
+}
+
+.skill-badge.primary-badge {
+  background: rgba(200, 245, 66, 0.1) !important;
+  border-color: rgba(200, 245, 66, 0.3) !important;
+  color: #c8f542 !important;
+}
+
+/* Education Timeline & Connect Box */
+.education-timeline {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  padding-left: 24px;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -29px;
+  top: 5px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #070809;
+  border: 2px solid var(--blue);
+}
+
+.timeline-year {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+
+.timeline-content h4 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: #f2f1ed;
+  margin: 0 0 4px 0;
+}
+
+.timeline-content .degree {
+  font-size: 11px;
+  color: #c8f542;
+  margin-bottom: 8px;
+}
+
+.timeline-content .coursework {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #a0a09b;
+  margin: 0;
+}
+
+.about-connect-box {
+  margin-top: 36px;
+  background: rgba(10, 12, 15, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 22px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.connect-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.connect-label {
+  color: #8c8d88;
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.connect-link {
+  color: #f2f1ed;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.connect-link:hover {
+  color: var(--blue);
+}
+
+

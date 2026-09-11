@@ -17,205 +17,30 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const navItems = [
-  { id: "perception", num: "01", label: "WORK" },
-  { id: "learning", num: "02", label: "LEARNING" },
-  { id: "action", num: "03", label: "ACTION" },
-  { id: "research", num: "04", label: "RESEARCH" },
-  { id: "experiments", num: "05", label: "EXPERIMENTS" },
-  { id: "about", num: "06", label: "ABOUT" },
-];
-
-const learning = [
-  ["A.01", "IMPLEMENTED", "VISION TRANSFORMER", "ViT-B/16", "PATCHES / EMBEDDINGS / ATTENTION"],
-  ["A.02", "IMPLEMENTED", "TRANSFORMER FROM SCRATCH", "TOKENS / ATTENTION", "PYTORCH / ATTENTION HEADS"],
-  ["A.03", "IMPLEMENTED", "MICROGRAD / AUTOGRAD ENGINE", "BACKPROP", "COMPUTATIONAL GRAPH / SCALAR"],
-  ["A.04", "EXPERIMENT", "SIGNATURE VERIFICATION", "SIAMESE / EMBEDDING", "CONTRASTIVE LOSS / VISION"],
-];
-
-const research = [
-  ["COMPUTER VISION", "Detection, segment representation, and hyperspectral scene decomposition"],
-  ["OBJECT TRACKING", "Association across temporal frames with Kalman filter state estimation"],
-  ["TRANSFORMERS + ViTs", "Multi-head spatial self-attention for sequence and visual token learning"],
-  ["MULTIMODAL LEARNING", "Shared semantic representations bridging vision and latent embedding spaces"],
-  ["GENERATIVE MODELING", "Learning structured latent visual distributions and synthesis priors"],
-  ["ROBOTICS + NAVIGATION", "Perception-informed trajectory generation and local costmap evaluation"],
-  ["VISION-LANGUAGE-ACTION", "Embodied robotic policies conditioned on visual inputs"],
-  ["PATH PLANNING", "Global topological search and local collision avoidance from start to goal"],
-];
-
-const experiments = [
-  ["DINO / SELF-SUPERVISED VISION", "READING"],
-  ["VISION TRANSFORMERS (ViT)", "STUDYING"],
-  ["GENERATIVE LATENT DIFFUSION", "EXPLORING"],
-  ["MULTIMODAL EMBEDDINGS", "EXPLORING"],
-  ["REAL-TIME OBJECT DETECTION", "BUILDING"],
-  ["MULTI-TARGET OBJECT TRACKING", "BUILDING"],
-  ["EMBODIED ROBOTICS CONTROL", "EXPLORING"],
-  ["TOPOLOGICAL PATH PLANNING", "BUILDING"],
-  ["VISION-LANGUAGE-ACTION (VLA)", "EXPLORING"],
-];
-
-interface ShowcaseProject {
-  id: string;
-  num: string;
-  title: string;
-  category: "CV" | "DEEP LEARNING" | "SIGNAL / IOT";
-  year: string;
-  description: string;
-  tags: string[];
-  githubUrl: string;
-}
-
-const showcaseProjects: ShowcaseProject[] = [
-  {
-    id: "flower-cls",
-    num: "01",
-    title: "Oxford 102 Flower Classification",
-    category: "CV",
-    year: "2025",
-    description: "Fine-grained visual categorization across 102 flower species employing deep residual backbones (ResNet) with transfer learning and extensive augmentation.",
-    tags: ["CNN", "Transfer Learning", "PyTorch", "ResNet"],
-    githubUrl: "https://github.com/Ksrisaitej",
-  },
-  {
-    id: "signature-verify",
-    num: "02",
-    title: "Siamese Network Signature Approval",
-    category: "DEEP LEARNING",
-    year: "2025",
-    description: "One-shot biometric verification framework utilizing twin convolutional neural networks with contrastive loss to authenticate handwritten signatures.",
-    tags: ["Siamese Network", "Contrastive Loss", "One-Shot Learning"],
-    githubUrl: "https://github.com/Ksrisaitej",
-  },
-  {
-    id: "leviathan-ts",
-    num: "03",
-    title: "Leviathan Time Series Classification",
-    category: "SIGNAL / IOT",
-    year: "2025",
-    description: "Spatial-temporal sequential network combining 1D CNN feature extractors with recurrent LSTM memory cells for multivariate temporal series classification.",
-    tags: ["CNN", "LSTM", "Time Series", "Deep Learning"],
-    githubUrl: "https://github.com/Ksrisaitej",
-  },
-  {
-    id: "smart-helmet",
-    num: "04",
-    title: "Smart Helmet Accident Detection",
-    category: "SIGNAL / IOT",
-    year: "2025",
-    description: "Hardware-integrated edge safety system with MPU6050 6-axis IMU fall detection logic, instant GPS coordinates, and GSM emergency alerting.",
-    tags: ["MPU6050", "GPS", "GSM", "IIT KGP"],
-    githubUrl: "https://github.com/Ksrisaitej",
-  },
-  {
-    id: "digit-recog",
-    num: "05",
-    title: "Handwritten Digit Recognition",
-    category: "CV",
-    year: "2025",
-    description: "Convolutional neural network pipeline in PyTorch for high-precision handwritten digit recognition with custom kernel visualization and evaluation.",
-    tags: ["MNIST", "CNN", "PyTorch", "Deep Learning"],
-    githubUrl: "https://github.com/Ksrisaitej",
-  },
-  {
-    id: "transient-svm",
-    num: "06",
-    title: "Transient Detection Using SVM",
-    category: "SIGNAL / IOT",
-    year: "2025",
-    description: "Signal processing and support vector machine classification system detecting transient non-stationary anomalies across physical sensor telemetry.",
-    tags: ["SVM", "Scikit-Learn", "Machine Learning", "Signal Processing"],
-    githubUrl: "https://github.com/Ksrisaitej",
-  },
+  { id: "vision", num: "01", label: "VISION" },
+  { id: "from-scratch", num: "02", label: "FROM SCRATCH" },
+  { id: "robotics", num: "03", label: "ROBOTICS" },
+  { id: "skills", num: "04", label: "SKILLS" },
+  { id: "about", num: "05", label: "ABOUT" },
 ];
 
 function Noise() {
   return <div className="noise" aria-hidden="true" />;
 }
 
-export type IntroPhase = "black" | "construct" | "settle" | "grid" | "transition" | "complete";
-
 /* ==================================================
-   DIMENSIONAL IDENTITY ARCHITECTURAL SEGMENTS
+   OPENING INTRO SEQUENCE: DIMENSIONAL SCULPTURE
    ================================================== */
-interface SegmentDef {
-  id: string;
-  x: number;
-  y: number;
-  w: number;
-  h: number;
-  dx: number;
-  dy: number;
-  delay: number;
-  path?: string;
-}
-
-const IDENTITY_SEGMENTS: SegmentDef[] = [
-  // SRI — S
-  { id: "s1_top", x: 85, y: 30, w: 110, h: 32, dx: -120, dy: 0, delay: 0.05 },
-  { id: "s1_up", x: 85, y: 62, w: 32, h: 38, dx: 0, dy: -80, delay: 0.1 },
-  { id: "s1_mid", x: 85, y: 94, w: 110, h: 32, dx: 120, dy: 0, delay: 0.15 },
-  { id: "s1_low", x: 163, y: 124, w: 32, h: 38, dx: 0, dy: 80, delay: 0.2 },
-  { id: "s1_bot", x: 85, y: 158, w: 110, h: 32, dx: -120, dy: 0, delay: 0.25 },
-
-  // SRI — R
-  { id: "r1_spine", x: 231, y: 30, w: 34, h: 160, dx: 0, dy: -140, delay: 0.12 },
-  { id: "r1_top", x: 265, y: 30, w: 72, h: 32, dx: 100, dy: 0, delay: 0.18 },
-  { id: "r1_wall", x: 305, y: 62, w: 32, h: 36, dx: 0, dy: -60, delay: 0.22 },
-  { id: "r1_mid", x: 265, y: 94, w: 72, h: 32, dx: 100, dy: 0, delay: 0.28 },
-  { id: "r1_leg", x: 271, y: 122, w: 74, h: 68, dx: 80, dy: 80, delay: 0.32, path: "M 271 122 L 307 122 L 349 190 L 309 190 Z" },
-
-  // SRI — I
-  { id: "i1_pillar", x: 381, y: 30, w: 36, h: 160, dx: 0, dy: -150, delay: 0.16 },
-
-  // SAI — S
-  { id: "s2_top", x: 511, y: 30, w: 110, h: 32, dx: -120, dy: 0, delay: 0.08 },
-  { id: "s2_up", x: 511, y: 62, w: 32, h: 38, dx: 0, dy: -80, delay: 0.14 },
-  { id: "s2_mid", x: 511, y: 94, w: 110, h: 32, dx: 120, dy: 0, delay: 0.2 },
-  { id: "s2_low", x: 589, y: 124, w: 32, h: 38, dx: 0, dy: 80, delay: 0.26 },
-  { id: "s2_bot", x: 511, y: 158, w: 110, h: 32, dx: -120, dy: 0, delay: 0.3 },
-
-  // SAI — A
-  { id: "a1_left", x: 657, y: 30, w: 80, h: 160, dx: -90, dy: 90, delay: 0.15, path: "M 657 190 L 703 30 L 737 30 L 691 190 Z" },
-  { id: "a1_right", x: 719, y: 30, w: 80, h: 160, dx: 90, dy: 90, delay: 0.2, path: "M 765 190 L 719 30 L 753 30 L 799 190 Z" },
-  { id: "a1_cross", x: 683, y: 122, w: 86, h: 26, dx: -100, dy: 0, delay: 0.25 },
-  { id: "a1_apex", x: 717, y: 30, w: 34, h: 32, dx: 0, dy: -80, delay: 0.1 },
-
-  // SAI — I
-  { id: "i2_pillar", x: 841, y: 30, w: 36, h: 160, dx: 0, dy: -150, delay: 0.18 },
-
-  // TEJ — T
-  { id: "t1_top", x: 971, y: 30, w: 124, h: 32, dx: 0, dy: -100, delay: 0.1 },
-  { id: "t1_pillar", x: 1015, y: 62, w: 36, h: 128, dx: 0, dy: 120, delay: 0.2 },
-
-  // TEJ — E
-  { id: "e1_spine", x: 1131, y: 30, w: 34, h: 160, dx: 0, dy: -140, delay: 0.14 },
-  { id: "e1_top", x: 1165, y: 30, w: 82, h: 32, dx: 110, dy: 0, delay: 0.18 },
-  { id: "e1_mid", x: 1165, y: 94, w: 66, h: 28, dx: 110, dy: 0, delay: 0.24 },
-  { id: "e1_bot", x: 1165, y: 158, w: 82, h: 32, dx: 110, dy: 0, delay: 0.3 },
-
-  // TEJ — J
-  { id: "j1_top", x: 1287, y: 30, w: 68, h: 32, dx: 0, dy: -90, delay: 0.12 },
-  { id: "j1_drop", x: 1321, y: 62, w: 34, h: 96, dx: 0, dy: 100, delay: 0.2 },
-  { id: "j1_hook", x: 1287, y: 156, w: 68, h: 40, dx: -80, dy: 60, delay: 0.28, path: "M 1355 156 L 1355 170 C 1355 194 1321 196 1287 192 L 1287 164 C 1307 166 1321 166 1321 156 Z" },
-];
-
-const REGISTRATION_MARKS = [
-  { x: 85, y: 30 },
-  { x: 231, y: 30 },
-  { x: 381, y: 30 },
-  { x: 511, y: 30 },
-  { x: 717, y: 30 },
-  { x: 841, y: 30 },
-  { x: 971, y: 30 },
-  { x: 1131, y: 30 },
-  { x: 1321, y: 30 },
-];
+type IntroPhase = "black" | "construct" | "settle" | "grid" | "transition" | "complete";
 
 function DimensionalIdentity({ phase }: { phase: IntroPhase }) {
-  const isConstructed = phase !== "black";
-  const isSettled = phase === "settle" || phase === "grid" || phase === "transition" || phase === "complete";
-  const showCrosshairs = phase === "construct";
+  const isBlack = phase === "black";
+  const isConstruct = phase === "construct";
+  const isSettle = phase === "settle";
+  const isGrid = phase === "grid" || phase === "transition" || phase === "complete";
+
+  const showExtrusion = isConstruct || isSettle || isGrid;
+  const showRegistration = isSettle || isGrid;
 
   return (
     <svg
@@ -225,37 +50,34 @@ function DimensionalIdentity({ phase }: { phase: IntroPhase }) {
       style={{ width: "100%", height: "auto", overflow: "visible" }}
     >
       <defs>
-        {/* Front Face Titanium Gradient */}
         <linearGradient id="metalFace" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stopColor="#FFFFFF" />
           <stop offset="60%" stopColor="#F2F1ED" />
           <stop offset="100%" stopColor="#DCDAD5" />
         </linearGradient>
 
-        {/* Chiseled 3D Bevel Dark Base */}
         <linearGradient id="extrusionBase" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#252932" />
           <stop offset="60%" stopColor="#15171C" />
           <stop offset="100%" stopColor="#0B0D10" />
         </linearGradient>
 
-        {/* Ambient Depth Filter */}
         <filter id="dimensionalShadow" x="-20%" y="-20%" width="140%" height="160%">
           <feDropShadow dx="0" dy="18" stdDeviation="24" floodColor="#000000" floodOpacity="0.95" />
           <feDropShadow dx="0" dy="45" stdDeviation="50" floodColor="#000000" floodOpacity="0.8" />
         </filter>
       </defs>
 
-      {/* Registration / Alignment Crosshairs (Only during mechanical assembly) */}
+      {/* Registration Marks */}
       <g
         className="registration-layer"
         style={{
-          opacity: showCrosshairs ? 0.6 : 0,
+          opacity: showRegistration ? 1 : 0,
           transition: "opacity 0.4s ease",
         }}
       >
-        {REGISTRATION_MARKS.map((m, idx) => (
-          <g key={idx} transform={`translate(${m.x}, ${m.y})`}>
+        {[85, 231, 381, 511, 717, 841, 971, 1131, 1321].map((cx, idx) => (
+          <g key={idx} transform={`translate(${cx}, 30)`}>
             <line x1="-8" y1="0" x2="8" y2="0" stroke="rgba(255,255,255,0.4)" strokeWidth="1" />
             <line x1="0" y1="-8" x2="0" y2="8" stroke="rgba(255,255,255,0.4)" strokeWidth="1" />
             <circle cx="0" cy="0" r="1.5" fill="var(--blue)" />
@@ -263,91 +85,81 @@ function DimensionalIdentity({ phase }: { phase: IntroPhase }) {
         ))}
       </g>
 
-      {/* Base Layer: Extruded 3D Chiseled Depth */}
+      {/* 3D Extrusion Layer */}
       <g
         className="identity-extrusion-layer"
         transform="translate(4, 7)"
         filter="url(#dimensionalShadow)"
       >
-        {IDENTITY_SEGMENTS.map((s) => (
-          <g
-            key={`ext_${s.id}`}
-            style={{
-              transform: isConstructed ? "translate(0px, 0px)" : `translate(${s.dx}px, ${s.dy}px)`,
-              opacity: isConstructed ? 1 : 0,
-              transition: `transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) ${s.delay}s, opacity 0.4s ease ${s.delay}s`,
-            }}
-          >
-            {s.path ? (
-              <path d={s.path} fill="url(#extrusionBase)" />
-            ) : (
-              <rect x={s.x} y={s.y} width={s.w} height={s.h} fill="url(#extrusionBase)" />
-            )}
-          </g>
-        ))}
+        {/* S */}
+        <g style={{ transform: showExtrusion ? "translate(0, 0)" : "translate(-120px, 0px)", opacity: showExtrusion ? 0.9 : 0, transition: "transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.05s, opacity 0.4s ease 0.05s" }}>
+          <rect x="85" y="30" width="110" height="32" fill="url(#extrusionBase)" />
+        </g>
+        <g style={{ transform: showExtrusion ? "translate(0, 0)" : "translate(0px, -80px)", opacity: showExtrusion ? 0.9 : 0, transition: "transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, opacity 0.4s ease 0.1s" }}>
+          <rect x="85" y="62" width="32" height="38" fill="url(#extrusionBase)" />
+        </g>
+        <g style={{ transform: showExtrusion ? "translate(0, 0)" : "translate(120px, 0px)", opacity: showExtrusion ? 0.9 : 0, transition: "transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, opacity 0.4s ease 0.15s" }}>
+          <rect x="85" y="94" width="110" height="32" fill="url(#extrusionBase)" />
+        </g>
+        <g style={{ transform: showExtrusion ? "translate(0, 0)" : "translate(0px, 80px)", opacity: showExtrusion ? 0.9 : 0, transition: "transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.2s, opacity 0.4s ease 0.2s" }}>
+          <rect x="163" y="124" width="32" height="38" fill="url(#extrusionBase)" />
+        </g>
+        <g style={{ transform: showExtrusion ? "translate(0, 0)" : "translate(-120px, 0px)", opacity: showExtrusion ? 0.9 : 0, transition: "transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.25s, opacity 0.4s ease 0.25s" }}>
+          <rect x="85" y="158" width="110" height="32" fill="url(#extrusionBase)" />
+        </g>
+
+        {/* R */}
+        <g style={{ transform: showExtrusion ? "translate(0, 0)" : "translate(0px, -140px)", opacity: showExtrusion ? 0.9 : 0, transition: "transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.12s, opacity 0.4s ease 0.12s" }}>
+          <rect x="231" y="30" width="34" height="160" fill="url(#extrusionBase)" />
+        </g>
+        <g style={{ transform: showExtrusion ? "translate(0, 0)" : "translate(100px, 0px)", opacity: showExtrusion ? 0.9 : 0, transition: "transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.18s, opacity 0.4s ease 0.18s" }}>
+          <rect x="265" y="30" width="72" height="32" fill="url(#extrusionBase)" />
+        </g>
+        <g style={{ transform: showExtrusion ? "translate(0, 0)" : "translate(0px, -60px)", opacity: showExtrusion ? 0.9 : 0, transition: "transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.22s, opacity 0.4s ease 0.22s" }}>
+          <rect x="305" y="62" width="32" height="36" fill="url(#extrusionBase)" />
+        </g>
+        <g style={{ transform: showExtrusion ? "translate(0, 0)" : "translate(100px, 0px)", opacity: showExtrusion ? 0.9 : 0, transition: "transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.28s, opacity 0.4s ease 0.28s" }}>
+          <rect x="265" y="94" width="72" height="32" fill="url(#extrusionBase)" />
+        </g>
+        <g style={{ transform: showExtrusion ? "translate(0, 0)" : "translate(80px, 80px)", opacity: showExtrusion ? 0.9 : 0, transition: "transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.32s, opacity 0.4s ease 0.32s" }}>
+          <path d="M 271 122 L 307 122 L 349 190 L 309 190 Z" fill="url(#extrusionBase)" />
+        </g>
+
+        {/* I */}
+        <g style={{ transform: showExtrusion ? "translate(0, 0)" : "translate(0px, -150px)", opacity: showExtrusion ? 0.9 : 0, transition: "transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.16s, opacity 0.4s ease 0.16s" }}>
+          <rect x="381" y="30" width="36" height="160" fill="url(#extrusionBase)" />
+        </g>
       </g>
 
-      {/* Front Monolithic Face with Specular Bevel Highlights */}
-      <g className="identity-face-layer">
-        {IDENTITY_SEGMENTS.map((s) => (
-          <g
-            key={`face_${s.id}`}
-            style={{
-              transform: isConstructed ? "translate(0px, 0px)" : `translate(${s.dx}px, ${s.dy}px)`,
-              opacity: isConstructed ? 1 : 0,
-              transition: `transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) ${s.delay}s, opacity 0.4s ease ${s.delay}s`,
-            }}
-          >
-            {s.path ? (
-              <path d={s.path} fill="url(#metalFace)" />
-            ) : (
-              <rect x={s.x} y={s.y} width={s.w} height={s.h} fill="url(#metalFace)" />
-            )}
+      {/* Front Face Sculptural Typography */}
+      <g className="identity-front-layer">
+        {/* S */}
+        <path d="M 85 30 L 195 30 L 195 62 L 117 62 L 117 94 L 195 94 L 195 190 L 85 190 L 85 158 L 163 158 L 163 126 L 85 126 Z" fill="url(#metalFace)" />
+        {/* R */}
+        <path d="M 231 30 L 337 30 L 337 98 L 307 98 L 349 190 L 309 190 L 271 126 L 265 126 L 265 190 L 231 190 Z M 265 60 L 303 60 L 303 96 L 265 96 Z" fill="url(#metalFace)" />
+        {/* I */}
+        <rect x="381" y="30" width="36" height="160" fill="url(#metalFace)" />
 
-            {/* Specular Reflective Bevel Lines */}
-            {s.path ? (
-              <path
-                d={s.path}
-                fill="none"
-                stroke="rgba(255, 255, 255, 0.9)"
-                strokeWidth="1.5"
-                strokeLinecap="square"
-              />
-            ) : (
-              <>
-                {/* Top Chamfer Light Reflection */}
-                <line
-                  x1={s.x}
-                  y1={s.y}
-                  x2={s.x + s.w}
-                  y2={s.y}
-                  stroke="rgba(255, 255, 255, 0.95)"
-                  strokeWidth="1.5"
-                />
-                {/* Left Edge Light Reflection */}
-                <line
-                  x1={s.x}
-                  y1={s.y}
-                  x2={s.x}
-                  y2={s.y + s.h}
-                  stroke="rgba(255, 255, 255, 0.75)"
-                  strokeWidth="1.5"
-                />
-              </>
-            )}
-          </g>
-        ))}
+        {/* SAI */}
+        <path d="M 511 30 L 621 30 L 621 62 L 543 62 L 543 94 L 621 94 L 621 190 L 511 190 L 511 158 L 589 158 L 589 126 L 511 126 Z" fill="url(#metalFace)" />
+        <path d="M 655 190 L 705 30 L 741 30 L 791 190 L 755 190 L 743 148 L 703 148 L 691 190 Z M 711 118 L 735 118 L 723 72 Z" fill="url(#metalFace)" />
+        <rect x="825" y="30" width="36" height="160" fill="url(#metalFace)" />
+
+        {/* TEJ */}
+        <path d="M 955 30 L 1075 30 L 1075 62 L 1033 62 L 1033 190 L 997 190 L 997 62 L 955 62 Z" fill="url(#metalFace)" />
+        <path d="M 1109 30 L 1219 30 L 1219 62 L 1145 62 L 1145 94 L 1209 94 L 1209 124 L 1145 124 L 1145 158 L 1221 158 L 1221 190 L 1109 190 Z" fill="url(#metalFace)" />
+        <path d="M 1253 30 L 1357 30 L 1357 150 C 1357 178, 1335 190, 1301 190 C 1271 190, 1251 176, 1247 156 L 1281 150 C 1283 158, 1291 162, 1301 162 C 1315 162, 1321 156, 1321 144 L 1321 62 L 1253 62 Z" fill="url(#metalFace)" />
       </g>
     </svg>
   );
 }
 
-function DenmuGrid({ introPhase }: { introPhase?: IntroPhase }) {
-  let phaseClass = "grid-intro-active";
+function DenmuGrid({ introPhase }: { introPhase: IntroPhase }) {
+  let phaseClass = "grid-intro-phase4";
   if (introPhase === "black" || introPhase === "construct" || introPhase === "settle") {
     phaseClass = "grid-intro-hidden";
   } else if (introPhase === "grid") {
-    phaseClass = "grid-intro-phase4";
+    phaseClass = "grid-intro-phase3";
   }
 
   return (
@@ -375,7 +187,7 @@ function SectionHeader({ n, label, title, body }: { n: string; label: string; ti
 }
 
 /* ==================================================
-   HERO: DENMU-INSPIRED STARTING PAGE FOR SRI SAI TEJ
+   HERO: STARTING LAYOUT ANCHORED AROUND RESUME
    ================================================== */
 function DenmuHero({
   prefersReduced,
@@ -386,7 +198,7 @@ function DenmuHero({
   introPhase?: IntroPhase;
   onSkipIntro?: () => void;
 }) {
-  const [activeTab, setActiveTab] = useState("perception");
+  const [activeTab, setActiveTab] = useState("vision");
 
   const scrollToSection = (id: string) => {
     setActiveTab(id);
@@ -410,7 +222,7 @@ function DenmuHero({
 
   return (
     <section className={`denmu-hero-page ${heroStateClass}`} id="top">
-      {/* Phase 1: Pure Anticipation Black Shield */}
+      {/* Intro Overlay */}
       {introPhase !== "complete" && (
         <div
           className={`intro-black-shield ${introPhase !== "black" ? "is-fading" : ""}`}
@@ -418,7 +230,6 @@ function DenmuHero({
         />
       )}
 
-      {/* Opening Intro Sequence Dimensional Sculpture Stage */}
       {introPhase !== "complete" && (
         <div className={`intro-sequence-overlay phase-${introPhase}`}>
           <button
@@ -437,16 +248,13 @@ function DenmuHero({
 
       {/* Interactive 3D Spline Scene */}
       <div className="spline-scene-container">
-        <Spline
-          scene="https://prod.spline.design/k2iV3JQWJzFuEeW7/scene.splinecode"
-        />
+        <Spline scene="https://prod.spline.design/k2iV3JQWJzFuEeW7/scene.splinecode" />
         <div className="ambient-vignette" />
       </div>
 
       {/* Top Header Zone */}
       <header className="denmu-header-zone">
-        {/* Giant Display Typography (SRI 視 SAI 智 TEJ) */}
-        <div className="denmu-brand-banner" aria-label="SRI SAI TEJ">
+        <div className="denmu-brand-banner" aria-label="KADIMI SRI SAI TEJ">
           <div className="brand-glyph-group">
             <span className="brand-glyph">SRI</span>
             <span className="brand-glyph kanji" title="Vision / Perception">視</span>
@@ -456,7 +264,7 @@ function DenmuHero({
           </div>
         </div>
 
-        {/* 6-Column Grid-Aligned Navigation Bar */}
+        {/* 5-Column Grid Navigation */}
         <nav className="denmu-nav-bar" aria-label="Main Navigation">
           {navItems.map((item) => (
             <button
@@ -473,14 +281,13 @@ function DenmuHero({
 
       {/* Bottom Content Zone */}
       <div className="denmu-bottom-zone">
-        {/* Left: Headline & Core Identity Statement */}
         <div className="mission-statement-wrap">
           <div className="hero-meta-row mono">
             <p className="eyebrow">
               <span className="eyebrow-dot" />
-              MACHINE LEARNING / COMPUTER VISION / ROBOTICS
+              PHYSICS UNDERGRADUATE @ IIT KHARAGPUR // HYDERABAD, INDIA
             </p>
-            <span className="academic-badge">IIT KHARAGPUR // BSC PHYSICS</span>
+            <span className="academic-badge">IIT KGP &bull; 2025–2029</span>
           </div>
 
           <h1 className="mission-statement">
@@ -489,16 +296,33 @@ function DenmuHero({
           </h1>
 
           <p className="mission-sub">
-            Developing machine learning, computer vision, and robotic perception systems — from foundational vision transformers to real-time object tracking and spatial trajectory planning.
+            Physics undergraduate at IIT Kharagpur engineering machine learning systems in PyTorch from first principles — from custom autograd computational graphs and from-scratch Transformers to real-time object tracking, 3D perception, and robotic action.
           </p>
+
+          {/* Direct Resume Quick Connect HUD */}
+          <div className="hero-contact-hud mono">
+            <a href="mailto:srisaitej999@gmail.com" className="hud-pill">
+              <span className="hud-dot" />
+              srisaitej999@gmail.com
+            </a>
+            <a href="tel:+919014792881" className="hud-pill">
+              +91 90147 92881
+            </a>
+            <a href="https://github.com/Ksrisaitej" target="_blank" rel="noopener noreferrer" className="hud-pill link-hover">
+              GitHub &nearr;
+            </a>
+            <a href="https://www.linkedin.com/in/sri-sai-tej/" target="_blank" rel="noopener noreferrer" className="hud-pill link-hover">
+              LinkedIn &nearr;
+            </a>
+          </div>
         </div>
 
-        {/* Right: Floating Feature Project Card (Denmu Style) */}
+        {/* Floating Feature Project Card (Denmu Style) */}
         <a
-          href="#perception"
+          href="#vision"
           onClick={(e) => {
             e.preventDefault();
-            scrollToSection("perception");
+            scrollToSection("vision");
           }}
           className="release-widget-card"
           aria-label="Feature Project: Hyperspectral Object Tracking"
@@ -512,9 +336,9 @@ function DenmuHero({
           </div>
 
           <div className="release-info mono">
-            <span className="release-tag">FEATURE PROJECT</span>
-            <span className="release-title">HYPERSPECTRAL</span>
-            <span className="release-subtitle">OBJECT TRACKING</span>
+            <span className="release-tag">PRIMARY INTEREST</span>
+            <span className="release-title">COMPUTER VISION</span>
+            <span className="release-subtitle">&amp; OBJECT TRACKING</span>
             <span className="release-arrow">&darr;</span>
           </div>
         </a>
@@ -524,7 +348,7 @@ function DenmuHero({
 }
 
 /* ==================================================
-   CV TRACKING VIEWPORT (SECTION 01)
+   CV TRACKING VIEWPORT (INTERACTIVE SIMULATION)
    ================================================== */
 function CVTrackingView() {
   return (
@@ -570,7 +394,7 @@ function CVTrackingView() {
         </div>
       </div>
       <div className="cv-hud-bottom mono">
-        <span>PIPELINE: YOLO + DEEPSORT + KALMAN</span>
+        <span>PIPELINE: YOLO + DEEPSORT + KALMAN FILTER</span>
         <span>LATENCY: 14.2ms // 68.4 FPS</span>
       </div>
     </div>
@@ -578,27 +402,28 @@ function CVTrackingView() {
 }
 
 /* ==================================================
-   SECTION 01: PERCEPTION
+   SECTION 01: COMPUTER VISION & OBJECT TRACKING
    ================================================== */
-function Perception() {
+function VisionSection() {
   return (
-    <section id="perception" className="section perception">
+    <section id="vision" className="section perception">
       <SectionHeader
         n="01"
-        label="PERCEPTION"
+        label="COMPUTER VISION &amp; TRACKING"
         title={"MAKE THE\nINVISIBLE LEGIBLE."}
-        body="Building systems that locate, distinguish, and track entities across visual and multi-spectral scenes with temporal consistency."
+        body="My primary research interest. Building deep visual perception pipelines that locate, decompose, and persistently track entities across multi-spectral feeds and complex spatial environments."
       />
 
       <div className="taxonomy mono">
         <span>OBJECT DETECTION</span>
         <span>OBJECT TRACKING</span>
-        <span>COMPUTER VISION</span>
-        <span>HYPERSPECTRAL IMAGING</span>
-        <span>VISUAL REPRESENTATION</span>
-        <span>STATE ESTIMATION</span>
+        <span>VISION TRANSFORMER (ViT-B/16)</span>
+        <span>RESNET-50</span>
+        <span>HYPERSPECTRAL DECOMPOSITION</span>
+        <span>KALMAN STATE ESTIMATION</span>
       </div>
 
+      {/* Feature Project 1: Hyperspectral Object Tracking */}
       <div className="feature-project">
         <div className="project-side mono">
           <span>ID: 04 // TARGET</span>
@@ -610,629 +435,486 @@ function Perception() {
         <CVTrackingView />
 
         <div className="project-copy">
-          <div className="mono small-label">FEATURE PROJECT / COMPUTER VISION &amp; TRACKING</div>
+          <div className="mono small-label">PRIMARY FOCUS / DETECTION &amp; TRACKING</div>
           <h3>HYPERSPECTRAL<br />OBJECT TRACKING</h3>
           <p>
-            Investigation into multi-object detection and persistent tracking across multi-spectral visual feeds using deep feature embeddings, state estimation, and spatial association.
+            Investigation into multi-object detection and persistent tracking across multi-spectral visual feeds using deep feature embeddings, state estimation, and spatial association with Kalman filtering.
           </p>
           <div className="tech mono">
             <span>YOLO</span>
             <span>DEEPSORT</span>
             <span>KALMAN FILTER</span>
             <span>PYTORCH</span>
-            <span>HYPERSPECTRAL</span>
+            <span>OPENCV</span>
           </div>
         </div>
       </div>
 
-      {/* Applied Projects Showcase */}
-      <ProjectShowcase />
+      {/* CV Resume Highlights Grid: ViT-B/16 & Oxford-102 */}
+      <div className="cv-resume-grid">
+        {/* Project 2: Vision Transformer (ViT-B/16) from Scratch */}
+        <div className="resume-project-card">
+          <div className="card-top-hud mono">
+            <span className="card-index">01.02 // ARCHITECTURE FROM SCRATCH</span>
+            <span className="card-badge">~86M PARAMETERS</span>
+          </div>
+          <h3 className="card-title">VISION TRANSFORMER (ViT-B/16) FROM SCRATCH</h3>
+          <p className="card-summary">
+            Reimplemented the complete ViT-B/16 architecture from scratch in PyTorch without library abstractions. Engineered patch embedding for 196 (16×16) image patches, 768-dimensional latent projections, 12-head self-attention mechanisms, and 12 Transformer encoder blocks.
+          </p>
+
+          {/* Technical Schematic: ViT Patch & Attention Pipeline */}
+          <div className="schematic-box">
+            <svg viewBox="0 0 380 150" className="inner-svg">
+              <rect width="380" height="150" fill="#06080A" />
+              {/* Image to Patches */}
+              <g transform="translate(15, 20)">
+                <rect x="0" y="0" width="70" height="70" fill="#0E1217" stroke="#3F5CFF" strokeWidth="1" />
+                <line x1="0" y1="23" x2="70" y2="23" stroke="rgba(255,255,255,0.15)" />
+                <line x1="0" y1="47" x2="70" y2="47" stroke="rgba(255,255,255,0.15)" />
+                <line x1="23" y1="0" x2="23" y2="70" stroke="rgba(255,255,255,0.15)" />
+                <line x1="47" y1="0" x2="47" y2="70" stroke="rgba(255,255,255,0.15)" />
+                <rect x="23" y="23" width="24" height="24" fill="rgba(63, 92, 255, 0.3)" stroke="#3F5CFF" />
+                <text x="2" y="85" fill="#8C8D88" fontSize="7.5" fontFamily="monospace">196 PATCHES (16×16)</text>
+              </g>
+
+              {/* Arrow */}
+              <path d="M 95 55 L 115 55" stroke="#3F5CFF" strokeWidth="1.5" />
+
+              {/* Linear Projection + Positional Encodings */}
+              <g transform="translate(120, 20)">
+                <rect x="0" y="10" width="80" height="50" fill="#0E1217" stroke="rgba(255,255,255,0.15)" rx="2" />
+                <text x="6" y="28" fill="#F2F1ED" fontSize="8" fontFamily="monospace">LINEAR PROJ</text>
+                <text x="6" y="42" fill="#3F5CFF" fontSize="7.5" fontFamily="monospace">768-D EMBED</text>
+                <text x="6" y="54" fill="#C8F542" fontSize="7" fontFamily="monospace">+ [CLS] TOKEN</text>
+              </g>
+
+              {/* Arrow */}
+              <path d="M 205 55 L 225 55" stroke="#3F5CFF" strokeWidth="1.5" />
+
+              {/* Transformer Encoder 12x */}
+              <g transform="translate(230, 15)">
+                <rect x="0" y="0" width="135" height="75" fill="#0E1217" stroke="#C8F542" rx="2" />
+                <text x="8" y="18" fill="#C8F542" fontSize="8.5" fontFamily="monospace" fontWeight="bold">12× ENCODER BLOCKS</text>
+                <text x="8" y="34" fill="#8C8D88" fontSize="7.5" fontFamily="monospace">&bull; 12-HEAD SELF-ATTN</text>
+                <text x="8" y="48" fill="#8C8D88" fontSize="7.5" fontFamily="monospace">&bull; MLP (3072 HIDDEN)</text>
+                <text x="8" y="62" fill="#8C8D88" fontSize="7.5" fontFamily="monospace">&bull; LAYER NORM + RESIDUAL</text>
+              </g>
+
+              <line x1="15" y1="110" x2="365" y2="110" stroke="rgba(255,255,255,0.08)" />
+              <text x="15" y="132" fill="#8C8D88" fontSize="8" fontFamily="monospace">
+                COMPUTE-SCALING STUDY // 6,960 OXFORD-102 IMAGES // 39.65% TEST ACC (EPOCH 18)
+              </text>
+            </svg>
+          </div>
+
+          <div className="card-points">
+            <p>
+              &bull; <b>Compute &amp; Scaling Study:</b> Conducted controlled empirical experiments on 6,960 Oxford Flowers-102 images to investigate ViT’s dependency on dataset scale and compute budget, attaining 39.65% test accuracy under constrained training.
+            </p>
+            <p>
+              &bull; <b>Manual Tensor Operations:</b> Implemented patch slicing, linear projection, learnable class tokens, 1D positional encodings, and multi-head attention entirely in raw PyTorch.
+            </p>
+          </div>
+
+          <div className="tech mono">
+            <span>PYTHON</span>
+            <span>PYTORCH</span>
+            <span>SELF-ATTENTION</span>
+            <span>ViT-B/16</span>
+            <span>OXFORD FLOWERS-102</span>
+          </div>
+        </div>
+
+        {/* Project 3: Oxford-102 Flower Classification */}
+        <div className="resume-project-card">
+          <div className="card-top-hud mono">
+            <span className="card-index">01.03 // TRANSFER LEARNING &amp; PIPELINE</span>
+            <span className="card-badge">87%+ VAL ACCURACY</span>
+          </div>
+          <h3 className="card-title">OXFORD-102 RESNET FINE-TUNING &amp; DATA PIPELINE</h3>
+          <p className="card-summary">
+            Achieved 87%+ validation accuracy across 102 fine-grained botanical categories (8,189 images) via ResNet transfer learning, fine-tuned pretrained feature extractors, and hyperparameter optimization.
+          </p>
+
+          {/* Technical Schematic: ResNet Residual Skip & Metric */}
+          <div className="schematic-box">
+            <svg viewBox="0 0 380 150" className="inner-svg">
+              <rect width="380" height="150" fill="#06080A" />
+
+              {/* Residual Skip Block */}
+              <g transform="translate(20, 20)">
+                <rect x="0" y="15" width="65" height="30" fill="#0E1217" stroke="rgba(255,255,255,0.15)" rx="2" />
+                <text x="6" y="34" fill="#F2F1ED" fontSize="8" fontFamily="monospace">CONV 3×3</text>
+
+                <line x1="65" y1="30" x2="85" y2="30" stroke="#3F5CFF" strokeWidth="1.2" />
+
+                <rect x="85" y="15" width="65" height="30" fill="#0E1217" stroke="rgba(255,255,255,0.15)" rx="2" />
+                <text x="91" y="34" fill="#F2F1ED" fontSize="8" fontFamily="monospace">CONV 3×3</text>
+
+                {/* Residual Arc */}
+                <path d="M 32 15 C 32 -2, 117 -2, 117 15" fill="none" stroke="#C8F542" strokeWidth="1.4" strokeDasharray="3 2" />
+                <text x="62" y="8" fill="#C8F542" fontSize="7" fontFamily="monospace">x + F(x)</text>
+              </g>
+
+              {/* Pipeline Metric */}
+              <g transform="translate(195, 18)">
+                <rect x="0" y="0" width="165" height="65" fill="#0E1217" stroke="rgba(63, 92, 255, 0.3)" rx="2" />
+                <text x="10" y="18" fill="#C8F542" fontSize="8" fontFamily="monospace">PIPELINE OPTIMIZATION</text>
+                <text x="10" y="36" fill="#F2F1ED" fontSize="14" fontFamily="monospace" fontWeight="bold">-40% LATENCY</text>
+                <text x="10" y="52" fill="#8C8D88" fontSize="7.5" fontFamily="monospace">NUMPY / PANDAS AUGMENTATION</text>
+              </g>
+
+              <line x1="20" y1="105" x2="360" y2="105" stroke="rgba(255,255,255,0.08)" />
+              <text x="20" y="128" fill="#8C8D88" fontSize="8" fontFamily="monospace">
+                DATASET: 8,189 SAMPLES // AUTOMATED SPLIT // ADAMW WITH COSINE ANNEALING
+              </text>
+            </svg>
+          </div>
+
+          <div className="card-points">
+            <p>
+              &bull; <b>40% Faster Data Pipeline:</b> Slashed preprocessing overhead by 40% by engineering an automated NumPy and pandas dataset ingestion workflow with stratified splits and real-time tensor augmentations.
+            </p>
+            <p>
+              &bull; <b>Fine-Grained Classification:</b> Overcame intra-class variance through cosine learning rate decay and targeted layer unfreezing across deep residual blocks.
+            </p>
+          </div>
+
+          <div className="tech mono">
+            <span>PYTORCH</span>
+            <span>RESNET</span>
+            <span>TRANSFER LEARNING</span>
+            <span>NUMPY</span>
+            <span>PANDAS</span>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
 
-function ProjectSchematic({ id }: { id: string }) {
-  if (id === "flower-cls") {
-    return (
-      <svg viewBox="0 0 400 240" className="project-schematic-svg" aria-label="Oxford 102 CNN Feature Extraction Blueprint">
-        <defs>
-          <linearGradient id="flowerGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="rgba(200, 245, 66, 0.25)" />
-            <stop offset="100%" stopColor="rgba(63, 92, 255, 0.05)" />
-          </linearGradient>
-        </defs>
-        <rect width="400" height="240" fill="#07080A" />
-
-        {/* Feature Map Segmentation Contours */}
-        <g transform="translate(25, 30)">
-          <rect x="0" y="0" width="145" height="145" fill="#0A0D10" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
-          {/* Bounding ROI */}
-          <rect x="22" y="22" width="100" height="100" fill="url(#flowerGrad)" stroke="#C8F542" strokeWidth="1.2" strokeDasharray="3 3" />
-          {/* Petal contour lines */}
-          <path d="M 72 32 C 85 47, 85 62, 72 72 C 59 62, 59 47, 72 32 Z" fill="rgba(200, 245, 66, 0.25)" stroke="#C8F542" strokeWidth="1" />
-          <path d="M 112 72 C 97 85, 82 85, 72 72 C 82 59, 97 59, 112 72 Z" fill="rgba(200, 245, 66, 0.25)" stroke="#C8F542" strokeWidth="1" />
-          <path d="M 72 112 C 59 97, 59 82, 72 72 C 85 82, 85 97, 72 112 Z" fill="rgba(200, 245, 66, 0.25)" stroke="#C8F542" strokeWidth="1" />
-          <path d="M 32 72 C 47 59, 62 59, 72 72 C 62 85, 47 85, 32 72 Z" fill="rgba(200, 245, 66, 0.25)" stroke="#C8F542" strokeWidth="1" />
-          <circle cx="72" cy="72" r="7" fill="#C8F542" />
-          {/* Reticle ticks */}
-          <line x1="17" y1="22" x2="27" y2="22" stroke="#C8F542" strokeWidth="1.5" />
-          <line x1="22" y1="17" x2="22" y2="27" stroke="#C8F542" strokeWidth="1.5" />
-          <line x1="117" y1="122" x2="127" y2="122" stroke="#C8F542" strokeWidth="1.5" />
-          <line x1="122" y1="117" x2="122" y2="127" stroke="#C8F542" strokeWidth="1.5" />
-          <text x="4" y="160" fill="#666763" fontSize="8" fontFamily="monospace">ROI [X: 112, Y: 84, S: 224×224]</text>
-        </g>
-
-        {/* Neural Network Decomposition Diagram */}
-        <g transform="translate(195, 30)">
-          <text x="0" y="10" fill="#A0A09B" fontSize="8.5" fontFamily="monospace" fontWeight="bold">RESNET-50 FEATURE MAP</text>
-          
-          {/* Layer Flow */}
-          <rect x="0" y="20" width="70" height="20" fill="#111317" stroke="rgba(255,255,255,0.15)" rx="2" />
-          <text x="8" y="33" fill="#F2F1ED" fontSize="7.5" fontFamily="monospace">CONV 7×7</text>
-
-          <line x1="70" y1="30" x2="88" y2="30" stroke="#C8F542" strokeWidth="1.2" />
-
-          <rect x="88" y="20" width="88" height="20" fill="#111317" stroke="#3F5CFF" rx="2" />
-          <text x="94" y="33" fill="#3F5CFF" fontSize="7.5" fontFamily="monospace">RES-BLOCK [×4]</text>
-
-          {/* Skip connection arc */}
-          <path d="M 35 20 C 35 5, 132 5, 132 20" fill="none" stroke="#C8F542" strokeWidth="1.2" strokeDasharray="3 2" />
-          <text x="65" y="10" fill="#C8F542" fontSize="7" fontFamily="monospace">x + F(x)</text>
-
-          {/* Classification Probabilities */}
-          <text x="0" y="65" fill="#A0A09B" fontSize="8" fontFamily="monospace">SOFTMAX PREDICTION:</text>
-          
-          {/* Bar 1 */}
-          <text x="0" y="82" fill="#C8F542" fontSize="8" fontFamily="monospace">0102 // PASSION FLOWER</text>
-          <rect x="0" y="87" width="135" height="5" fill="rgba(255,255,255,0.08)" rx="1" />
-          <rect x="0" y="87" width="130" height="5" fill="#C8F542" rx="1" />
-          <text x="142" y="92" fill="#C8F542" fontSize="8" fontFamily="monospace">98.4%</text>
-
-          {/* Bar 2 */}
-          <text x="0" y="108" fill="#777873" fontSize="8" fontFamily="monospace">0044 // CANTERBURY BELLS</text>
-          <rect x="0" y="113" width="135" height="4" fill="rgba(255,255,255,0.08)" rx="1" />
-          <rect x="0" y="113" width="10" height="4" fill="#777873" rx="1" />
-          <text x="142" y="117" fill="#777873" fontSize="8" fontFamily="monospace">1.2%</text>
-
-          {/* Bar 3 */}
-          <text x="0" y="132" fill="#555652" fontSize="8" fontFamily="monospace">0089 // WATER LILY</text>
-          <rect x="0" y="137" width="135" height="4" fill="rgba(255,255,255,0.08)" rx="1" />
-          <rect x="0" y="137" width="4" height="4" fill="#555652" rx="1" />
-          <text x="142" y="141" fill="#555652" fontSize="8" fontFamily="monospace">0.4%</text>
-        </g>
-
-        {/* Footer Telemetry */}
-        <line x1="20" y1="200" x2="380" y2="200" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-        <text x="20" y="218" fill="#62635F" fontSize="8" fontFamily="monospace">PYTORCH RESNET-50 // 102 CLASSES // TEST ACCURACY: 94.8%</text>
-      </svg>
-    );
-  }
-
-  if (id === "signature-verify") {
-    return (
-      <svg viewBox="0 0 400 240" className="project-schematic-svg" aria-label="Siamese Network Signature Verification Blueprint">
-        <rect width="400" height="240" fill="#07080A" />
-
-        {/* Top Branch: Reference Signature */}
-        <g transform="translate(25, 25)">
-          <rect x="0" y="0" width="155" height="58" fill="#0A0D10" stroke="rgba(56, 189, 248, 0.3)" rx="2" />
-          <text x="8" y="14" fill="#38BDF8" fontSize="8" fontFamily="monospace">REFERENCE (X1) // REGISTERED</text>
-          <path d="M 15 44 C 35 20, 45 54, 65 29 S 95 48, 115 24 S 138 44, 146 34" fill="none" stroke="#F2F1ED" strokeWidth="1.6" />
-          <circle cx="15" cy="44" r="2.5" fill="#38BDF8" />
-          <circle cx="65" cy="29" r="2.5" fill="#38BDF8" />
-          <circle cx="115" cy="24" r="2.5" fill="#38BDF8" />
-        </g>
-
-        {/* Bottom Branch: Input Signature */}
-        <g transform="translate(25, 98)">
-          <rect x="0" y="0" width="155" height="58" fill="#0A0D10" stroke="rgba(255, 255, 255, 0.15)" rx="2" />
-          <text x="8" y="14" fill="#A0A09B" fontSize="8" fontFamily="monospace">TEST SAMPLE (X2) // CLAIMED</text>
-          <path d="M 15 43 C 36 21, 46 53, 66 30 S 96 47, 116 25 S 137 45, 145 35" fill="none" stroke="#A0A09B" strokeWidth="1.6" strokeDasharray="4 2" />
-          <circle cx="15" cy="43" r="2" fill="#38BDF8" />
-          <circle cx="66" cy="30" r="2" fill="#38BDF8" />
-          <circle cx="116" cy="25" r="2" fill="#38BDF8" />
-        </g>
-
-        {/* Twin CNN Encoders and Convergence */}
-        <g transform="translate(200, 36)">
-          <rect x="0" y="0" width="55" height="28" fill="#11141A" stroke="#38BDF8" rx="2" />
-          <text x="6" y="17" fill="#38BDF8" fontSize="8" fontFamily="monospace">CNN G_W</text>
-
-          <rect x="0" y="74" width="55" height="28" fill="#11141A" stroke="#38BDF8" rx="2" />
-          <text x="6" y="91" fill="#38BDF8" fontSize="8" fontFamily="monospace">CNN G_W</text>
-
-          <path d="M 55 14 L 85 51" stroke="#38BDF8" strokeWidth="1.2" />
-          <path d="M 55 88 L 85 51" stroke="#38BDF8" strokeWidth="1.2" />
-
-          {/* Distance Metric Comparator */}
-          <circle cx="100" cy="51" r="15" fill="#0E1217" stroke="#38BDF8" strokeWidth="1.5" />
-          <text x="92" y="54" fill="#F2F1ED" fontSize="8.5" fontFamily="monospace">D_w</text>
-
-          <line x1="115" y1="51" x2="135" y2="51" stroke="#38BDF8" strokeWidth="1.5" />
-
-          {/* Verification Badge */}
-          <rect x="135" y="38" width="45" height="26" fill="rgba(56, 189, 248, 0.15)" stroke="#38BDF8" rx="2" />
-          <text x="140" y="54" fill="#38BDF8" fontSize="8" fontFamily="monospace" fontWeight="bold">PASS</text>
-        </g>
-
-        {/* Bottom Distance Metric Display */}
-        <g transform="translate(25, 172)">
-          <rect x="0" y="0" width="350" height="42" fill="#0A0D10" stroke="rgba(255,255,255,0.08)" rx="2" />
-          <text x="10" y="16" fill="#777873" fontSize="8" fontFamily="monospace">EUCLIDEAN EMBEDDING DISTANCE:</text>
-          <text x="10" y="31" fill="#38BDF8" fontSize="9.5" fontFamily="monospace" fontWeight="bold">D_w = 0.041 &lt; THRESHOLD τ (0.500)</text>
-          <text x="210" y="31" fill="#10B981" fontSize="8.5" fontFamily="monospace">AUTHENTIC: 99.1%</text>
-        </g>
-      </svg>
-    );
-  }
-
-  if (id === "leviathan-ts") {
-    return (
-      <svg viewBox="0 0 400 240" className="project-schematic-svg" aria-label="Leviathan Time Series CNN-LSTM Blueprint">
-        <rect width="400" height="240" fill="#07080A" />
-
-        {/* Oscilloscope Grid */}
-        <line x1="25" y1="35" x2="375" y2="35" stroke="rgba(255,255,255,0.05)" />
-        <line x1="25" y1="75" x2="375" y2="75" stroke="rgba(255,255,255,0.05)" />
-        <line x1="25" y1="115" x2="375" y2="115" stroke="rgba(255,255,255,0.05)" />
-        <line x1="25" y1="155" x2="375" y2="155" stroke="rgba(255,255,255,0.05)" />
-
-        {/* Waveform Channel 1: Sensor Signal */}
-        <path
-          d="M 25 55 Q 45 20, 65 55 T 105 55 T 145 35 T 165 80 T 185 25 T 205 70 T 225 55 T 265 55 T 305 45 T 335 65 T 375 55"
-          fill="none"
-          stroke="#A78BFA"
-          strokeWidth="1.8"
-        />
-        <text x="28" y="27" fill="#A78BFA" fontSize="8" fontFamily="monospace">CH_01: MULTIVARIATE TELEMETRY STREAM [512-HZ]</text>
-
-        {/* Waveform Channel 2: 1D CNN Activation Feature Map */}
-        <path
-          d="M 25 105 Q 55 105, 85 90 T 145 105 T 175 130 T 195 75 T 215 115 T 255 105 T 315 100 T 375 105"
-          fill="none"
-          stroke="#38BDF8"
-          strokeWidth="1.4"
-          strokeDasharray="2 2"
-        />
-        <text x="28" y="95" fill="#38BDF8" fontSize="8" fontFamily="monospace">1D-CONV FEATURE MAP ACTIVATION [KERNEL: 5×1]</text>
-
-        {/* Waveform Channel 3: LSTM Recurrent Hidden State */}
-        <path
-          d="M 25 145 L 155 145 Q 175 145, 185 130 Q 195 160, 205 130 L 225 145 L 375 145"
-          fill="none"
-          stroke="#C8F542"
-          strokeWidth="1.5"
-        />
-        <text x="28" y="137" fill="#C8F542" fontSize="8" fontFamily="monospace">LSTM CELL STATE h_t // SEQUENCE ENCODING</text>
-
-        {/* Sliding Kernel Receptive Field Bracket */}
-        <rect x="160" y="30" width="55" height="130" fill="rgba(167, 139, 250, 0.1)" stroke="#A78BFA" strokeWidth="1" strokeDasharray="3 3" />
-        <text x="165" y="23" fill="#A78BFA" fontSize="7" fontFamily="monospace">WINDOW [Δt]</text>
-
-        {/* Anomaly Detection Marker */}
-        <line x1="185" y1="25" x2="185" y2="165" stroke="#EF4444" strokeWidth="1.2" />
-        <circle cx="185" cy="80" r="4" fill="#EF4444" />
-        <text x="195" y="83" fill="#EF4444" fontSize="8" fontFamily="monospace" fontWeight="bold">ANOMALY TRIGGER</text>
-
-        {/* Telemetry Bar */}
-        <g transform="translate(25, 185)">
-          <rect x="0" y="0" width="350" height="32" fill="#0A0D10" stroke="rgba(255,255,255,0.08)" rx="2" />
-          <text x="10" y="20" fill="#888984" fontSize="8" fontFamily="monospace">1D_CNN (64 FILTERS) + BIDIRECTIONAL LSTM (128 UNITS)</text>
-          <text x="265" y="20" fill="#A78BFA" fontSize="8" fontFamily="monospace">ACC: 96.8%</text>
-        </g>
-      </svg>
-    );
-  }
-
-  if (id === "smart-helmet") {
-    return (
-      <svg viewBox="0 0 400 240" className="project-schematic-svg" aria-label="Smart Helmet Accident Detection Blueprint">
-        <rect width="400" height="240" fill="#07080A" />
-
-        {/* Left Side: 3-Axis IMU Acceleration Vector Sphere */}
-        <g transform="translate(25, 25)">
-          <rect x="0" y="0" width="150" height="150" fill="#0A0D10" stroke="rgba(20, 184, 166, 0.3)" rx="2" />
-          <text x="8" y="14" fill="#14B8A6" fontSize="8" fontFamily="monospace">MPU6050 6-AXIS IMU // VECTOR</text>
-
-          <circle cx="75" cy="80" r="45" fill="none" stroke="rgba(255,255,255,0.06)" />
-          <circle cx="75" cy="80" r="30" fill="none" stroke="rgba(255,255,255,0.08)" />
-          <circle cx="75" cy="80" r="15" fill="none" stroke="rgba(255,255,255,0.1)" />
-
-          <line x1="20" y1="80" x2="130" y2="80" stroke="rgba(255,255,255,0.15)" strokeDasharray="2 2" />
-          <line x1="75" y1="25" x2="75" y2="135" stroke="rgba(255,255,255,0.15)" strokeDasharray="2 2" />
-
-          {/* Spike Vector */}
-          <line x1="75" y1="80" x2="115" y2="45" stroke="#EF4444" strokeWidth="2.5" />
-          <circle cx="115" cy="45" r="4" fill="#EF4444" />
-          
-          <text x="8" y="140" fill="#EF4444" fontSize="8" fontFamily="monospace" fontWeight="bold">|a| = 5.2g &gt; 3.0g [CRITICAL]</text>
-        </g>
-
-        {/* Right Side: Incident Dispatch Telemetry */}
-        <g transform="translate(195, 25)">
-          <text x="0" y="12" fill="#14B8A6" fontSize="9" fontFamily="monospace" fontWeight="bold">EMERGENCY TELEMETRY HUD</text>
-
-          <rect x="0" y="22" width="180" height="40" fill="#0A0D10" stroke="rgba(255,255,255,0.12)" rx="2" />
-          <text x="8" y="37" fill="#777873" fontSize="7.5" fontFamily="monospace">GPS FIX: NEO-6M SATELLITE</text>
-          <text x="8" y="52" fill="#F2F1ED" fontSize="8.5" fontFamily="monospace">22.3149° N, 87.3105° E</text>
-
-          <rect x="0" y="70" width="180" height="48" fill="#0A0D10" stroke="rgba(20, 184, 166, 0.4)" rx="2" />
-          <text x="8" y="85" fill="#14B8A6" fontSize="7.5" fontFamily="monospace">SIM800L GSM BROADCAST:</text>
-          <text x="8" y="98" fill="#F2F1ED" fontSize="7.5" fontFamily="monospace">SOS SMS → DISPATCHED</text>
-          <text x="8" y="110" fill="#10B981" fontSize="7" fontFamily="monospace">[ACK: TOWER_CONNECT_OK]</text>
-
-          {/* Badges */}
-          <g transform="translate(0, 128)">
-            <rect x="0" y="0" width="52" height="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" rx="2" />
-            <text x="8" y="12" fill="#A0A09B" fontSize="7.5" fontFamily="monospace">I2C BUS</text>
-
-            <rect x="60" y="0" width="52" height="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" rx="2" />
-            <text x="67" y="12" fill="#A0A09B" fontSize="7.5" fontFamily="monospace">AT CMD</text>
-
-            <rect x="120" y="0" width="56" height="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" rx="2" />
-            <text x="125" y="12" fill="#14B8A6" fontSize="7.5" fontFamily="monospace">IIT KGP</text>
-          </g>
-        </g>
-
-        {/* Footer Bar */}
-        <g transform="translate(25, 185)">
-          <rect x="0" y="0" width="350" height="32" fill="#0A0D10" stroke="rgba(255,255,255,0.08)" rx="2" />
-          <text x="10" y="20" fill="#888984" fontSize="8" fontFamily="monospace">EMBEDDED C++ // ISR SENSOR INTERRUPTS // REAL-TIME ACCIDENT TELEMETRY</text>
-        </g>
-      </svg>
-    );
-  }
-
-  if (id === "digit-recog") {
-    return (
-      <svg viewBox="0 0 400 240" className="project-schematic-svg" aria-label="Handwritten Digit Recognition CNN Matrix Blueprint">
-        <rect width="400" height="240" fill="#07080A" />
-
-        {/* 28x28 Subpixel Matrix (Handwritten '7') */}
-        <g transform="translate(25, 25)">
-          <rect x="0" y="0" width="145" height="145" fill="#050709" stroke="rgba(245, 158, 11, 0.3)" rx="2" />
-          <text x="6" y="12" fill="#F59E0B" fontSize="7.5" fontFamily="monospace">INPUT TENSOR: [1×28×28]</text>
-
-          <g transform="translate(20, 20)">
-            <rect x="10" y="12" width="75" height="14" fill="#F59E0B" opacity="0.9" />
-            <path d="M 85 12 L 40 85 L 25 85 L 70 12 Z" fill="#F59E0B" opacity="0.85" />
-            
-            {/* Sliding 3x3 Convolution Kernel */}
-            <rect x="38" y="24" width="24" height="24" fill="rgba(245, 158, 11, 0.2)" stroke="#F2F1ED" strokeWidth="1.2" />
-            <text x="40" y="38" fill="#F2F1ED" fontSize="6.5" fontFamily="monospace">3×3</text>
-          </g>
-
-          <text x="6" y="138" fill="#777873" fontSize="7.5" fontFamily="monospace">PIXEL VALUES: [0.0 - 1.0]</text>
-        </g>
-
-        {/* Feature Map Projection & Softmax Logits */}
-        <g transform="translate(195, 25)">
-          <text x="0" y="10" fill="#F59E0B" fontSize="8.5" fontFamily="monospace" fontWeight="bold">CONV2D → RELU → MAXPOOL</text>
-          <text x="0" y="26" fill="#777873" fontSize="7.5" fontFamily="monospace">SOFTMAX CLASSIFICATION LOGITS:</text>
-
-          {[
-            { digit: 0, prob: 0 },
-            { digit: 1, prob: 2 },
-            { digit: 2, prob: 1 },
-            { digit: 3, prob: 0 },
-            { digit: 4, prob: 0 },
-            { digit: 5, prob: 0 },
-            { digit: 6, prob: 0 },
-            { digit: 7, prob: 99.8 },
-            { digit: 8, prob: 0 },
-            { digit: 9, prob: 1 },
-          ].map((item, idx) => (
-            <g key={item.digit} transform={`translate(0, ${34 + idx * 11})`}>
-              <text x="0" y="8" fill={item.prob > 50 ? "#F59E0B" : "#555652"} fontSize="7.5" fontFamily="monospace" fontWeight={item.prob > 50 ? "bold" : "normal"}>
-                {item.digit}:
-              </text>
-              <rect x="18" y="2" width="115" height="5" fill="rgba(255,255,255,0.06)" rx="1" />
-              <rect x="18" y="2" width={item.prob > 50 ? 112 : Math.max(1, item.prob * 1.1)} height="5" fill={item.prob > 50 ? "#F59E0B" : "#777873"} rx="1" />
-              {item.prob > 50 && (
-                <text x="138" y="8" fill="#F59E0B" fontSize="7.5" fontFamily="monospace" fontWeight="bold">99.8%</text>
-              )}
-            </g>
-          ))}
-        </g>
-
-        {/* Footer */}
-        <g transform="translate(25, 185)">
-          <rect x="0" y="0" width="350" height="32" fill="#0A0D10" stroke="rgba(255,255,255,0.08)" rx="2" />
-          <text x="10" y="20" fill="#888984" fontSize="8" fontFamily="monospace">PYTORCH CNN // MNIST BENCHMARK // TRAIN LOSS: 0.0142 // TEST ACC: 99.2%</text>
-        </g>
-      </svg>
-    );
-  }
-
-  // id === "transient-svm"
-  return (
-    <svg viewBox="0 0 400 240" className="project-schematic-svg" aria-label="Transient Detection SVM Phase Space Blueprint">
-      <rect width="400" height="240" fill="#07080A" />
-
-      {/* Top: Signal Transient Waveform */}
-      <g transform="translate(25, 20)">
-        <rect x="0" y="0" width="350" height="48" fill="#0A0D10" stroke="rgba(16, 185, 129, 0.25)" rx="2" />
-        <text x="8" y="12" fill="#10B981" fontSize="7.5" fontFamily="monospace">TIME-DOMAIN TRANSIENT BURST PULSE</text>
-        
-        <path
-          d="M 10 30 L 80 30 Q 95 29, 110 30 L 130 30 L 140 14 L 146 43 L 152 12 L 158 38 L 164 30 L 340 30"
-          fill="none"
-          stroke="#F2F1ED"
-          strokeWidth="1.4"
-        />
-        <rect x="135" y="8" width="35" height="36" fill="rgba(16, 185, 129, 0.15)" stroke="#10B981" strokeWidth="1" strokeDasharray="2 2" />
-        <text x="178" y="24" fill="#10B981" fontSize="7.5" fontFamily="monospace">TRANSIENT SPIKE</text>
-      </g>
-
-      {/* Bottom: SVM Feature Space & Separating Hyperplane */}
-      <g transform="translate(25, 80)">
-        <rect x="0" y="0" width="350" height="125" fill="#0A0D10" stroke="rgba(255,255,255,0.08)" rx="2" />
-        <text x="8" y="14" fill="#777873" fontSize="7.5" fontFamily="monospace">2D FEATURE SPACE: PEAK AMPLITUDE vs RISE TIME</text>
-
-        <line x1="40" y1="105" x2="290" y2="25" stroke="#10B981" strokeWidth="1.8" />
-        <line x1="30" y1="90" x2="280" y2="10" stroke="rgba(16, 185, 129, 0.4)" strokeWidth="1.2" strokeDasharray="4 3" />
-        <line x1="50" y1="120" x2="300" y2="40" stroke="rgba(16, 185, 129, 0.4)" strokeWidth="1.2" strokeDasharray="4 3" />
-
-        {/* Support Vectors */}
-        <circle cx="110" cy="58" r="5" fill="none" stroke="#10B981" strokeWidth="1.5" />
-        <circle cx="110" cy="58" r="2.5" fill="#10B981" />
-        
-        <circle cx="210" cy="85" r="5" fill="none" stroke="#3F5CFF" strokeWidth="1.5" />
-        <circle cx="210" cy="85" r="2.5" fill="#3F5CFF" />
-
-        {/* Scatter Normal Data Points */}
-        <circle cx="190" cy="100" r="2" fill="#555652" />
-        <circle cx="230" cy="95" r="2" fill="#555652" />
-        <circle cx="250" cy="105" r="2" fill="#555652" />
-        <circle cx="180" cy="115" r="2" fill="#555652" />
-
-        {/* Scatter Transient Anomaly Points */}
-        <circle cx="70" cy="40" r="2.5" fill="#10B981" />
-        <circle cx="90" cy="30" r="2.5" fill="#10B981" />
-        <circle cx="60" cy="55" r="2.5" fill="#10B981" />
-
-        <text x="180" y="30" fill="#10B981" fontSize="7.5" fontFamily="monospace">w^T x + b = 0 [DECISION]</text>
-        <text x="118" y="70" fill="#10B981" fontSize="7" fontFamily="monospace">SUPPORT VECTOR</text>
-
-        <text x="10" y="116" fill="#62635F" fontSize="7.5" fontFamily="monospace">KERNEL: RBF (RADIAL BASIS) // C: 10.0 // MARGIN: MAXIMAL</text>
-      </g>
-    </svg>
-  );
-}
-
-function ProjectShowcase() {
-  const [filter, setFilter] = useState<string>("ALL");
-
-  const filteredProjects =
-    filter === "ALL"
-      ? showcaseProjects
-      : showcaseProjects.filter((p) => p.category === filter);
-
-  const categories = [
-    { label: "ALL WORKS (06)", value: "ALL" },
-    { label: "COMPUTER VISION", value: "CV" },
-    { label: "DEEP LEARNING", value: "DEEP LEARNING" },
-    { label: "SIGNAL & IOT", value: "SIGNAL / IOT" },
-  ];
-
-  return (
-    <div className="project-showcase-section">
-      <div className="showcase-header-bar">
-        <div className="showcase-header-title">
-          <span className="mono">APPLIED WORKS // ARCHIVE</span>
-          <h3>SELECTED ML &amp; VISION PROJECTS</h3>
-        </div>
-
-        <div className="project-filter-tabs">
-          {categories.map((cat) => (
-            <button
-              key={cat.value}
-              type="button"
-              className={`filter-tab-btn ${filter === cat.value ? "active" : ""}`}
-              onClick={() => setFilter(cat.value)}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="projects-grid">
-        {filteredProjects.map((project) => (
-          <div className="work-card" key={project.id}>
-            <div className="work-card-thumb-wrap">
-              <ProjectSchematic id={project.id} />
-              <div className="work-card-hud-badge">
-                {project.num} // {project.category}
-              </div>
-            </div>
-
-            <div className="work-card-body">
-              <div className="work-card-meta mono">
-                <span className="meta-category">{project.category}</span>
-                <span className="meta-year">{project.year}</span>
-              </div>
-
-              <h4 className="work-card-title">{project.title}</h4>
-
-              <p className="work-card-desc">{project.description}</p>
-
-              <div className="work-card-tags">
-                {project.tags.map((tag) => (
-                  <span className="work-card-tag" key={tag}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="work-card-footer">
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="work-card-link"
-                  aria-label={`View ${project.title} on GitHub`}
-                >
-                  <span>SOURCE CODE</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="7" y1="17" x2="17" y2="7" />
-                    <polyline points="7 7 17 7 17 17" />
-                  </svg>
-                </a>
-                <span className="work-card-status-dot">DEPLOYED</span>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 /* ==================================================
-   SECTION 02: LEARNING (FIRST PRINCIPLES)
+   SECTION 02: DEEP LEARNING FROM FIRST PRINCIPLES
    ================================================== */
-function Learning() {
+function FromScratchSection() {
   return (
-    <section id="learning" className="section learning">
+    <section id="from-scratch" className="section learning">
       <SectionHeader
         n="02"
-        label="LEARNING"
+        label="DEEP LEARNING FROM SCRATCH"
         title={"OPEN THE BOX.\nBUILD THE THING."}
-        body="Understanding modern deep learning from first principles. Less opaque black boxes, more hands-on mathematical architecture."
+        body="Understanding neural network architectures from the ground up. Manual gradient computation, custom autograd engines, and from-scratch Transformer tokenization without library black boxes."
       />
 
-      <div className="archive">
-        {learning.map(([id, status, title, sub, tags]) => (
-          <div key={id} className="archive-row">
-            <span className="mono archive-id">{id}</span>
-            <span className={`mono archive-status ${status === "IMPLEMENTED" ? "is-imp" : ""}`}>
-              {status}
-            </span>
+      <div className="from-scratch-showcase">
+        {/* Deep Project 1: Transformer from Scratch */}
+        <div className="deep-project-card">
+          <div className="deep-header">
             <div>
-              <h3>{title}</h3>
-              <p>{sub}</p>
+              <span className="mono tag-pill">ATTENTION IS ALL YOU NEED</span>
+              <h3 className="deep-title">TRANSFORMER FROM SCRATCH &amp; CUSTOM BPE TOKENIZER</h3>
             </div>
-            <span className="mono archive-tags">{tags}</span>
-            <span className="arrow">&nearr;</span>
+            <div className="mono stat-badge">COMPLETE WORKS OF SHAKESPEARE</div>
           </div>
-        ))}
+
+          <p className="deep-desc">
+            Implemented a complete encoder-decoder Transformer architecture from scratch following <i>‘Attention Is All You Need’</i>, with manual gradient computations, multi-head self-attention mechanisms, and custom tokenization.
+          </p>
+
+          <div className="deep-grid-metrics">
+            <div className="metric-box">
+              <span className="metric-num">BPE</span>
+              <span className="metric-label mono">CUSTOM TOKENIZER</span>
+              <p className="metric-sub">Built vocabulary generation, byte-pair merge rules, and encode/decode routines from scratch.</p>
+            </div>
+            <div className="metric-box">
+              <span className="metric-num">d_k = 64</span>
+              <span className="metric-label mono">MULTI-HEAD ATTENTION</span>
+              <p className="metric-sub">Scaled dot-product attention QK^T / &radic;d_k with residual adds and LayerNorm.</p>
+            </div>
+            <div className="metric-box">
+              <span className="metric-num">MAPS</span>
+              <span className="metric-label mono">CROSS-ATTENTION VERIFICATION</span>
+              <p className="metric-sub">Visualized attention weights across layers to confirm semantic token alignment during generation.</p>
+            </div>
+          </div>
+
+          {/* Transformer Architecture Diagram */}
+          <div className="schematic-box">
+            <svg viewBox="0 0 780 180" className="inner-svg">
+              <rect width="780" height="180" fill="#06080A" />
+
+              {/* BPE Stage */}
+              <g transform="translate(30, 25)">
+                <rect x="0" y="0" width="160" height="110" fill="#0A0D10" stroke="#3F5CFF" rx="2" />
+                <text x="12" y="24" fill="#3F5CFF" fontSize="9" fontFamily="monospace" fontWeight="bold">BPE TOKENIZER</text>
+                <text x="12" y="44" fill="#8C8D88" fontSize="8" fontFamily="monospace">&bull; Raw Text Stream</text>
+                <text x="12" y="60" fill="#8C8D88" fontSize="8" fontFamily="monospace">&bull; Merge Operations</text>
+                <text x="12" y="76" fill="#8C8D88" fontSize="8" fontFamily="monospace">&bull; Vocabulary Builder</text>
+                <text x="12" y="94" fill="#F2F1ED" fontSize="8" fontFamily="monospace">Tokens: [T_1 ... T_n]</text>
+              </g>
+
+              <path d="M 195 80 L 225 80" stroke="#3F5CFF" strokeWidth="1.5" />
+
+              {/* Encoder Block */}
+              <g transform="translate(230, 25)">
+                <rect x="0" y="0" width="220" height="110" fill="#0A0D10" stroke="rgba(255,255,255,0.15)" rx="2" />
+                <text x="12" y="24" fill="#F2F1ED" fontSize="9" fontFamily="monospace" fontWeight="bold">ENCODER STACK</text>
+                <rect x="12" y="36" width="196" height="26" fill="#11141A" stroke="rgba(255,255,255,0.1)" rx="2" />
+                <text x="20" y="53" fill="#C8F542" fontSize="8" fontFamily="monospace">MULTI-HEAD SELF-ATTN (Q, K, V)</text>
+                <rect x="12" y="70" width="196" height="26" fill="#11141A" stroke="rgba(255,255,255,0.1)" rx="2" />
+                <text x="20" y="87" fill="#8C8D88" fontSize="8" fontFamily="monospace">FEED-FORWARD + LAYER NORM</text>
+              </g>
+
+              <path d="M 455 80 L 485 80" stroke="#3F5CFF" strokeWidth="1.5" />
+
+              {/* Decoder Block */}
+              <g transform="translate(490, 25)">
+                <rect x="0" y="0" width="255" height="110" fill="#0A0D10" stroke="#C8F542" rx="2" />
+                <text x="12" y="24" fill="#C8F542" fontSize="9" fontFamily="monospace" fontWeight="bold">DECODER STACK</text>
+                <rect x="12" y="34" width="230" height="22" fill="#11141A" stroke="rgba(255,255,255,0.1)" rx="2" />
+                <text x="20" y="49" fill="#8C8D88" fontSize="7.5" fontFamily="monospace">MASKED SELF-ATTENTION</text>
+                <rect x="12" y="60" width="230" height="22" fill="#11141A" stroke="#3F5CFF" rx="2" />
+                <text x="20" y="75" fill="#3F5CFF" fontSize="7.5" fontFamily="monospace">CROSS-ATTENTION (ENC &rarr; DEC)</text>
+                <rect x="12" y="86" width="230" height="20" fill="#11141A" stroke="rgba(255,255,255,0.1)" rx="2" />
+                <text x="20" y="100" fill="#F2F1ED" fontSize="7.5" fontFamily="monospace">LINEAR + SOFTMAX OUTPUT</text>
+              </g>
+
+              <line x1="30" y1="150" x2="745" y2="150" stroke="rgba(255,255,255,0.08)" />
+              <text x="30" y="168" fill="#8C8D88" fontSize="8" fontFamily="monospace">
+                TRAINED ON SHAKESPEARE // MANUAL GRADIENT COMPUTATION // ATTENTION PROJECTION WEIGHTS VERIFIED
+              </text>
+            </svg>
+          </div>
+
+          <div className="tech mono">
+            <span>PYTHON</span>
+            <span>NUMPY</span>
+            <span>PYTORCH</span>
+            <span>BPE TOKENIZATION</span>
+            <span>SHAKESPEARE CORPUS</span>
+          </div>
+        </div>
+
+        {/* Deep Project 2 & 3: Micrograd & Siamese Network */}
+        <div className="cv-resume-grid">
+          {/* Micrograd */}
+          <div className="resume-project-card">
+            <div className="card-top-hud mono">
+              <span className="card-index">02.02 // CORE MATHEMATICS</span>
+              <span className="card-badge">AUTOGRAD ENGINE</span>
+            </div>
+            <h3 className="card-title">MICROGRAD: SCALAR AUTOGRAD ENGINE</h3>
+            <p className="card-summary">
+              Built a scalar-valued automatic differentiation engine from scratch in Python, implementing dynamic computational graph construction and reverse-mode automatic differentiation.
+            </p>
+
+            <div className="schematic-box">
+              <svg viewBox="0 0 380 140" className="inner-svg">
+                <rect width="380" height="140" fill="#06080A" />
+
+                {/* DAG Nodes */}
+                <g transform="translate(30, 20)">
+                  <circle cx="30" cy="25" r="16" fill="#11141A" stroke="#3F5CFF" />
+                  <text x="22" y="28" fill="#F2F1ED" fontSize="8" fontFamily="monospace">x_1</text>
+
+                  <circle cx="30" cy="85" r="16" fill="#11141A" stroke="#3F5CFF" />
+                  <text x="22" y="88" fill="#F2F1ED" fontSize="8" fontFamily="monospace">w_1</text>
+
+                  {/* Multiply */}
+                  <line x1="46" y1="25" x2="90" y2="55" stroke="rgba(255,255,255,0.2)" />
+                  <line x1="46" y1="85" x2="90" y2="55" stroke="rgba(255,255,255,0.2)" />
+                  <circle cx="105" cy="55" r="16" fill="#11141A" stroke="#C8F542" />
+                  <text x="100" y="58" fill="#C8F542" fontSize="9" fontFamily="monospace">&times;</text>
+
+                  {/* Add Bias */}
+                  <circle cx="105" cy="110" r="14" fill="#11141A" stroke="#3F5CFF" />
+                  <text x="101" y="113" fill="#F2F1ED" fontSize="7.5" fontFamily="monospace">b</text>
+
+                  <line x1="121" y1="55" x2="165" y2="75" stroke="rgba(255,255,255,0.2)" />
+                  <line x1="119" y1="110" x2="165" y2="75" stroke="rgba(255,255,255,0.2)" />
+                  <circle cx="180" cy="75" r="16" fill="#11141A" stroke="#C8F542" />
+                  <text x="176" y="78" fill="#C8F542" fontSize="9" fontFamily="monospace">+</text>
+
+                  {/* Tanh Activation */}
+                  <line x1="196" y1="75" x2="235" y2="75" stroke="rgba(255,255,255,0.2)" />
+                  <rect x="235" y="60" width="55" height="30" fill="#11141A" stroke="#38BDF8" rx="2" />
+                  <text x="244" y="78" fill="#38BDF8" fontSize="8" fontFamily="monospace">tanh</text>
+
+                  {/* Output Node */}
+                  <line x1="290" y1="75" x2="315" y2="75" stroke="#38BDF8" strokeWidth="1.5" />
+                  <circle cx="328" cy="75" r="13" fill="#11141A" stroke="#F2F1ED" />
+                  <text x="323" y="78" fill="#F2F1ED" fontSize="8" fontFamily="monospace">L</text>
+                </g>
+
+                <text x="20" y="128" fill="#8C8D88" fontSize="7.5" fontFamily="monospace">
+                  BACKPROP: Adjoint &part;L/&part;x computed via topological DAG traversal + SGD update loop
+                </text>
+              </svg>
+            </div>
+
+            <div className="card-points">
+              <p>
+                &bull; <b>Full Neural Net Framework:</b> Engineered modular <code>Neuron</code>, <code>Layer</code>, and <code>MLP</code> classes on top of the autograd core with gradient zeroing and parameter updates.
+              </p>
+              <p>
+                &bull; <b>PyTorch Baseline Parity:</b> Numerically verified forward outputs and backward gradients against official PyTorch autograd computations to machine precision.
+              </p>
+            </div>
+
+            <div className="tech mono">
+              <span>PYTHON</span>
+              <span>COMPUTATIONAL GRAPH</span>
+              <span>AUTOMATIC DIFFERENTIATION</span>
+              <span>NEURAL NETWORKS</span>
+            </div>
+          </div>
+
+          {/* Siamese Network */}
+          <div className="resume-project-card">
+            <div className="card-top-hud mono">
+              <span className="card-index">02.03 // ONE-SHOT VERIFICATION</span>
+              <span className="card-badge">95.5% ACCURACY</span>
+            </div>
+            <h3 className="card-title">SIAMESE SIGNATURE VERIFICATION NETWORK</h3>
+            <p className="card-summary">
+              Engineered biometric identity verification system reaching 95.5% accuracy at optimal threshold t=0.25, implementing a Siamese CNN with contrastive loss on 2,640 signature pairs.
+            </p>
+
+            <div className="schematic-box">
+              <svg viewBox="0 0 380 140" className="inner-svg">
+                <rect width="380" height="140" fill="#06080A" />
+
+                {/* Signature input samples */}
+                <g transform="translate(20, 20)">
+                  <rect x="0" y="0" width="90" height="35" fill="#0E1217" stroke="rgba(56, 189, 248, 0.3)" rx="2" />
+                  <path d="M 10 24 C 25 10, 35 30, 50 15 S 70 28, 80 18" fill="none" stroke="#F2F1ED" strokeWidth="1.4" />
+                  <text x="6" y="10" fill="#38BDF8" fontSize="6.5" fontFamily="monospace">GENUINE (X1)</text>
+
+                  <rect x="0" y="50" width="90" height="35" fill="#0E1217" stroke="rgba(255, 255, 255, 0.15)" rx="2" />
+                  <path d="M 10 24 C 25 10, 35 30, 50 15 S 70 28, 80 18" fill="none" stroke="#8C8D88" strokeWidth="1.4" strokeDasharray="3 2" />
+                  <text x="6" y="10" fill="#8C8D88" fontSize="6.5" fontFamily="monospace">FORGED (X2)</text>
+                </g>
+
+                {/* Distance & Metric */}
+                <g transform="translate(135, 20)">
+                  <rect x="0" y="15" width="80" height="55" fill="#0E1217" stroke="#38BDF8" rx="2" />
+                  <text x="6" y="32" fill="#38BDF8" fontSize="7.5" fontFamily="monospace">CONTRASTIVE</text>
+                  <text x="6" y="44" fill="#38BDF8" fontSize="7.5" fontFamily="monospace">LOSS L(D_w)</text>
+                  <text x="6" y="58" fill="#F2F1ED" fontSize="8" fontFamily="monospace">t = 0.25</text>
+
+                  <line x1="80" y1="42" x2="110" y2="42" stroke="#38BDF8" strokeWidth="1.5" />
+
+                  <rect x="110" y="27" width="105" height="32" fill="#0E1217" stroke="#10B981" rx="2" />
+                  <text x="116" y="42" fill="#10B981" fontSize="8.5" fontFamily="monospace" fontWeight="bold">95.5% ACCURACY</text>
+                  <text x="116" y="53" fill="#8C8D88" fontSize="6.5" fontFamily="monospace">FAR/FRR BALANCED</text>
+                </g>
+
+                <text x="20" y="124" fill="#8C8D88" fontSize="7.5" fontFamily="monospace">
+                  DATASET: 2,640 PAIRS (CEDAR/ICDAR) // OPENCV BINARIZATION &amp; CONTOUR NORMALIZATION
+                </text>
+              </svg>
+            </div>
+
+            <div className="card-points">
+              <p>
+                &bull; <b>Error Rate Quantification:</b> Mapped the trade-off between False Accept Rate (FAR) and False Reject Rate (FRR) across 10+ threshold values to locate optimal operating sensitivity.
+              </p>
+              <p>
+                &bull; <b>Image Preprocessing:</b> Built an automated OpenCV pipeline for stroke binarization, noise attenuation, and contour aspect ratio normalization.
+              </p>
+            </div>
+
+            <div className="tech mono">
+              <span>PYTORCH</span>
+              <span>CONTRASTIVE LOSS</span>
+              <span>OPENCV</span>
+              <span>CEDAR / ICDAR 2011</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
 /* ==================================================
-   SECTION 03: ACTION (ROBOTICS PATH PLANNING)
+   SECTION 03: FUTURE HORIZONS (ROBOTICS, 3D & VLA)
    ================================================== */
-function Action() {
+function RoboticsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
-  const [robotPos, setRobotPos] = useState({ x: 80, y: 360, angle: -15 });
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
-  const pathScale = useTransform(scrollYProgress, [0.18, 0.78], [0, 1]);
+  const pathScale = useTransform(scrollYProgress, [0.15, 0.75], [0, 1]);
+  const [robotPos, setRobotPos] = useState({ x: 80, y: 360, angle: -45 });
+
+  const trajectoryD = "M 80 360 C 140 330, 200 370, 320 290 S 460 310, 560 160 S 760 180, 920 100";
 
   useEffect(() => {
-    const unsubscribe = pathScale.on("change", (latest) => {
-      const path = pathRef.current;
-      if (!path) return;
-      try {
-        const total = path.getTotalLength();
-        const clamped = Math.max(0, Math.min(1, latest));
-        const point = path.getPointAtLength(clamped * total);
-        const forward = Math.min(total, (clamped + 0.015) * total);
-        const nextPoint = path.getPointAtLength(forward);
-        const dx = nextPoint.x - point.x;
-        const dy = nextPoint.y - point.y;
-        const angle = Math.atan2(dy, dx) * (180 / Math.PI);
-        setRobotPos({ x: point.x, y: point.y, angle });
-      } catch {
-        // Fallback gracefully
-      }
-    });
-    return () => unsubscribe();
-  }, [pathScale]);
+    return scrollYProgress.onChange((v) => {
+      if (!pathRef.current) return;
+      const length = pathRef.current.getTotalLength();
+      const progress = Math.max(0, Math.min(1, (v - 0.15) / 0.6));
+      const point = pathRef.current.getPointAtLength(progress * length);
 
-  const trajectoryD = "M 80 360 C 200 360, 220 290, 320 290 S 480 160, 560 160 S 800 240, 920 100";
+      const lookAhead = Math.min(length, progress * length + 2);
+      const nextPoint = pathRef.current.getPointAtLength(lookAhead);
+      const angle = (Math.atan2(nextPoint.y - point.y, nextPoint.x - point.x) * 180) / Math.PI;
+
+      setRobotPos({ x: point.x, y: point.y, angle });
+    });
+  }, [scrollYProgress]);
 
   return (
-    <section id="action" ref={containerRef} className="section action">
+    <section id="robotics" className="section action" ref={containerRef}>
       <SectionHeader
         n="03"
-        label="ACTION"
-        title={"FROM SEEING\nTO DOING."}
-        body="Investigating mobile robotics, collision-avoidance trajectory planning, and perception-informed embodied action."
+        label="FUTURE RESEARCH HORIZONS"
+        title={"ROBOTICS, 3D PERCEPTION\n&amp; EMBODIED ACTION."}
+        body="Connecting computer vision with the physical world: spatial 3D perception, local costmap collision avoidance, and Vision-Language-Action (VLA) robotic policies."
       />
 
-      <div className="action-topics mono">
-        <span>ROBOTICS</span>
-        <span>PATH FINDING</span>
-        <span>PATH PLANNING</span>
-        <span>NAVIGATION</span>
-        <span>ROBOT TRACKING</span>
-        <span>VISION-LANGUAGE-ACTION</span>
-      </div>
-
+      {/* Interactive Path Planning & Obstacle Costmap Simulation */}
       <div className="planning-scene-container" role="img" aria-label="Interactive robotics collision avoidance path planning simulation">
-        <div className="planning-hud-top mono">
-          <span>ALGORITHM: RRT* / A* TRAJECTORY PLANNER</span>
-          <span>COLLISION PROBABILITY: 0.00% // SAFE</span>
-        </div>
-
-        <svg className="planning-svg" viewBox="0 0 1000 450" preserveAspectRatio="none">
+        <svg viewBox="0 0 1000 450" className="planning-canvas">
           <defs>
-            <filter id="glowPath" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="0" stdDeviation="4" floodColor="#3F5CFF" floodOpacity="0.4" />
-            </filter>
-            <pattern id="costmapGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.025)" strokeWidth="1" />
+            <pattern id="gridPatternRobotics" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="1" />
             </pattern>
+            <filter id="glowPath">
+              <feDropShadow dx="0" dy="0" stdDeviation="4" floodColor="#3F5CFF" floodOpacity="0.8" />
+            </filter>
           </defs>
 
-          <rect width="1000" height="450" fill="url(#costmapGrid)" />
+          <rect width="1000" height="450" fill="#07080A" />
+          <rect width="1000" height="450" fill="url(#gridPatternRobotics)" />
 
-          {/* Obstacle Fields with Safety Clearance */}
+          {/* Obstacle Costmap Zones */}
           <g>
-            <rect x="130" y="70" width="130" height="100" fill="rgba(255, 255, 255, 0.01)" stroke="rgba(255, 255, 255, 0.08)" strokeDasharray="3 3" />
-            <rect x="140" y="80" width="110" height="80" fill="#0B0D0F" stroke="rgba(255, 255, 255, 0.12)" />
-            <text x="150" y="125" fill="#62635F" fontSize="8" fontFamily="monospace">OBS_01 [STATIC]</text>
+            <rect x="180" y="160" width="120" height="100" fill="#0E1217" stroke="rgba(255, 255, 255, 0.15)" />
+            <text x="200" y="215" fill="#8C8D88" fontSize="8" fontFamily="monospace">OBS_01 [STATIC]</text>
           </g>
 
           <g>
-            <rect x="190" y="390" width="160" height="50" fill="#0B0D0F" stroke="rgba(255, 255, 255, 0.12)" />
-            <text x="210" y="420" fill="#62635F" fontSize="8" fontFamily="monospace">OBS_02 [BOUNDARY]</text>
+            <circle cx="430" cy="270" r="55" fill="#0E1217" stroke="rgba(255, 255, 255, 0.15)" />
+            <text x="400" y="275" fill="#8C8D88" fontSize="8" fontFamily="monospace">OBS_02 [ZONE]</text>
           </g>
 
           <g>
-            <rect x="390" y="270" width="140" height="110" fill="rgba(255, 255, 255, 0.01)" stroke="rgba(255, 255, 255, 0.08)" strokeDasharray="3 3" />
-            <rect x="400" y="280" width="120" height="90" fill="#0B0D0F" stroke="rgba(255, 255, 255, 0.12)" />
-            <text x="415" y="330" fill="#62635F" fontSize="8" fontFamily="monospace">OBS_03 [DENSE]</text>
+            <rect x="650" y="120" width="140" height="90" fill="#0E1217" stroke="rgba(255, 255, 255, 0.15)" />
+            <text x="670" y="170" fill="#8C8D88" fontSize="8" fontFamily="monospace">OBS_03 [BOUNDARY]</text>
           </g>
 
-          <g>
-            <rect x="420" y="20" width="110" height="80" fill="#0B0D0F" stroke="rgba(255, 255, 255, 0.12)" />
-            <text x="435" y="65" fill="#62635F" fontSize="8" fontFamily="monospace">OBS_04 [ZONE]</text>
-          </g>
+          {/* Reference Static Trajectory */}
+          <path d={trajectoryD} fill="none" stroke="rgba(255, 255, 255, 0.1)" strokeWidth="2" strokeDasharray="6 6" />
 
-          <g>
-            <rect x="650" y="30" width="140" height="90" fill="#0B0D0F" stroke="rgba(255, 255, 255, 0.12)" />
-            <text x="670" y="80" fill="#62635F" fontSize="8" fontFamily="monospace">OBS_05 [STATIC]</text>
-          </g>
-
-          <g>
-            <rect x="670" y="300" width="170" height="90" fill="#0B0D0F" stroke="rgba(255, 255, 255, 0.12)" />
-            <text x="690" y="350" fill="#62635F" fontSize="8" fontFamily="monospace">OBS_06 [PERIMETER]</text>
-          </g>
-
-          {/* Static Reference Base Path */}
-          <path d={trajectoryD} fill="none" stroke="rgba(255, 255, 255, 0.08)" strokeWidth="2" strokeDasharray="6 6" />
-
-          {/* Scroll-Driven Animated Active Trajectory Path */}
+          {/* Active Generated Trajectory */}
           <motion.path
             ref={pathRef}
             d={trajectoryD}
@@ -1245,21 +927,21 @@ function Action() {
 
           {/* Waypoints */}
           <circle cx="80" cy="360" r="5" fill="#070809" stroke="#F2F1ED" strokeWidth="2" />
-          <text x="60" y="390" fill="#A0A09B" fontSize="9" fontFamily="monospace">START [q_init]</text>
+          <text x="55" y="390" fill="#8C8D88" fontSize="9" fontFamily="monospace">START [q_init]</text>
 
           <circle cx="320" cy="290" r="4" fill="#3F5CFF" />
-          <text x="310" y="275" fill="#A0A09B" fontSize="8" fontFamily="monospace">WP_01</text>
+          <text x="310" y="275" fill="#8C8D88" fontSize="8" fontFamily="monospace">WP_01</text>
 
           <circle cx="560" cy="160" r="4" fill="#3F5CFF" />
-          <text x="550" y="145" fill="#A0A09B" fontSize="8" fontFamily="monospace">WP_02</text>
+          <text x="550" y="145" fill="#8C8D88" fontSize="8" fontFamily="monospace">WP_02</text>
 
           <circle cx="920" cy="100" r="7" fill="none" stroke="#3F5CFF" strokeWidth="1.5" />
           <circle cx="920" cy="100" r="3" fill="#3F5CFF" />
-          <text x="890" y="80" fill="#3F5CFF" fontSize="9" fontFamily="monospace">TARGET [q_goal]</text>
+          <text x="880" y="80" fill="#3F5CFF" fontSize="9" fontFamily="monospace">TARGET [q_goal]</text>
 
-          {/* Dynamic Mobile Robot Agent Following Trajectory */}
+          {/* Mobile Robot Agent */}
           <g transform={`translate(${robotPos.x}, ${robotPos.y}) rotate(${robotPos.angle})`}>
-            <path d="M 0 0 L 40 -20 L 40 20 Z" fill="rgba(63, 92, 255, 0.06)" stroke="rgba(63, 92, 255, 0.25)" strokeWidth="1" />
+            <path d="M 0 0 L 40 -20 L 40 20 Z" fill="rgba(63, 92, 255, 0.08)" stroke="rgba(63, 92, 255, 0.3)" strokeWidth="1" />
             <circle cx="0" cy="0" r="13" fill="#0F1114" stroke="#F2F1ED" strokeWidth="1.5" />
             <circle cx="0" cy="0" r="5" fill="#3F5CFF" />
             <line x1="0" y1="0" x2="16" y2="0" stroke="#526CFF" strokeWidth="1.5" />
@@ -1267,7 +949,32 @@ function Action() {
         </svg>
 
         <div className="planning-caption mono">
-          PERCEIVE &bull; LOCAL COSTMAP &bull; TRAJECTORY EXECUTION
+          PERCEPTION-INFORMED TRAJECTORY GENERATION &bull; LOCAL COSTMAP EVALUATION
+        </div>
+      </div>
+
+      {/* 3 Research Focus Cards */}
+      <div className="horizons-grid">
+        <div className="horizon-card">
+          <span className="mono horizon-num">03.01 // SPATIAL</span>
+          <h4>3D PERCEPTION</h4>
+          <p>
+            Representing physical environments via depth maps, point clouds, and spatial voxel grids. Transitioning from 2D pixel coordinates to metric 3D bounding geometry.
+          </p>
+        </div>
+        <div className="horizon-card">
+          <span className="mono horizon-num">03.02 // EMBODIED</span>
+          <h4>ROBOTIC TRAJECTORY PLANNING</h4>
+          <p>
+            Autonomous obstacle avoidance and path generation across dynamic local costmaps. Coordinating perception inputs with real-time kinodynamic constraints.
+          </p>
+        </div>
+        <div className="horizon-card">
+          <span className="mono horizon-num">03.03 // MULTIMODAL</span>
+          <h4>VISION-LANGUAGE-ACTION (VLA)</h4>
+          <p>
+            Investigating end-to-end multimodal policies that ground natural language instructions directly into robotic manipulation and continuous action tokens.
+          </p>
         </div>
       </div>
     </section>
@@ -1275,90 +982,164 @@ function Action() {
 }
 
 /* ==================================================
-   SECTION 04: RESEARCH
+   SECTION 04: SKILLS & COMPETENCIES MATRIX
    ================================================== */
-function Research() {
+function SkillsSection() {
   return (
-    <section id="research" className="section research">
+    <section id="skills" className="section research">
       <SectionHeader
         n="04"
-        label="RESEARCH"
-        title={"QUESTIONS\nWORTH FOLLOWING."}
-        body="An active index of questions, technical hypotheses, and open explorations in modern machine learning and vision."
+        label="TECHNICAL COMPETENCIES"
+        title={"SKILLS &amp; ML WORKFLOW."}
+        body="Core languages, deep learning architectures, and classical machine learning methods verified across hands-on implementations."
       />
 
-      <div className="research-list">
-        {research.map(([topic, description]) => (
-          <div className="research-row" key={topic}>
-            <h3>{topic}</h3>
-            <p>{description}</p>
-            <span className="arrow">&nearr;</span>
+      <div className="skills-blueprint-grid">
+        {/* Category 1: Core Stack */}
+        <div className="skill-col">
+          <div className="skill-head mono">
+            <span className="skill-cat-title">01 // CORE &amp; LANGUAGES</span>
           </div>
-        ))}
+          <ul className="skill-list">
+            <li><span>Python</span> <span className="mono skill-badge">Primary</span></li>
+            <li><span>PyTorch</span> <span className="mono skill-badge">From Scratch</span></li>
+            <li><span>NumPy</span> <span className="mono skill-badge">Linear Algebra</span></li>
+            <li><span>pandas</span> <span className="mono skill-badge">Data Pipelines</span></li>
+            <li><span>scikit-learn</span> <span className="mono skill-badge">ML Baseline</span></li>
+            <li><span>OpenCV</span> <span className="mono skill-badge">CV Preprocessing</span></li>
+            <li><span>Git / GitHub</span> <span className="mono skill-badge">Version Control</span></li>
+          </ul>
+        </div>
+
+        {/* Category 2: Deep Learning */}
+        <div className="skill-col">
+          <div className="skill-head mono">
+            <span className="skill-cat-title">02 // DEEP LEARNING</span>
+          </div>
+          <ul className="skill-list">
+            <li><span>Transformers</span> <span className="mono skill-badge">From Scratch</span></li>
+            <li><span>Vision Transformers (ViT)</span> <span className="mono skill-badge">ViT-B/16</span></li>
+            <li><span>CNN &amp; ResNet</span> <span className="mono skill-badge">Transfer Learning</span></li>
+            <li><span>LSTM &amp; Sequence</span> <span className="mono skill-badge">Time Series</span></li>
+            <li><span>Siamese Networks</span> <span className="mono skill-badge">Contrastive Loss</span></li>
+            <li><span>Self-Attention</span> <span className="mono skill-badge">Multi-Head</span></li>
+            <li><span>BPE Tokenization</span> <span className="mono skill-badge">From Scratch</span></li>
+          </ul>
+        </div>
+
+        {/* Category 3: Classical ML & Methods */}
+        <div className="skill-col">
+          <div className="skill-head mono">
+            <span className="skill-cat-title">03 // MACHINE LEARNING</span>
+          </div>
+          <ul className="skill-list">
+            <li><span>Supervised Learning</span> <span className="mono skill-badge">Classification</span></li>
+            <li><span>Unsupervised Learning</span> <span className="mono skill-badge">Clustering</span></li>
+            <li><span>Transfer Learning</span> <span className="mono skill-badge">Pretrained</span></li>
+            <li><span>Time Series Modeling</span> <span className="mono skill-badge">Multivariate</span></li>
+            <li><span>Support Vector Machines</span> <span className="mono skill-badge">RBF Kernel</span></li>
+            <li><span>Manual Backpropagation</span> <span className="mono skill-badge">Autograd DAG</span></li>
+            <li><span>ROC &amp; FAR/FRR Evaluation</span> <span className="mono skill-badge">Metrics</span></li>
+          </ul>
+        </div>
+
+        {/* Category 4: Research Interests */}
+        <div className="skill-col">
+          <div className="skill-head mono">
+            <span className="skill-cat-title">04 // RESEARCH DIRECTIONS</span>
+          </div>
+          <ul className="skill-list">
+            <li><span>Computer Vision</span> <span className="mono skill-badge primary-badge">Primary Focus</span></li>
+            <li><span>Object Detection &amp; Tracking</span> <span className="mono skill-badge primary-badge">Real-Time</span></li>
+            <li><span>3D Perception</span> <span className="mono skill-badge">Spatial Geometry</span></li>
+            <li><span>Generative Modeling</span> <span className="mono skill-badge">Latent Priors</span></li>
+            <li><span>Multimodal Learning</span> <span className="mono skill-badge">Vision-Language</span></li>
+            <li><span>Robotics &amp; VLA</span> <span className="mono skill-badge">Embodied Policies</span></li>
+          </ul>
+        </div>
       </div>
     </section>
   );
 }
 
 /* ==================================================
-   SECTION 05: EXPERIMENTS NOTEBOOK
+   SECTION 05: EDUCATION, PROFILE & CONNECT
    ================================================== */
-function Experiments() {
-  return (
-    <section id="experiments" className="section experiments">
-      <SectionHeader
-        n="05"
-        label="EXPERIMENTS"
-        title={"AN EVOLVING\nRESEARCH NOTEBOOK."}
-        body="Exploratory implementations categorized by technical state: reading, studying, exploring, or building."
-      />
-
-      <div className="experiment-index">
-        {experiments.map(([name, status], i) => (
-          <div className="experiment-row" key={name}>
-            <span className="mono">{String(i + 1).padStart(2, "0")}</span>
-            <h3>{name}</h3>
-            <span className="mono status-tag">{status}</span>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-/* ==================================================
-   SECTION 06: ABOUT & BACKGROUND
-   ================================================== */
-function About() {
+function AboutSection() {
   return (
     <section id="about" className="section about">
       <div className="about-grid">
         <div>
-          <div className="section-index mono">06 / ABOUT</div>
+          <div className="section-index mono">05 / PROFILE &amp; EDUCATION</div>
           <h2>
-            I BUILD,<br />EXPERIMENT,<br />READ,<br />LEARN.
+            PHYSICS.<br />MATHEMATICS.<br />DEEP LEARNING.
           </h2>
         </div>
 
         <div className="about-copy">
           <p>
-            I’m Sri Sai Tej, an undergraduate at IIT Kharagpur exploring machine learning, computer vision, and intelligent robotics.
+            I’m <b>Kadimi Sri Sai Tej</b>, a Physics undergraduate at <b>Indian Institute of Technology, Kharagpur</b> with hands-on experience designing and building machine learning architectures in PyTorch from first principles.
           </p>
           <p>
-            I focus on understanding models from first principles—dissecting attention mechanisms in vision transformers, implementing autograd computational graphs from scratch, and building tracking algorithms to connect visual perception with embodied action.
+            I focus on understanding models from first principles: dissecting attention mechanisms in vision transformers, implementing autograd computational graphs from scratch, and building real-time tracking algorithms to connect visual perception with embodied action.
           </p>
-          <div className="education mono">
-            <span>ACADEMIC BACKGROUND:</span>
-            <span>BSC PHYSICS // IIT KHARAGPUR</span>
+          <p>
+            Comfortable across the entire machine learning workflow — from raw architecture design and manual gradient computation to robust data pipelines and structured technical documentation.
+          </p>
+
+          <div className="education-timeline">
+            <div className="timeline-item">
+              <div className="timeline-dot" />
+              <div className="timeline-content">
+                <div className="timeline-year mono">JUL 2025 &ndash; APR 2029</div>
+                <h4>INDIAN INSTITUTE OF TECHNOLOGY, KHARAGPUR</h4>
+                <p className="mono degree">Bachelor of Science (B.S.) in Physics</p>
+                <p className="coursework">
+                  <b>Relevant Coursework:</b> Programming and Data Structures, Linear Algebra, Advanced Calculus.
+                </p>
+              </div>
+            </div>
+
+            <div className="timeline-item">
+              <div className="timeline-dot" />
+              <div className="timeline-content">
+                <div className="timeline-year mono">JUN 2023 &ndash; MAY 2025</div>
+                <h4>BHASHYAM COLLEGE OF EDUCATION, GUNTUR</h4>
+                <p className="mono degree">MPC (Mathematics, Physics, Chemistry)</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="about-connect-box mono">
+            <div className="connect-row">
+              <span className="connect-label">LOCATION:</span>
+              <span>HYDERABAD, INDIA</span>
+            </div>
+            <div className="connect-row">
+              <span className="connect-label">EMAIL:</span>
+              <a href="mailto:srisaitej999@gmail.com" className="connect-link">srisaitej999@gmail.com</a>
+            </div>
+            <div className="connect-row">
+              <span className="connect-label">PHONE:</span>
+              <a href="tel:+919014792881" className="connect-link">+91 90147 92881</a>
+            </div>
+            <div className="connect-row">
+              <span className="connect-label">GITHUB:</span>
+              <a href="https://github.com/Ksrisaitej" target="_blank" rel="noopener noreferrer" className="connect-link">github.com/Ksrisaitej &nearr;</a>
+            </div>
+            <div className="connect-row">
+              <span className="connect-label">LINKEDIN:</span>
+              <a href="https://www.linkedin.com/in/sri-sai-tej/" target="_blank" rel="noopener noreferrer" className="connect-link">linkedin.com/in/sri-sai-tej &nearr;</a>
+            </div>
           </div>
         </div>
 
-        <div className="about-photo" role="img" aria-label="Visual identity card for Sri Sai Tej">
+        <div className="about-photo" role="img" aria-label="Visual identity card for Kadimi Sri Sai Tej">
           <div className="about-photo-reticle mono">
-            <span>IIT KGP</span>
+            <span>IIT KHARAGPUR</span>
             <span>[ST_PERCEPTION]</span>
           </div>
-          <span className="mono">RESEARCH &bull; PERCEPTION &bull; ROBOTICS</span>
+          <span className="mono">RESEARCH &bull; COMPUTER VISION &bull; ROBOTICS</span>
         </div>
       </div>
     </section>
@@ -1376,15 +1157,16 @@ function Footer() {
       </div>
       <div className="footer-bottom">
         <div>
-          <b>SRI SAI TEJ</b>
-          <span className="mono">IIT KHARAGPUR &bull; ML / CV / ROBOTICS</span>
+          <b>KADIMI SRI SAI TEJ</b>
+          <span className="mono">IIT KHARAGPUR &bull; COMPUTER VISION &bull; ML</span>
         </div>
         <div className="footer-links mono">
-          <a href="#perception" className="micro-link">WORK &nearr;</a>
-          <a href="#learning" className="micro-link">LEARNING &nearr;</a>
-          <a href="#action" className="micro-link">ACTION &nearr;</a>
+          <a href="#vision" className="micro-link">VISION &nearr;</a>
+          <a href="#from-scratch" className="micro-link">FROM SCRATCH &nearr;</a>
+          <a href="#robotics" className="micro-link">ROBOTICS &nearr;</a>
+          <a href="#skills" className="micro-link">SKILLS &nearr;</a>
           <a href="#about" className="micro-link">ABOUT &nearr;</a>
-          <a href="mailto:email@example.com" className="micro-link">EMAIL &nearr;</a>
+          <a href="mailto:srisaitej999@gmail.com" className="micro-link">EMAIL &nearr;</a>
         </div>
         <div className="final-mark">ST</div>
       </div>
@@ -1393,31 +1175,23 @@ function Footer() {
 }
 
 /* ==================================================
-   MAIN PAGE ROOT
+   ROOT PAGE
    ================================================== */
-export default function Page() {
-  const prefersReduced = useReducedMotion() ?? false;
-  const [introPhase, setIntroPhase] = useState<IntroPhase>(prefersReduced ? "complete" : "black");
+export default function Home() {
+  const [introPhase, setIntroPhase] = useState<IntroPhase>("black");
+  const prefersReduced = useReducedMotion();
 
-  // Opening sequence timer choreography
   useEffect(() => {
     if (prefersReduced) {
       setIntroPhase("complete");
       return;
     }
 
-    const t1 = setTimeout(() => setIntroPhase("construct"), 900);   // Phase 1 -> 2: Reveal & construct
-    const t2 = setTimeout(() => setIntroPhase("settle"), 2400);     // Phase 2 -> 3: Oversize scale & settle
-    const t3 = setTimeout(() => setIntroPhase("grid"), 3500);       // Phase 3 -> 4: Grid appears
-    const t4 = setTimeout(() => setIntroPhase("transition"), 4200); // Phase 4 -> 5: Transition into hero
-    const t5 = setTimeout(() => setIntroPhase("complete"), 5300);   // Complete, fully interactive
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" || e.key === " ") {
-        setIntroPhase("complete");
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
+    const t1 = setTimeout(() => setIntroPhase("construct"), 400);
+    const t2 = setTimeout(() => setIntroPhase("settle"), 1400);
+    const t3 = setTimeout(() => setIntroPhase("grid"), 2200);
+    const t4 = setTimeout(() => setIntroPhase("transition"), 3100);
+    const t5 = setTimeout(() => setIntroPhase("complete"), 3800);
 
     return () => {
       clearTimeout(t1);
@@ -1425,46 +1199,50 @@ export default function Page() {
       clearTimeout(t3);
       clearTimeout(t4);
       clearTimeout(t5);
-      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [prefersReduced]);
 
-  // Smooth scroll with Lenis (only active when intro completes)
   useEffect(() => {
-    if (introPhase !== "complete") return;
-
-    const lenis = new Lenis({ smoothWheel: !prefersReduced });
-    let raf = 0;
-    const loop = (t: number) => {
-      lenis.raf(t);
-      raf = requestAnimationFrame(loop);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && introPhase !== "complete") {
+        setIntroPhase("complete");
+      }
     };
-    raf = requestAnimationFrame(loop);
-    return () => {
-      cancelAnimationFrame(raf);
-      lenis.destroy();
-    };
-  }, [prefersReduced, introPhase]);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [introPhase]);
 
-  const handleSkipIntro = () => {
-    setIntroPhase("complete");
-  };
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.1,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      smoothWheel: true,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+    return () => lenis.destroy();
+  }, []);
 
   return (
     <main>
       <Noise />
       <DenmuGrid introPhase={introPhase} />
       <DenmuHero
-        prefersReduced={prefersReduced}
+        prefersReduced={!!prefersReduced}
         introPhase={introPhase}
-        onSkipIntro={handleSkipIntro}
+        onSkipIntro={() => setIntroPhase("complete")}
       />
-      <Perception />
-      <Learning />
-      <Action />
-      <Research />
-      <Experiments />
-      <About />
+      <VisionSection />
+      <FromScratchSection />
+      <RoboticsSection />
+      <SkillsSection />
+      <AboutSection />
       <Footer />
     </main>
   );
